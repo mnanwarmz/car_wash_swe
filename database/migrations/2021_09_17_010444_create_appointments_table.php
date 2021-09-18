@@ -18,6 +18,8 @@ class CreateAppointmentsTable extends Migration
             $table->foreignId('location_id')->constrained();
             $table->timestamp('start_at');
             $table->timestamp('end_at');
+            $table->integer('type');
+            $table->integer('status');
             $table->integer('rate');
             $table->timestamps();
         });
