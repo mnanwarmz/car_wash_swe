@@ -17,6 +17,7 @@ class CreateLocationsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('address');
+            $table->string('city');
             $table->string('state');
             $table->string('postcode');
             $table->timestamps();

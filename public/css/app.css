@@ -2376,14 +2376,6 @@ select {
 		width: 50%;
 	}
 
-	.lg\:w-full {
-		width: 100%;
-	}
-
-	.lg\:flex-grow {
-		flex-grow: 1;
-	}
-
 	.lg\:items-center {
 		align-items: center;
 	}

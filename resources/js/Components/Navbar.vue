@@ -120,7 +120,6 @@
                         "
                         >Sign in</Link
                     ><Link
-                        v-if="canRegister"
                         :href="route('register')"
                         class="
                             inline-block
