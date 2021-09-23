@@ -13,6 +13,7 @@
         "laravel/jetstream": "^2.3",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
+        "nesbot/carbon": "^2.53",
         "owenmelbz/laravel-stubs": "^0.0.7",
         "tightenco/ziggy": "^1.0"
     },
@@ -35,7 +36,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "tests/utilities/functions.php"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [

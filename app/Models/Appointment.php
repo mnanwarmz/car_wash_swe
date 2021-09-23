@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,9 +19,10 @@ class Appointment extends Model
         'type_name'
     ];
 
+    // Get the duration by using carbon's diff function.
     public function getDurationAttribute()
     {
-        return $this->end_at->diffInMinutes($this->start_at);
+        return Carbon::parse($this->start)->diffInMinutes($this->end);
     }
     public function getPriceAttribute()
     {
@@ -28,13 +30,13 @@ class Appointment extends Model
     }
     public function getStartAttribute()
     {
-        return $this->start_at->format('Y-m-d H:i:s');
+        return Carbon::parse($this->start_at);
     }
     public function getEndAttribute()
     {
-        return $this->end_at->format('Y-m-d H:i:s');
+        return Carbon::parse($this->end_at);
     }
-    public function getTypeNameAttrbute()
+    public function getTypeNameAttribute()
     {
         if ($this->type == 1)
             return "Branch";
