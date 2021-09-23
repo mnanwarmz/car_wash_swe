@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('location_id')->nullable();
             $table->foreignId('vehicle_id')->nullable();
             $table->foreignId('subscription_id')->nullable();
+            $table->foreignId('appointment_id')->nullable();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
