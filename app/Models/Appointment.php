@@ -24,6 +24,14 @@ class Appointment extends Model
     {
         return Carbon::parse($this->start)->diffInMinutes($this->end);
     }
+    public function attachUser($userId)
+    {
+        $this->user_id = $userId;
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function getPriceAttribute()
     {
         return  $this->duration * $this->rate;
@@ -46,5 +54,12 @@ class Appointment extends Model
     public function location()
     {
         return $this->hasOne('App\Models\Location', 'id', 'location_id');
+    }
+    public function getIsBookedAttribute()
+    {
+        if ($this->user_id == null)
+            return false;
+        else
+            return true;
     }
 }

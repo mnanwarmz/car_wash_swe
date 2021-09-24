@@ -34,5 +34,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/appointments', [AppointmentController::class, 'index'])->middleware('auth');
-Route::post('/appointments', [AppointmentController::class, 'store'])->middleware('auth');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/appointments', [AppointmentController::class, 'index']);
+    Route::post('/appointments', [AppointmentController::class, 'store']);
+    Route::post('/appointments/{appointmentId}', [AppointmentController::class, 'applyForAppointment']);
+});

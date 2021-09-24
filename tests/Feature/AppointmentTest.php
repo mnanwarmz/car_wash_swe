@@ -57,4 +57,20 @@ class AppointmentTest extends TestCase
             'start_at' => $appointment->start_at,
         ]);
     }
+    public function test_authenticated_user_can_choose_an_appointment()
+    {
+        $user = User::factory()->create();
+        $appointment = Appointment::factory()->create();
+        // Login as User
+        // dd($appointment->user);
+        $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+        $this->assertAuthenticated();
+        $this->post('/appointments/' . $appointment->id);
+        $this->assertDatabaseHas('appointments', [
+            'user_id' => $user->id,
+        ]);
+    }
 }

@@ -19,6 +19,13 @@ class AppointmentController extends Controller
         return inertia('Appointment/Create');
     }
 
+    public function applyForAppointment($appointmentId)
+    {
+        $appointment = Appointment::findOrFail($appointmentId);
+        $appointment->attachUser(auth()->id());
+        $appointment->save();
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
