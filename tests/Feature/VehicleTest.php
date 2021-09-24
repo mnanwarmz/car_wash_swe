@@ -25,7 +25,7 @@ class VehicleTest extends TestCase
     public function test_authenticated_user_can_view_list_of_vehicles()
     {
         $user = User::factory()->create();
-        $vehicle = Vehicle::factory()->create();
+        $vehicle = Vehicle::factory()->for($user)->create();
 
         // Login as User
         $this->actingAs($user);
