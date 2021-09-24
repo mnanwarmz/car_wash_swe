@@ -24769,7 +24769,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(appointment.type_name), 1
     /* TEXT */
-    ), appointment.status == 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_9, " Waiting ")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_10, "Completed")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td>\n                                            <a href=\"#\" class=\"btn btn-primary\" @click=\"showEdit(appointment)\">Edit</a>\n                                            <a href=\"#\" class=\"btn btn-danger\" @click=\"remove(appointment)\">Remove</a>\n                                        </td> ")]);
+    ), appointment.status == 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_9, " Waiting ")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_10, "Completed")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td>\r\n                                            <a href=\"#\" class=\"btn btn-primary\" @click=\"showEdit(appointment)\">Edit</a>\r\n                                            <a href=\"#\" class=\"btn btn-danger\" @click=\"remove(appointment)\">Remove</a>\r\n                                        </td> ")]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])])])])])])])]);
