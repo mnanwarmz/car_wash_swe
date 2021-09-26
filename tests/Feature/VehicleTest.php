@@ -10,6 +10,7 @@ use Tests\TestCase;
 
 class VehicleTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      *
@@ -32,7 +33,7 @@ class VehicleTest extends TestCase
 
         $this->assertAuthenticated();
         $response = $this->get('/vehicles')
-            ->assertSee($vehicle->start);
+            ->assertSee($vehicle->plate_no);
 
         $response->assertStatus(200);
     }
@@ -62,11 +63,8 @@ class VehicleTest extends TestCase
         $this->actingAs($user);
 
         $this->assertAuthenticated();
-        $response = $this->get('/vehicles/create');
-        $response->assertStatus(200);
-
         $this->assertDatabaseMissing('vehicles', $vehicle->toArray());
         $this->post('/vehicles', $vehicle->toArray());
-        // $this->assertDatabaseHas('vehicles', $vehicle->toArray());
+        $this->assertDatabaseHas('vehicles', $vehicle->toArray());
     }
 }

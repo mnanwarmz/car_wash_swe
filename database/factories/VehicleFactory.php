@@ -23,11 +23,10 @@ class VehicleFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => null,
             'plate_no' => $this->faker->bothify('??? ####'),
-            'type' => $this->faker->word,
-            'brand' => $this->faker->word,
-            'model' => $this->faker->word,
+            'type' => $this->faker->word(),
+            'brand' => $this->faker->word(),
+            'model' => $this->faker->word(),
         ];
     }
 }
