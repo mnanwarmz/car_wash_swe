@@ -56,7 +56,7 @@ class AppointmentController extends Controller
             'start_at' => 'required',
             'end_at' => 'required',
             'location_id' => 'required|exists:locations,id',
-            'type' => 'required',
+            'appointment_type_id' => 'required|exists:appointment_types,id',
             'status' => 'required',
             'rate' => 'required',
         ]);
