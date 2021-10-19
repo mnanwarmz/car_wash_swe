@@ -54,6 +54,22 @@ class VehicleTest extends TestCase
         $response = $this->get('/vehicles/create');
         $response->assertStatus(200);
     }
+    public function test_authorized_user_delete_vehicle()
+
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
+        $vehicle = Vehicle::factory()->for($user)
+        ->create();
+        
+        $this->assertDatabaseHas('vehicles',$vehicle->toArray());
+        
+        $response = $this->post('/vehicles/delete');
+        $this->assertDatabaseMissing('vehicles',$vehicle->toArray());
+
+
+    }
 
     // public function test_authenticated_user_can_add_vehicle()
     // {
