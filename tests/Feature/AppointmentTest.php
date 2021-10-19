@@ -10,6 +10,7 @@ use Tests\TestCase;
 
 class AppointmentTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      *
@@ -27,10 +28,7 @@ class AppointmentTest extends TestCase
         $appointment = Appointment::factory()->create();
 
         // Login as User
-        $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
+        $this->actingAs($user);
 
 
         $this->assertAuthenticated();
@@ -44,29 +42,18 @@ class AppointmentTest extends TestCase
         $user = User::factory()->create();
         $appointment = Appointment::factory()->make();
         // Login as User
-        $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
+        $this->actingAs($user);
 
-        $this->assertDatabaseMissing('appointments', [
-            'start_at' => $appointment->start_at,
-        ]);
+        $this->assertDatabaseMissing('appointments', $appointment->toArray());
         $this->post('/appointments', $appointment->toArray());
-        $this->assertDatabaseHas('appointments', [
-            'start_at' => $appointment->start_at,
-        ]);
+        $this->assertDatabaseHas('appointments', $appointment->toArray());
     }
     public function test_authenticated_user_can_choose_an_appointment()
     {
         $user = User::factory()->create();
         $appointment = Appointment::factory()->create();
         // Login as User
-        // dd($appointment->user);
-        $this->post('/login', [
-            'email' => $user->email,
-            'password' => 'password',
-        ]);
+        $this->actingAs($user);
         $this->assertAuthenticated();
         $this->post('/appointments/' . $appointment->id);
         $this->assertDatabaseHas('appointments', [
