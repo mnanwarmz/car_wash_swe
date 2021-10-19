@@ -11,13 +11,13 @@ class Appointment extends Model
     use HasFactory;
 
     protected $guarded = [];
-    protected $appends = [
-        'start',
-        'end',
-        'duration',
-        'price',
-        'type_name'
-    ];
+    // protected $appends = [
+    //     'start',
+    //     'end',
+    //     'duration',
+    //     'price',
+    //     'type_name'
+    // ];
 
     // Get the duration by using carbon's diff function.
     public function getDurationAttribute()

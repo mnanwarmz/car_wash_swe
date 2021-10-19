@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Appointment\AppointmentController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -35,7 +36,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
+    // Appointment Routes
     Route::get('/appointments', [AppointmentController::class, 'index']);
     Route::post('/appointments', [AppointmentController::class, 'store']);
     Route::post('/appointments/{appointmentId}', [AppointmentController::class, 'applyForAppointment']);
+
+    // Vehicle Routes
+    Route::get('/vehicles', [VehicleController::class, 'index']);
+    Route::get('/vehicles/create', [VehicleController::class, 'create']);
+    // Route::post('/vehicles', [VehicleController::class, 'store']);
 });
