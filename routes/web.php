@@ -40,9 +40,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/appointments', [AppointmentController::class, 'index']);
     Route::post('/appointments', [AppointmentController::class, 'store']);
     Route::post('/appointments/{appointmentId}', [AppointmentController::class, 'applyForAppointment']);
+    Route::delete('/appointments/{appointmentId}', [AppointmentController::class, 'destroy']);
 
     // Vehicle Routes
     Route::get('/vehicles', [VehicleController::class, 'index']);
     Route::get('/vehicles/create', [VehicleController::class, 'create']);
-    // Route::post('/vehicles', [VehicleController::class, 'store']);
+    Route::post('/vehicles', [VehicleController::class, 'store']);
+    Route::post('/vehicles/{vehicleId}/update', [VehicleController::class, 'update']);
+    Route::get('/vehicles/{vehicleId}/edit', [VehicleController::class, 'edit']);
 });

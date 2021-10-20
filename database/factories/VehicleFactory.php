@@ -24,7 +24,7 @@ class VehicleFactory extends Factory
     public function definition()
     {
         return [
-            'plate_no' => $this->faker->bothify('??? ####'),
+            'plate_no' => $this->faker->bothify("??? ####"),
             'brand' => $this->faker->word(),
             'model' => $this->faker->word(),
             'vehicle_type_id' => VehicleType::factory(),
