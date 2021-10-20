@@ -9,6 +9,7 @@
                     text-center
                     lg:text-left
                     -mx-2
+                    animate__animated animate__fadeIn
                 "
             >
                 <div
@@ -29,17 +30,21 @@
                             mb-6
                             leading-tight
                             font-semibold font-heading
+                            text-black
                         "
                     >
-                        No car can be clean without insert project name here
+                        No car can be clean without <b><u>Nuecar</u></b>
                     </h2>
-                    <a class="text-lg text-indigo-600 hover:underline" href="#"
-                        >Join us now!</a
-                    >
+                    <a v-if="$page.props.user" class="text-lg text-indigo-600">
+                        Thank you for joining us!
+                    </a>
+                    <a v-else class="text-lg text-indigo-600 hover:underline" href="/register">
+                        Join us now!
+                    </a>
                 </div>
 
                 <div class="lg:w-1/2 px-2">
-                    <img src="/svg/undraw_electric_car_b7hl.svg" alt="" />
+                    <img src="/svg/background.svg" alt="" />
                 </div>
             </div>
         </div>
@@ -163,3 +168,9 @@ export default {
     methods() {},
 };
 </script>
+
+<style>
+    b{
+        color: rgba(48, 172, 103, 0.51);
+    }
+</style>
