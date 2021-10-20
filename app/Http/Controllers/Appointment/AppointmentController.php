@@ -43,8 +43,8 @@ class AppointmentController extends Controller
     public function destroy($appointmentId)
     {
         $appointment = Appointment::findOrFail($appointmentId);
-        // do not delete if user_id is not null
-        if ($appointment->user_id == null)
+        // 2 and 3 stands for Completed or Booked
+        if ($appointment->user_id == 2 || $appointment->status == 3)
             $appointment->delete();
         else
             dd('You cannot delete this appointment');
