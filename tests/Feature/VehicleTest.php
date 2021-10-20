@@ -55,16 +55,16 @@ class VehicleTest extends TestCase
         $response->assertStatus(200);
     }
 
-    // public function test_authenticated_user_can_add_vehicle()
-    // {
-    //     $user = User::factory()->create();
-    //     $vehicle = Vehicle::factory()->make();
+    public function test_authenticated_user_can_add_vehicle()
+    {
+        $user = User::factory()->create();
+        $vehicle = Vehicle::factory()->make();
 
-    //     $this->actingAs($user);
+        $this->actingAs($user);
 
-    //     $this->assertAuthenticated();
-    //     $this->assertDatabaseMissing('vehicles', $vehicle->toArray());
-    //     $this->post('/vehicles', $vehicle->toArray());
-    //     $this->assertDatabaseHas('vehicles', $vehicle->toArray());
-    // }
+        $this->assertAuthenticated();
+        $this->assertDatabaseMissing('vehicles', $vehicle->toArray());
+        $this->post('/vehicles', $vehicle->toArray());
+        $this->assertDatabaseHas('vehicles', $vehicle->toArray());
+    }
 }
