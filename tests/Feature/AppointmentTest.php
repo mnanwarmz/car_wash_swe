@@ -60,4 +60,17 @@ class AppointmentTest extends TestCase
             'user_id' => $user->id,
         ]);
     }
+
+    public function test_authenticated_can_cancel_an_appointment()
+    {
+        $user = User::factory()->create();
+        $appointment = Appointment::factory()->for($user)->create(['status' => 2]);
+        // Login as User
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $this->delete('/appointments/' . $appointment->id);
+        $this->assertDatabaseMissing('appointments', [
+            'user_id' => $user->id,
+        ]);
+    }
 }
