@@ -44,5 +44,6 @@ Route::middleware(['auth'])->group(function () {
     // Vehicle Routes
     Route::get('/vehicles', [VehicleController::class, 'index']);
     Route::get('/vehicles/create', [VehicleController::class, 'create']);
+    Route::get('/vehicles/delete', [VehicleController::class,'destroy']);
     // Route::post('/vehicles', [VehicleController::class, 'store']);
 });

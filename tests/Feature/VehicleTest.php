@@ -57,16 +57,23 @@ class VehicleTest extends TestCase
     public function test_authorized_user_delete_vehicle()
 
     {
-        $user = User::factory()->create();
-        $this->actingAs($user);
+    
+            $vehicles = Vehicle::findOrFail($vehicleId);
+            // do not delete if user_id is not null
+            if ($vehicles->user_id == null)
+                $vehicles->delete();
+            else
+                dd('You cannot delete this appointment');
+        // $user = User::factory()->create();
+        // $this->actingAs($user);
 
-        $vehicle = Vehicle::factory()->for($user)
-        ->create();
+        // $vehicle = Vehicle::factory()->for($user)
+        // ->create();
         
-        $this->assertDatabaseHas('vehicles',$vehicle->toArray());
+        // $this->assertDatabaseHas('vehicles',$vehicle->toArray());
         
-        $response = $this->post('/vehicles/delete');
-        $this->assertDatabaseMissing('vehicles',$vehicle->toArray());
+        // $response = $this->post('/vehicles/delete');
+        // $this->assertDatabaseMissing('vehicles',$vehicle->toArray());
 
 
     }
