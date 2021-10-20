@@ -37,13 +37,10 @@ class VehicleController extends Controller
     {
         return inertia('Vehicle/Create');
     }
-    public function destroy($vehiclesId)
+    public function destroy($vehicleId)
     {
-        $vehicles = Vehicle::findOrFail($vehiclesId);
+        $vehicles = Vehicle::findOrFail($vehicleId);
         // do not delete if user_id is not null
-        if ($vehicles->user_id == null)
             $vehicles->delete();
-        else
-            dd('You cannot delete this appointment');
     }
 }
