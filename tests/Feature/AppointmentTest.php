@@ -61,16 +61,26 @@ class AppointmentTest extends TestCase
         ]);
     }
 
-    public function test_authenticated_can_cancel_an_appointment()
+    public function test_authenticated_cannot_delete_booked_appointment()
     {
         $user = User::factory()->create();
         $appointment = Appointment::factory()->for($user)->create(['status' => 2]);
         // Login as User
         $this->actingAs($user);
         $this->assertAuthenticated();
+        $this->assertDatabaseHas('appointments', $appointment->toArray());
         $this->delete('/appointments/' . $appointment->id);
-        $this->assertDatabaseMissing('appointments', [
-            'user_id' => $user->id,
-        ]);
+        $this->assertDatabaseHas('appointments', $appointment->toArray());
+    }
+    public function test_authenticated_can_delete_an_appointment()
+    {
+        $user = User::factory()->create();
+        $appointment = Appointment::factory()->create(['status' => 2]);
+        // Login as User
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $this->assertDatabaseHas('appointments', $appointment->toArray());
+        $this->delete('/appointments/' . $appointment->id);
+        $this->assertDatabaseMissing('appointments', $appointment->toArray());
     }
 }
