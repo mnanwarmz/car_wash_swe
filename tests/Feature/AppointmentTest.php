@@ -83,4 +83,38 @@ class AppointmentTest extends TestCase
         $this->delete('/appointments/' . $appointment->id);
         $this->assertDatabaseMissing('appointments', $appointment->toArray());
     }
+    public function test_authenticated_user_can_cancel_appointment()
+    {
+        $this->withoutExceptionHandling();
+        $user = User::factory()->create();
+        $appointment = Appointment::factory()->for($user)->create(['status' => 2]);
+        // Login as User
+        $this->actingAs($user);
+        $this->assertAuthenticated();
+        $this->assertDatabaseHas(
+            'appointments',
+            [
+                'id' => $appointment->id,
+                'status' => 2,
+                'user_id' => $user->id
+            ]
+        );
+        $this->post('/appointments/' . $appointment->id . '/cancel');
+        $this->assertDatabaseMissing(
+            'appointments',
+            [
+                'id' => $appointment->id,
+                'status' => 2,
+                'user_id' => $user->id
+            ]
+        );
+        $this->assertDatabaseHas(
+            'appointments',
+            [
+                'id' => $appointment->id,
+                'status' => 1,
+                'user_id' => null
+            ]
+        );
+    }
 }

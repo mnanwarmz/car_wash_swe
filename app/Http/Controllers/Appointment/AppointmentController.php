@@ -49,6 +49,15 @@ class AppointmentController extends Controller
             return ('You can not delete this appointment');
     }
 
+    public function cancel($appointmentId)
+    {
+        $appointment = Appointment::findOrFail($appointmentId);
+        $appointment->detachUser(auth()->id());
+        $appointment->status = 1;
+        // dd($appointment);
+        $appointment->save();
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
