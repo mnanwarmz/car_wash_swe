@@ -22,4 +22,4 @@ if (mix.inProduction()) {
     mix.version();
 }
 
-mix.browserSync('car_wash.test');
+mix.browserSync('car_wash_swe.test');

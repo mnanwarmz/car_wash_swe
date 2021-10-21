@@ -32,6 +32,16 @@ class VehicleController extends Controller
     //     Vehicle::create(['user_id' => auth()->id()] + $data);
     //     return inertia('Vehicle/Index');
     // }
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'plate_no' => 'required',
+            'brand' => 'required',
+            'model' => 'required',
+            'vehicle_type_id' => 'required|exists:vehicle_types,id'
+        ]);
+        Vehicle::create($data + ['user_id' => auth()->id()]);
+    }
 
     public function create()
     {
@@ -42,5 +52,23 @@ class VehicleController extends Controller
         $vehicles = Vehicle::findOrFail($vehicleId);
         // do not delete if user_id is not null
             $vehicles->delete();
+
+    public function edit($vehicleId)
+    {
+        $vehicle = Vehicle::findOrFail($vehicleId);
+        return inertia('Vehicle/Edit', compact('vehicle'));
+    }
+
+    public function update(Request $request, $vehicleId)
+    {
+        $data = $request->validate([
+            'plate_no' => 'required',
+            'brand' => 'required',
+            'model' => 'required',
+            'vehicle_type_id' => 'required|exists:vehicle_types,id'
+        ]);
+        $vehicle = Vehicle::findOrFail($vehicleId);
+        $vehicle->fill($data);
+        $vehicle->save();
     }
 }
