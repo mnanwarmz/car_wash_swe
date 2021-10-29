@@ -26946,7 +26946,12 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "mb-16 text-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "text-4xl lg:text-5xl font-bold font-heading"
-}, "Your vehicles")], -1
+}, "Your vehicles"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "mt-10"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  "class": "inline-block py-2 px-6 rounded-b-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose outline-none transition duration-200",
+  href: "#"
+}, "Add a Vehicle")])], -1
 /* HOISTED */
 );
 
@@ -26987,7 +26992,7 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticV
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Navbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navbar");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex flex-col\">\r\n    <div class=\"-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8\">\r\n      <div class=\"py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8\">\r\n        <div class=\"shadow overflow-hidden border-b border-gray-200 sm:rounded-lg\" id=\"table\">\r\n          <table class=\"min-w-full divide-y divide-gray-200\">\r\n            <thead class=\"bg-gray-50\">\r\n              <tr>\r\n                <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\r\n                  Brand\r\n                </th>\r\n                <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\r\n                  Model\r\n                </th>\r\n                <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\r\n                  Type\r\n                </th>\r\n                <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\r\n                  Plate Number\r\n            </th>\r\n                <th scope=\"col\" class=\"relative px-6 py-3\">\r\n                  <span class=\"sr-only\">Edit</span>\r\n                </th>\r\n              </tr>\r\n            </thead>\r\n            <tbody class=\"bg-white divide-y divide-gray-200\">\r\n              <tr v-for=\"vehicle in vehicles\" :key=\"vehicle\">\r\n                <td class=\"px-6 py-4 whitespace-nowrap\">\r\n                  <div class=\"flex items-center\">\r\n                    <div class=\"ml-4\">\r\n                      <div class=\"text-sm font-medium text-gray-900\">\r\n                        {{ vehicle.brand }}\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </td>\r\n                <td class=\"px-6 py-4 whitespace-nowrap\">\r\n                  <div class=\"text-sm text-gray-900\">{{ vehicle.model }}</div>\r\n                </td>\r\n                <td class=\"px-6 py-4 whitespace-nowrap\">\r\n                  <span class=\"px-2 inline-flex text-xs leading-5 font-semibold rounded-full\">\r\n                    {{ vehicle.type }}\r\n                  </span>\r\n                </td>\r\n                <td class=\"px-6 py-4 whitespace-nowrap text-sm text-gray-500\">\r\n                  {{ vehicle.plate_no }}\r\n                </td>\r\n                <td class=\"px-6 py-4 whitespace-nowrap text-right text-sm font-medium\">\r\n                  <a href=\"#\" class=\"text-indigo-600 hover:text-indigo-900\">Edit</a>\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.vehicles, function (vehicle) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex flex-col\">\n    <div class=\"-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8\">\n      <div class=\"py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8\">\n        <div class=\"shadow overflow-hidden border-b border-gray-200 sm:rounded-lg\" id=\"table\">\n          <table class=\"min-w-full divide-y divide-gray-200\">\n            <thead class=\"bg-gray-50\">\n              <tr>\n                <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                  Brand\n                </th>\n                <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                  Model\n                </th>\n                <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                  Type\n                </th>\n                <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                  Plate Number\n            </th>\n                <th scope=\"col\" class=\"relative px-6 py-3\">\n                  <span class=\"sr-only\">Edit</span>\n                </th>\n              </tr>\n            </thead>\n            <tbody class=\"bg-white divide-y divide-gray-200\">\n              <tr v-for=\"vehicle in vehicles\" :key=\"vehicle\">\n                <td class=\"px-6 py-4 whitespace-nowrap\">\n                  <div class=\"flex items-center\">\n                    <div class=\"ml-4\">\n                      <div class=\"text-sm font-medium text-gray-900\">\n                        {{ vehicle.brand }}\n                      </div>\n                    </div>\n                  </div>\n                </td>\n                <td class=\"px-6 py-4 whitespace-nowrap\">\n                  <div class=\"text-sm text-gray-900\">{{ vehicle.model }}</div>\n                </td>\n                <td class=\"px-6 py-4 whitespace-nowrap\">\n                  <span class=\"px-2 inline-flex text-xs leading-5 font-semibold rounded-full\">\n                    {{ vehicle.type }}\n                  </span>\n                </td>\n                <td class=\"px-6 py-4 whitespace-nowrap text-sm text-gray-500\">\n                  {{ vehicle.plate_no }}\n                </td>\n                <td class=\"px-6 py-4 whitespace-nowrap text-right text-sm font-medium\">\n                  <a href=\"#\" class=\"text-indigo-600 hover:text-indigo-900\">Edit</a>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.vehicles, function (vehicle) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       "class": "w-full px-3 mb-5",
       key: vehicle
@@ -27304,7 +27309,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nnav{\n        background: rgba(92, 219, 149, 0.51);\n}\n#logo{\n        width: 60px;\n        height: 46px;\n}\n#dashboard{\n        background-color: #05385B;\n        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n#dashboard:hover{\n        background: #074c7a;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nnav{\r\n        background: rgba(92, 219, 149, 0.51);\n}\n#logo{\r\n        width: 60px;\r\n        height: 46px;\n}\n#dashboard{\r\n        background-color: #05385B;\r\n        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n#dashboard:hover{\r\n        background: #074c7a;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27352,7 +27357,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#list{\r\n        background-color: #05385B;\r\n        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n#list:hover{\r\n        background: #074c7a;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#list{\n        background-color: #05385B;\n        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n#list:hover{\n        background: #074c7a;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -52127,13 +52132,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-<<<<<<< HEAD
-/* harmony import */ var D_laragon_www_car_wash_swe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-const script = {}
-
-;
-const __exports__ = /*#__PURE__*/(0,D_laragon_www_car_wash_swe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_0__["default"])(script, [['__file',"resources/js/Pages/Vehicle/Create.vue"]])
-=======
 /* harmony import */ var _Create_vue_vue_type_template_id_79d8b870__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create.vue?vue&type=template&id=79d8b870 */ "./resources/js/Pages/Vehicle/Create.vue?vue&type=template&id=79d8b870");
 /* harmony import */ var _Create_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Create.vue?vue&type=script&lang=js */ "./resources/js/Pages/Vehicle/Create.vue?vue&type=script&lang=js");
 /* harmony import */ var D_laragon_www_car_wash_swe_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
@@ -52146,7 +52144,6 @@ const __exports__ = /*#__PURE__*/(0,D_laragon_www_car_wash_swe_node_modules_vue_
 /* hot reload */
 if (false) {}
 
->>>>>>> master
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
