@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/appointments', [AppointmentController::class, 'index']);
     Route::post('/appointments', [AppointmentController::class, 'store']);
     Route::post('/appointments/{appointmentId}', [AppointmentController::class, 'applyForAppointment']);
+    Route::post('/appointments/{appointmentId}/cancel', [AppointmentController::class, 'cancel']);
     Route::delete('/appointments/{appointmentId}', [AppointmentController::class, 'destroy']);
 
     // Vehicle Routes

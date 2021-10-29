@@ -1167,6 +1167,9 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
+.float-right {
+	float: right;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -1294,6 +1297,12 @@ select {
 .-mt-px {
 	margin-top: -1px;
 }
+<<<<<<< HEAD
+=======
+.mr-10 {
+	margin-right: 2.5rem;
+}
+>>>>>>> master
 .block {
 	display: block;
 }
@@ -1345,6 +1354,9 @@ select {
 .h-64 {
 	height: 16rem;
 }
+.h-3 {
+	height: 0.75rem;
+}
 .min-h-screen {
 	min-height: 100vh;
 }
@@ -1392,6 +1404,9 @@ select {
 }
 .w-5\/6 {
 	width: 83.333333%;
+}
+.w-3 {
+	width: 0.75rem;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -1625,6 +1640,10 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
+.border-indigo-500 {
+	--tw-border-opacity: 1;
+	border-color: rgba(99, 102, 241, var(--tw-border-opacity));
+}
 .bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -1771,6 +1790,10 @@ select {
 .py-20 {
 	padding-top: 5rem;
 	padding-bottom: 5rem;
+}
+.px-10 {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 .pt-6 {
 	padding-top: 1.5rem;
@@ -1978,6 +2001,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
+<<<<<<< HEAD
+=======
+.text-blue-900 {
+	--tw-text-opacity: 1;
+	color: rgba(30, 58, 138, var(--tw-text-opacity));
+}
+>>>>>>> master
 .underline {
 	text-decoration: underline;
 }
@@ -2115,6 +2145,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
 }
+.hover\:bg-indigo-700:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(67, 56, 202, var(--tw-bg-opacity));
+}
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
@@ -2142,6 +2176,10 @@ select {
 .hover\:text-indigo-900:hover {
 	--tw-text-opacity: 1;
 	color: rgba(49, 46, 129, var(--tw-text-opacity));
+}
+.hover\:text-indigo-600:hover {
+	--tw-text-opacity: 1;
+	color: rgba(79, 70, 229, var(--tw-text-opacity));
 }
 .hover\:underline:hover {
 	text-decoration: underline;
@@ -2538,6 +2576,14 @@ select {
 
 	.lg\:mt-0 {
 		margin-top: 0px;
+	}
+
+	.lg\:mr-auto {
+		margin-right: auto;
+	}
+
+	.lg\:mr-8 {
+		margin-right: 2rem;
 	}
 
 	.lg\:inline-block {
