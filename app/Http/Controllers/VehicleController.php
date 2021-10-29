@@ -22,7 +22,7 @@ class VehicleController extends Controller
             'model' => 'required',
             'vehicle_type_id' => 'required|exists:vehicle_types,id'
         ]);
-        Vehicle::create($data + ['user_id' => auth()->id()]);
+        Vehicle::create($data + ['user_rid' => auth()->id()]);
     }
 
     public function create()
