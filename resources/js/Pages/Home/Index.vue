@@ -1,5 +1,5 @@
 <template>
-    <Navbartest></Navbartest>
+    <Navbar></Navbar>
     <div class="">
         <div class="py-12 px-4">
             <div
@@ -153,11 +153,11 @@
 </template>
 
 <script>
-import Navbartest from "@/Components/NavbarTest";
+import Navbar from "@/Components/Navbar";
 export default {
     props: [],
     components: {
-        Navbartest,
+        Navbar,
     },
     data() {
         return {};
