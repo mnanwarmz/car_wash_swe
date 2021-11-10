@@ -43,11 +43,19 @@ class AppointmentController extends Controller
     public function destroy($appointmentId)
     {
         $appointment = Appointment::findOrFail($appointmentId);
-        // do not delete if user_id is not null
         if ($appointment->user_id == null)
             $appointment->delete();
         else
-            dd('You cannot delete this appointment');
+            return ('You can not delete this appointment');
+    }
+
+    public function cancel($appointmentId)
+    {
+        $appointment = Appointment::findOrFail($appointmentId);
+        $appointment->detachUser(auth()->id());
+        $appointment->status = 1;
+        // dd($appointment);
+        $appointment->save();
     }
 
     public function store(Request $request)
