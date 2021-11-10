@@ -1167,15 +1167,12 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
-.m-4 {
-	margin: 1rem;
-}
-<<<<<<< HEAD
-=======
 .m-8 {
 	margin: 2rem;
 }
->>>>>>> 4-appointments-danial
+.m-4 {
+	margin: 1rem;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -1294,6 +1291,9 @@ select {
 .mb-3 {
 	margin-bottom: 0.75rem;
 }
+.mt-12 {
+	margin-top: 3rem;
+}
 .mb-16 {
 	margin-bottom: 4rem;
 }
@@ -1302,9 +1302,6 @@ select {
 }
 .ml-auto {
 	margin-left: auto;
-}
-.mt-12 {
-	margin-top: 3rem;
 }
 .block {
 	display: block;
@@ -1354,11 +1351,11 @@ select {
 .h-20 {
 	height: 5rem;
 }
-.h-32 {
-	height: 8rem;
-}
 .h-64 {
 	height: 16rem;
+}
+.h-32 {
+	height: 8rem;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1717,17 +1714,14 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
 }
-.bg-green-600 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
-}
-<<<<<<< HEAD
-=======
 .bg-green-200 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
 }
->>>>>>> 4-appointments-danial
+.bg-green-600 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -2619,10 +2613,6 @@ select {
 		margin-left: 15rem;
 	}
 
-	.md\:mr-60 {
-		margin-right: 15rem;
-	}
-
 	.md\:grid {
 		display: grid;
 	}
@@ -2641,10 +2631,6 @@ select {
 
 	.md\:grid-cols-2 {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-
-	.md\:grid-cols-6 {
-		grid-template-columns: repeat(6, minmax(0, 1fr));
 	}
 
 	.md\:gap-6 {
