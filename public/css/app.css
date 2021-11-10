@@ -1170,6 +1170,12 @@ select {
 .m-4 {
 	margin: 1rem;
 }
+<<<<<<< HEAD
+=======
+.m-8 {
+	margin: 2rem;
+}
+>>>>>>> 4-appointments-danial
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -1296,6 +1302,9 @@ select {
 }
 .ml-auto {
 	margin-left: auto;
+}
+.mt-12 {
+	margin-top: 3rem;
 }
 .block {
 	display: block;
@@ -1712,6 +1721,13 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
 }
+<<<<<<< HEAD
+=======
+.bg-green-200 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
+}
+>>>>>>> 4-appointments-danial
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -2539,12 +2555,56 @@ select {
 }
 @media (min-width: 768px) {
 
+	.md\:container {
+		width: 100%;
+	}
+
+	@media (min-width: 640px) {
+
+		.md\:container {
+			max-width: 640px;
+		}
+	}
+
+	@media (min-width: 768px) {
+
+		.md\:container {
+			max-width: 768px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+
+		.md\:container {
+			max-width: 1024px;
+		}
+	}
+
+	@media (min-width: 1280px) {
+
+		.md\:container {
+			max-width: 1280px;
+		}
+	}
+
+	@media (min-width: 1536px) {
+
+		.md\:container {
+			max-width: 1536px;
+		}
+	}
+
 	.md\:col-span-2 {
 		grid-column: span 2 / span 2;
 	}
 
 	.md\:col-span-1 {
 		grid-column: span 1 / span 1;
+	}
+
+	.md\:mx-auto {
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.md\:mt-0 {
