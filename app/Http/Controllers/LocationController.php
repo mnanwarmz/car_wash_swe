@@ -12,6 +12,21 @@ class LocationController extends Controller
         $locations = Location::latest()->get();
         return inertia('Location/Index', compact('locations'));
     }
+    public function create()
+    {
+        return inertia('Location/Create');
+    }
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postcode' => 'required',
+        ]);
+        Location::create($data +  ['user_id' => auth()->id()]);
+    }
     public function destroy($id)
     {
         $location = Location::find($id);

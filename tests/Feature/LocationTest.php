@@ -35,7 +35,6 @@ class LocationTest extends TestCase
     }
     public function test_authenticated_user_can_view_list_of_locations()
     {
-        // Login as User
         $this->actingAs($this->user);
 
         $this->assertAuthenticated();
@@ -43,5 +42,42 @@ class LocationTest extends TestCase
             ->assertSee($this->location->address);
 
         $response->assertStatus(200);
+    }
+    public function test_authenticated_user_can_view_add_location_page()
+    {
+        $this->actingAs($this->user);
+
+        $this->assertAuthenticated();
+        $response = $this->get('/locations/create');
+        $response->assertStatus(200);
+    }
+    public function test_unauthenticated_user_cannot_view_add_location_page()
+    {
+        $response = $this->get('/locations/create');
+        $response->assertRedirect('/login');
+    }
+    public function test_unauthenticated_user_cannot_view_list_of_locations_page()
+    {
+        $response = $this->get('/locations');
+        $response->assertRedirect('/login');
+    }
+    public function test_authenticated_user_can_add_location()
+    {
+        $this->actingAs($this->user);
+        $location = Location::factory()->make();
+
+        $this->assertAuthenticated();
+        $this->assertDatabaseMissing('locations', $location->toArray());
+        $this->post('/locations', $location->toArray());
+        $this->assertDatabaseHas('locations', $location->toArray());
+    }
+    public function test_unauthenticated_user_cannot_add_location()
+    {
+        $location = Location::factory()->make();
+
+        $this->assertDatabaseMissing('locations', $location->toArray());
+        $this->post('/locations', $location->toArray())
+            ->assertRedirect('/login');
+        $this->assertDatabaseMissing('locations', $location->toArray());
     }
 }
