@@ -13,6 +13,11 @@ class VehicleController extends Controller
         $vehicles = Vehicle::latest()->get();
         return inertia('Vehicle/Index', compact('vehicles'));
     }
+    public function show($vehicleId)
+    {
+        $vehicle = Vehicle::find($vehicleId);
+        return inertia('Vehicle/Show', compact('vehicle'));
+    }
 
     public function store(Request $request)
     {
@@ -22,7 +27,7 @@ class VehicleController extends Controller
             'model' => 'required',
             'vehicle_type_id' => 'required|exists:vehicle_types,id'
         ]);
-        Vehicle::create($data + ['user_rid' => auth()->id()]);
+        Vehicle::create($data + ['user_id' => auth()->id()]);
     }
 
     public function create()
