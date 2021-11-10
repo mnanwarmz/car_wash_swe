@@ -33,4 +33,15 @@ class LocationTest extends TestCase
             ->assertRedirect('/locations');
         $this->assertDatabaseMissing('locations', $this->location->toArray());
     }
+    public function test_authenticated_user_can_view_list_of_locations()
+    {
+        // Login as User
+        $this->actingAs($this->user);
+
+        $this->assertAuthenticated();
+        $response = $this->get('/locations')
+            ->assertSee($this->location->address);
+
+        $response->assertStatus(200);
+    }
 }
