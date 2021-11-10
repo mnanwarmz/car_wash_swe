@@ -4,7 +4,7 @@
   <div class="py-20 bg-gray-50 radius-for-skewed">
     <div class="container mx-auto px-4">
       <div class="mb-16 text-center">
-        <h2 class="text-4xl lg:text-5xl font-bold font-heading">Your vehicles</h2>
+        <h2 class="text-4xl lg:text-5xl font-bold font-heading">Your Saved Locations</h2>
       </div>
       <div class="flex flex-wrap justify-center ">
         <div class="flex flex-wrap w-full lg:w-1/2">
