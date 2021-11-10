@@ -76,7 +76,9 @@
                             {{ vehicle.brand }} {{vehicle.model}}
                         </p>
                         <p class="text-xl lg:text-2xl text-white font-bold">{{ vehicle.type.name }}</p>
-                        <span class="mt-auto ml-auto py-1 px-3 text-sm bg-white rounded-full text-green-600 uppercase font-bold">View Vehicle</span>
+                        <!-- <a href="/vehicles/{{ vehicle.id }}}"> -->
+                        <a :href="`/vehicles/${vehicle.id}`" class="mt-auto ml-auto py-1 px-3 text-sm bg-white rounded-full text-green-600 uppercase font-bold">View Vehicle</a>
+                        <!-- </a> -->
                     </div>
                 </div>
             </a>
