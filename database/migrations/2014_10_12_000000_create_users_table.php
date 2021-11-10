@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->foreignId('location_id')->nullable();
             $table->foreignId('vehicle_id')->nullable();
             $table->foreignId('subscription_id')->nullable();
             $table->foreignId('appointment_id')->nullable();
