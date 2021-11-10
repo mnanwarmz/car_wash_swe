@@ -1,5 +1,5 @@
 <template>
-    <div>Create Works!</div>
+    <div>Edit Works!</div>
 </template>
 
 <script>

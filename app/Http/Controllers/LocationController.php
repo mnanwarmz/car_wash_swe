@@ -27,6 +27,24 @@ class LocationController extends Controller
         ]);
         Location::create($data +  ['user_id' => auth()->id()]);
     }
+    public function edit(Location $locationId)
+    {
+        $location = Location::find($locationId);
+        return inertia('Location/Edit', compact('location'));
+    }
+    public function update(Request $request, $locationId)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postcode' => 'required',
+        ]);
+        $location = Location::findOrFail($locationId);
+        $location->fill($data);
+        $location->save();
+    }
     public function destroy($id)
     {
         $location = Location::find($id);

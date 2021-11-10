@@ -80,4 +80,26 @@ class LocationTest extends TestCase
             ->assertRedirect('/login');
         $this->assertDatabaseMissing('locations', $location->toArray());
     }
+    public function test_authenticated_user_can_edit_location()
+    {
+        $this->withoutExceptionHandling();
+        $this->actingAs($this->user);
+        $location = Location::factory()->create();
+        $updatedInfo = Location::factory()->make();
+
+        $this->assertAuthenticated();
+        $this->assertDatabaseMissing('locations', $updatedInfo->toArray());
+        $this->post("/locations/$location->id/update", $updatedInfo->toArray());
+        $this->assertDatabaseHas('locations', $updatedInfo->toArray());
+    }
+    public function test_unauthenticated_user_cannot_edit_location()
+    {
+        $location = Location::factory()->create();
+        $updatedInfo = Location::factory()->make();
+
+        $this->assertDatabaseMissing('locations', $updatedInfo->toArray());
+        $this->post("/locations/$location->id/update", $updatedInfo->toArray())
+            ->assertRedirect('/login');
+        $this->assertDatabaseMissing('locations', $updatedInfo->toArray());
+    }
 }
