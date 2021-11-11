@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.5",
         "nesbot/carbon": "^2.53",
         "owenmelbz/laravel-stubs": "^0.0.7",
+        "spatie/laravel-permission": "^5.3",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
@@ -25,7 +26,8 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "phpunit/phpunit": "^9.3.3",
+        "spatie/laravel-ray": "^1.26"
     },
     "autoload": {
         "psr-4": {
