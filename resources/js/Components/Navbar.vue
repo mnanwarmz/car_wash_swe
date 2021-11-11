@@ -125,8 +125,8 @@
 				</ul>
 			</div>
 			<div class="mt-auto">
-                <div v-if="$page.props.user" id="dashboard">
-                    <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="dashboard">Dashboard</a>
+                <div v-if="$page.props.user">
+                    <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold rounded-xl" href="dashboard" id="dashboard">Dashboard</a>
                 </div>
 				<div v-else class="pt-6">
 					<a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="/login">Sign in</a>
