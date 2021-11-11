@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.5",
         "nesbot/carbon": "^2.53",
         "owenmelbz/laravel-stubs": "^0.0.7",
+        "stripe/stripe-php": "^7.100",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {

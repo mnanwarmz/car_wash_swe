@@ -50,4 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/vehicles', [VehicleController::class, 'store']);
     Route::post('/vehicles/{vehicleId}/update', [VehicleController::class, 'update']);
     Route::get('/vehicles/{vehicleId}/edit', [VehicleController::class, 'edit']);
+
+    //Payment and  subscription Routes
+    Route::get('/stripe-payment', [StripeController::class, 'handleGet']);
+    Route::post('/stripe-payment', [StripeController::class, 'handlePost'])->name('stripe.payment');
 });
