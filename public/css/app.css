@@ -1718,6 +1718,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
 }
+.bg-green-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+}
 .bg-green-600 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
@@ -2373,6 +2377,11 @@ select {
 		margin-bottom: -1px;
 	}
 
+	.sm\:mx-10 {
+		margin-left: 2.5rem;
+		margin-right: 2.5rem;
+	}
+
 	.sm\:-mx-6 {
 		margin-left: -1.5rem;
 		margin-right: -1.5rem;
@@ -2400,6 +2409,10 @@ select {
 
 	.sm\:ml-6 {
 		margin-left: 1.5rem;
+	}
+
+	.sm\:mb-16 {
+		margin-bottom: 4rem;
 	}
 
 	.sm\:block {
@@ -2609,8 +2622,8 @@ select {
 		margin-bottom: 0px;
 	}
 
-	.md\:ml-60 {
-		margin-left: 15rem;
+	.md\:ml-10 {
+		margin-left: 2.5rem;
 	}
 
 	.md\:grid {

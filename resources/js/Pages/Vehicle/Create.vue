@@ -1,6 +1,16 @@
 <template>
     <Navbar></Navbar>
     <!-- component -->
+    <div class="skew skew-bottom mr-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
+    </svg>
+  </div>
+  <div class="skew skew-bottom ml-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
+    </svg>
+  </div>
   <div class="hidden sm:block" aria-hidden="true">
     <div class="py-5">
       <div class="border-t border-gray-200" />
@@ -9,29 +19,29 @@
 
   <h1 class="flex justify-center">Register Your Vehicle</h1>
   <div class="mt-10 sm:mt-0">
-    <div class="md:grid md:grid-cols-3 md:ml-60">
+    <div class="md:grid md:grid-cols-3 md:ml-10">
       <div class="mt-5 md:mt-0 md:col-span-2">
         <form action="#" method="POST">
-          <div class="shadow overflow-hidden sm:rounded-md">
-            <div class="px-4 py-5 bg-white sm:p-6">
+          <div class="shadow overflow-hidden sm:rounded-md bg-green-300">
+            <div class="px-4 py-5 sm:p-6">
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="first-name" class="block text-sm font-medium text-gray-700">Car Brand</label>
-                  <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <label for="first-name" class="block text-sm font-medium text-gray-700"><b>Car Brand</b></label>
+                  <input type="text" name="first-name" id="first-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="last-name" class="block text-sm font-medium text-gray-700">Car Model</label>
-                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <label for="last-name" class="block text-sm font-medium text-gray-700"><b>Car Model</b></label>
+                  <input type="text" name="last-name" id="last-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700">Plate Number</label>
-                  <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <label for="email-address" class="block text-sm font-medium text-gray-700"><b>Plate Number</b></label>
+                  <input type="text" name="email-address" id="email-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="country" class="block text-sm font-medium text-gray-700">Car Type</label>
+                  <label for="country" class="block text-sm font-medium text-gray-700"><b>Car Type</b></label>
                   <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     <option>United States</option>
                     <option>Canada</option>
@@ -59,7 +69,9 @@
                   <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div> -->
               </div>
-                <div class="flex mt-8">
+
+                <h1 class="mt-8">Upload a picture of your car</h1>
+                <div class="flex">
                     <div class="max-w-2xl rounded-lg shadow-xl bg-gray-50">
                         <div class="m-4">
                             <label class="inline-block mb-2 text-gray-500">File Upload</label>
@@ -93,7 +105,27 @@
           </div>
         </form>
       </div>
+      <div class="shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300" id="form">
+        <p class="text-center text-2xl "><u><b>Services</b></u></p>
+        <p class="text-center text-base mt-2 ">Appointment Type :-</p>
+        <p class="text-center text-base mt-8">Full car wash (Available only at Branches) : </p>
+        <p class="text-center text-base">Car wash with Vacuum and Polish</p>
+        <p class="text-center text-base mt-8 ">Wash only :</p>
+        <p class="text-center text-base">Car wash without vacuum or polish</p>
+        <p class="text-center text-base mt-8 ">Wash + Vacuum :</p>
+        <p class="text-center text-base">Car wash with vacuuming servics</p>
+      </div>
     </div>
+  </div>
+  <div class="skew skew-bottom mr-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
+    </svg>
+  </div>
+  <div class="skew skew-bottom ml-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
+    </svg>
   </div>
 </template>
 
