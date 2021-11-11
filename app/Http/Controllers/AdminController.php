@@ -8,6 +8,9 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return inertia('Admin/Index');
+        $auth = auth()->user();
+        return inertia('Admin/Index', [
+            'auth' => $auth,
+        ]);
     }
 }
