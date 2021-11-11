@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Appointment\AppointmentController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
@@ -46,7 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/appointments/{appointmentId}', [AppointmentController::class, 'destroy']);
 
     // Vehicle Routes
-    Route::get('/vehicles', [VehicleController::class, 'index'])
+    Route::get('/vehicles', [VehicleController::class, 'index']);
     Route::get('/vehicles/create', [VehicleController::class, 'create']);
     Route::get('/vehicles/{vehicleId}', [VehicleController::class, 'show']);
     Route::post('/vehicles', [VehicleController::class, 'store']);
@@ -62,4 +63,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
 });
 
-Route::get('/test', [PermissionTestController::class, 'testmiddleware']);
+Route::middleware(['role:admin', 'auth'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
+});
