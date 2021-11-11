@@ -155,6 +155,7 @@
 <script>
 import Navbar from "@/Components/Navbar";
 export default {
+
     props: [],
     components: {
         Navbar,
@@ -162,7 +163,6 @@ export default {
     data() {
         return {};
     },
-
     computed: {},
 
     methods() {},

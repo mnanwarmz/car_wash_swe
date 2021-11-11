@@ -22,7 +22,7 @@ class PermissionTest extends TestCase
         $user = User::factory()->create();
         $user->assignRole($admin);
         $this->actingAs($user)
-            ->get('/admin')
+            ->get('/admin/dashboard')
             ->assertStatus(200);
     }
 
@@ -30,7 +30,7 @@ class PermissionTest extends TestCase
     {
         $user = User::factory()->create();
         $this->actingAs($user)
-            ->get('/admin')
+            ->get('/admin/dashboard')
             ->assertStatus(403);
     }
 }

@@ -22,6 +22,10 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/about', [HomeController::class, 'about']);
+Route::get('/services', [HomeController::class, 'services']);
+Route::get('/pricing', [HomeController::class, 'pricing']);
+Route::get('/contact', [HomeController::class, 'contact']);
 
 require __DIR__ . '/auth.php';
 
@@ -55,5 +59,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin/dashboard', [AdminController::class, 'index']);
 });

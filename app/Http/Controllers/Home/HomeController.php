@@ -11,4 +11,24 @@ class HomeController extends Controller
     {
         return inertia('Home/Index');
     }
+
+    public function about()
+    {
+        return inertia('Home/About');
+    }
+
+    public function contact()
+    {
+        return inertia('Home/Contact');
+    }
+
+    public function services()
+    {
+        return inertia('Home/Services');
+    }
+
+    public function pricing()
+    {
+        return inertia('Home/Pricing');
+    }
 }
