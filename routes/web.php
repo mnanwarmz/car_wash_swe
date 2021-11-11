@@ -3,6 +3,7 @@
 use App\Http\Controllers\Appointment\AppointmentController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PermissionTestController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -45,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/appointments/{appointmentId}', [AppointmentController::class, 'destroy']);
 
     // Vehicle Routes
-    Route::get('/vehicles', [VehicleController::class, 'index']);
+    Route::get('/vehicles', [VehicleController::class, 'index'])
     Route::get('/vehicles/create', [VehicleController::class, 'create']);
     Route::get('/vehicles/{vehicleId}', [VehicleController::class, 'show']);
     Route::post('/vehicles', [VehicleController::class, 'store']);
@@ -60,3 +61,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/locations/{locationId}/edit', [LocationController::class, 'edit']);
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
 });
+
+Route::get('/test', [PermissionTestController::class, 'testmiddleware']);
