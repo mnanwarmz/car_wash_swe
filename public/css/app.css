@@ -456,7 +456,7 @@ button,
  * as it triggers the better focus styles even for links, which still use a dotted
  * outline in Firefox by default.
  */
- 
+
 :-moz-focusring {
 	outline: auto;
 }
@@ -523,14 +523,14 @@ samp {
  *    CSS Remedy, with `svg` added as well.
  *
  *    https://github.com/mozdevs/cssremedy/issues/14
- * 
+ *
  * 2. Add `vertical-align: middle` to align replaced elements more
  *    sensibly by default when overriding `display` by adding a
  *    utility like `inline`.
  *
  *    This can trigger a poorly considered linting error in some
  *    tools but is included by design.
- * 
+ *
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
 
@@ -1291,8 +1291,8 @@ select {
 .mb-3 {
 	margin-bottom: 0.75rem;
 }
-.mt-12 {
-	margin-top: 3rem;
+.mb-10 {
+	margin-bottom: 2.5rem;
 }
 .mb-16 {
 	margin-bottom: 4rem;
@@ -1351,6 +1351,12 @@ select {
 .h-20 {
 	height: 5rem;
 }
+.h-full {
+	height: 100%;
+}
+.h-screen {
+	height: 100vh;
+}
 .h-64 {
 	height: 16rem;
 }
@@ -1404,6 +1410,12 @@ select {
 }
 .w-5\/6 {
 	width: 83.333333%;
+}
+.w-screen {
+	width: 100vw;
+}
+.w-14 {
+	width: 3.5rem;
 }
 .min-w-0 {
 	min-width: 0px;
@@ -1491,6 +1503,9 @@ select {
 .grid-cols-1 {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
+.flex-row {
+	flex-direction: row;
+}
 .flex-col {
 	flex-direction: column;
 }
@@ -1535,6 +1550,11 @@ select {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-y-reverse: 0;
+	margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 .divide-y > :not([hidden]) ~ :not([hidden]) {
 	--tw-divide-y-reverse: 0;
@@ -1654,9 +1674,25 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
-.border-blue-200 {
+.border-purple-400 {
 	--tw-border-opacity: 1;
-	border-color: rgba(191, 219, 254, var(--tw-border-opacity));
+	border-color: rgba(167, 139, 250, var(--tw-border-opacity));
+}
+.border-blue-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(96, 165, 250, var(--tw-border-opacity));
+}
+.border-yellow-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(251, 191, 36, var(--tw-border-opacity));
+}
+.border-red-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(248, 113, 113, var(--tw-border-opacity));
+}
+.border-green-400 {
+	--tw-border-opacity: 1;
+	border-color: rgba(52, 211, 153, var(--tw-border-opacity));
 }
 .bg-white {
 	--tw-bg-opacity: 1;
@@ -1714,17 +1750,33 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(37, 99, 235, var(--tw-bg-opacity));
 }
-.bg-green-200 {
+.bg-gray-900 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
+	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
 }
-.bg-green-300 {
+.bg-green-100 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+	background-color: rgba(209, 250, 229, var(--tw-bg-opacity));
 }
-.bg-green-600 {
+.bg-purple-400 {
 	--tw-bg-opacity: 1;
-	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+	background-color: rgba(167, 139, 250, var(--tw-bg-opacity));
+}
+.bg-blue-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
+}
+.bg-yellow-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(251, 191, 36, var(--tw-bg-opacity));
+}
+.bg-red-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(248, 113, 113, var(--tw-bg-opacity));
+}
+.bg-green-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -1756,6 +1808,9 @@ select {
 }
 .p-4 {
 	padding: 1rem;
+}
+.p-3\.5 {
+	padding: 0.875rem;
 }
 .px-4 {
 	padding-left: 1rem;
@@ -1812,6 +1867,10 @@ select {
 .py-10 {
 	padding-top: 2.5rem;
 	padding-bottom: 2.5rem;
+}
+.px-16 {
+	padding-left: 4rem;
+	padding-right: 4rem;
 }
 .py-20 {
 	padding-top: 5rem;
@@ -2198,6 +2257,14 @@ select {
 .hover\:text-blue-600:hover {
 	--tw-text-opacity: 1;
 	color: rgba(37, 99, 235, var(--tw-text-opacity));
+}
+.hover\:text-green-500:hover {
+	--tw-text-opacity: 1;
+	color: rgba(16, 185, 129, var(--tw-text-opacity));
+}
+.hover\:text-red-500:hover {
+	--tw-text-opacity: 1;
+	color: rgba(239, 68, 68, var(--tw-text-opacity));
 }
 .hover\:text-indigo-900:hover {
 	--tw-text-opacity: 1;
@@ -2638,6 +2705,10 @@ select {
 		width: 25%;
 	}
 
+	.md\:w-1\/2 {
+		width: 50%;
+	}
+
 	.md\:grid-cols-3 {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
@@ -2694,6 +2765,10 @@ select {
 		margin-top: 0px;
 	}
 
+	.lg\:mb-4 {
+		margin-bottom: 1rem;
+	}
+
 	.lg\:inline-block {
 		display: inline-block;
 	}
@@ -2718,6 +2793,18 @@ select {
 		width: 50%;
 	}
 
+	.lg\:w-1\/4 {
+		width: 25%;
+	}
+
+	.lg\:w-1\/5 {
+		width: 20%;
+	}
+
+	.lg\:flex-row {
+		flex-direction: row;
+	}
+
 	.lg\:items-center {
 		align-items: center;
 	}
@@ -2726,6 +2813,24 @@ select {
 		--tw-space-x-reverse: 0;
 		margin-right: calc(1.5rem * var(--tw-space-x-reverse));
 		margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+	}
+
+	.lg\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
+		--tw-space-x-reverse: 0;
+		margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+		margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+	}
+
+	.lg\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
+		--tw-space-y-reverse: 0;
+		margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+		margin-bottom: calc(0px * var(--tw-space-y-reverse));
+	}
+
+	.lg\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
+		--tw-space-x-reverse: 0;
+		margin-right: calc(1rem * var(--tw-space-x-reverse));
+		margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 	}
 
 	.lg\:px-8 {

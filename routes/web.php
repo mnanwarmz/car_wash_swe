@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Appointment\AppointmentController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PermissionTestController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -18,15 +20,6 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -59,4 +52,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/locations/{locationId}/update', [LocationController::class, 'update']);
     Route::get('/locations/{locationId}/edit', [LocationController::class, 'edit']);
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
+});
+
+Route::middleware(['role:admin', 'auth'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
 });
