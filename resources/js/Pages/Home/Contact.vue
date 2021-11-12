@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
+import Navbar from '@/Components/Navbar'
 export default {
     components: {
         Navbar
