@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <h1 class="flex justify-center">Make an Appointment</h1>
+  <h1 class="flex justify-center">Appointment Details</h1>
   <div class="mt-10 sm:mt-0">
     <div class="md:grid md:grid-cols-3 md:ml-10">
       <div class="mt-5 md:mt-0 md:col-span-2">
@@ -17,38 +17,22 @@
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                   <label for="first-name" class="block text-sm font-medium text-gray-700"><b>Registered Vehicle</b></label>
+                  <input type="text" name="#" id="#" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
+                <div class="col-span-6 sm:col-span-3">
+                  <label for="last-name" class="block text-sm font-medium text-gray-700">Time Slot</label>
+                  <input type="text" name="#" id="#" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
+                <div class="col-span-6 sm:col-span-5">
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">Appointment Type</label>
                   <input type="text" name="#" id="#"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="country" class="block text-sm font-medium text-gray-700">Time Slot</label>
-                  <select id="#" name="#"  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>11-1130</option>
-                    <option>12-1230</option>
-                    <option>1-130</option>
-                  </select>
-                </div>
-                <!-- <div class="col-span-6 sm:col-span-3">
-                  <label for="last-name" class="block text-sm font-medium text-gray-700">Car Model</label>
-                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div> -->
-
-                <div class="col-span-6 sm:col-span-6">
-                  <label for="country" class="block text-sm font-medium text-gray-700">Appointment Type</label>
-                  <select id="#" name="#"  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>Standard</option>
-                    <option>Vacuum </option>
-                    <option>Vacuum and Polish</option>
-                  </select>
-                </div>
-
-                <div class="col-span-6 sm:col-span-6">
-                  <label for="country" class="block text-sm font-medium text-gray-700">Location</label>
-                  <select id="country" name="country"  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
-                  </select>
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">Location</label>
+                  <input type="text" name="#" id="#"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <!-- <div class="col-span-6">
@@ -97,40 +81,43 @@
                     </div>
                 </div>
             </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <!-- <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
               <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Create Appointment
+                Save
               </button>
-            </div>
+            </div> -->
           </div>
         </form>
       </div>
       <div class="shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300" id="form">
-        <p class="text-center text-2xl "><u><b>Services</b></u></p>
-        <p class="text-center text-base mt-2 ">Appointment Type :-</p>
-        <p class="text-center text-base mt-8">Full car wash (Available only at Branches) : </p>
-        <p class="text-center text-base">Car wash with Vacuum and Polish</p>
-        <p class="text-center text-base mt-8 ">Wash only :</p>
-        <p class="text-center text-base">Car wash without vacuum or polish</p>
-        <p class="text-center text-base mt-8 ">Wash + Vacuum :</p>
-        <p class="text-center text-base">Car wash with vacuuming servics</p>
+           <div class="px-4 py-3 bg-blue-900 text-right sm:px-6 m-8 text-white">
+        <p class="text-center text-Base "><b>Order Total</b></p>
+        <p class="text-center text-3xl mt-4">RM 20.00</p>
+        <p class="text-center text-base">1xFull Car Wash </p>
+
+        <p class="text-center text-base mt-8">Promo</p>
+        <p class="text-center text-base">Payment Method</p>
+
+          </div>
+           <div class="px-4 py-3 bg-blue-900 text-center sm:px-6 m-8">
+              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Make Payment
+              </button>
+            </div>
       </div>
     </div>
   </div>
 </template>
-
-
-
 <script>
 import Navbar from "@/Components/Navbar";
 export default {
-    props: ["appointments"],
+    props: ["appointment"],
     computed: {},
     components: {
         Navbar,
     },
     created() {
-        console.log("Created" + this.appointments);
+        console.log("Created" + this.appointment);
     },
     data() {
         return {};
@@ -139,3 +126,4 @@ export default {
     methods() {},
 };
 </script>
+

@@ -57,6 +57,11 @@ class AppointmentController extends Controller
         // dd($appointment);
         $appointment->save();
     }
+    public function show($appointmentId)
+    {
+        $appointment = Appointment::findOrFail($appointmentId);
+        return inertia('Appointment/Show',compact('appointment'));
+    }
 
     public function store(Request $request)
     {
