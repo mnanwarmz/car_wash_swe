@@ -13,6 +13,11 @@ class VehicleController extends Controller
         $vehicles = Vehicle::latest()->get();
         return inertia('Vehicle/Index', compact('vehicles'));
     }
+    public function show($vehicleId)
+    {
+        $vehicle = Vehicle::find($vehicleId);
+        return inertia('Vehicle/Show', compact('vehicle'));
+    }
 
     public function store(Request $request)
     {

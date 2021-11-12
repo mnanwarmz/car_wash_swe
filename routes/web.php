@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Appointment\AppointmentController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\PermissionTestController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -18,15 +20,6 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -49,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     // Vehicle Routes
     Route::get('/vehicles', [VehicleController::class, 'index']);
     Route::get('/vehicles/create', [VehicleController::class, 'create']);
+    Route::get('/vehicles/{vehicleId}', [VehicleController::class, 'show']);
     Route::post('/vehicles', [VehicleController::class, 'store']);
     Route::post('/vehicles/{vehicleId}/update', [VehicleController::class, 'update']);
     Route::get('/vehicles/{vehicleId}/edit', [VehicleController::class, 'edit']);
@@ -63,4 +57,8 @@ Route::middleware(['auth'])->group(function () {
 
     // Branch Manager Routes
     Route::get('/branch', [AppointmentController::class, 'index']);
+});
+
+Route::middleware(['role:admin', 'auth'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
 });
