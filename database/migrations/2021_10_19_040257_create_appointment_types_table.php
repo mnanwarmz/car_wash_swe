@@ -13,11 +13,14 @@ class CreateAppointmentTypesTable extends Migration
      */
     public function up()
     {
+        
         Schema::create('appointment_types', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("slug");
-            $table->float("price");
+            $table->string("slug")->unique();
+            $table->integer("price")->default(0); //updated price to integer for better integration with stripe API
+            $table->text("description")->nullable();
+            $table->integer('payment_id');
             $table->timestamps();
         });
     }

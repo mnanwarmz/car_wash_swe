@@ -16,12 +16,13 @@ class CreateAppointmentsTable extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('location_id')->constrained();
-            $table->foreignId('appointment_type_id')->nullable();
+            $table->foreignId('appointment_type_id')->nullable();//transasction id == appointment type id ????? i think so . We need this for displaying to user as stripe payment reference in receipt/invoice etc.
             $table->foreignId('user_id')->nullable();
             $table->timestamp('start_at');
             $table->timestamp('end_at');
             $table->integer('status');
             $table->integer('rate');
+            $table->integer('total');
             $table->timestamps();
         });
     }

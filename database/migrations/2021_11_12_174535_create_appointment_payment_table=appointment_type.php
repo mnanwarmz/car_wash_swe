@@ -3,23 +3,21 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PHPUnit\Util\Xml\SchemaDetector;
 
-class CreateLocationsTable extends Migration
+class CreateAppointmentPaymentTable extends Migration
 {
     /**
      * Run the migrations.
-    *
+     *
      * @return void
      */
     public function up()
     {
-        Schema::create('locations', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
-            $table->string('address');
-            $table->string('city');
-            $table->string('state');
-            $table->string('postcode');
+        Schema::create('appointment_payment', function (Blueprint $table) {
+            $table->integer('appointment_id')->unsigned();
+            $table->integer('payment_id')->unsigned(); 
+            $table->integer('quantity')->default(1);
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('locations');
+        Schema::dropIfExists('appointment_payment');
     }
 }

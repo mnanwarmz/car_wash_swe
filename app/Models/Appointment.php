@@ -62,4 +62,8 @@ class Appointment extends Model
         else
             return true;
     }
+    public function appointments()
+    {
+        return $this->belongsToMany(related : Appointment::class);
+    }
 }
