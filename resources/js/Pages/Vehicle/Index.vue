@@ -1,6 +1,16 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
 <Navbar></Navbar>
+    <div class="skew skew-bottom mr-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
+    </svg>
+  </div>
+  <div class="skew skew-bottom ml-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
+    </svg>
+  </div>
   <!-- <div class="flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -61,6 +71,7 @@
     <div class="container mx-auto px-4">
       <div class="mb-16 text-center">
         <h2 class="text-4xl lg:text-5xl font-bold font-heading">Your vehicles</h2>
+        <div class="mt-10"><a class="inline-block py-2 px-6 rounded-b-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose outline-none transition duration-200" href="#">Add a Vehicle</a></div>
       </div>
       <div class="flex flex-wrap justify-center ">
         <div class="flex flex-wrap w-full lg:w-1/2">

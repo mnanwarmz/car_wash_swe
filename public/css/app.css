@@ -1140,14 +1140,14 @@ select {
 .right-0 {
 	right: 0px;
 }
+.top-0 {
+	top: 0px;
+}
 .top-1\/2 {
 	top: 50%;
 }
 .left-1\/2 {
 	left: 50%;
-}
-.top-0 {
-	top: 0px;
 }
 .bottom-0 {
 	bottom: 0px;
@@ -1167,8 +1167,11 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
-.float-right {
-	float: right;
+.m-8 {
+	margin: 2rem;
+}
+.m-4 {
+	margin: 1rem;
 }
 .mx-auto {
 	margin-left: auto;
@@ -1267,6 +1270,9 @@ select {
 .mb-4 {
 	margin-bottom: 1rem;
 }
+.-mt-px {
+	margin-top: -1px;
+}
 .mr-auto {
 	margin-right: auto;
 }
@@ -1296,12 +1302,6 @@ select {
 }
 .ml-auto {
 	margin-left: auto;
-}
-.-mt-px {
-	margin-top: -1px;
-}
-.mr-10 {
-	margin-right: 2.5rem;
 }
 .block {
 	display: block;
@@ -1360,8 +1360,8 @@ select {
 .h-64 {
 	height: 16rem;
 }
-.h-3 {
-	height: 0.75rem;
+.h-32 {
+	height: 8rem;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1432,11 +1432,14 @@ select {
 .max-w-xl {
 	max-width: 36rem;
 }
+.max-w-6xl {
+	max-width: 72rem;
+}
 .max-w-sm {
 	max-width: 24rem;
 }
-.max-w-6xl {
-	max-width: 72rem;
+.max-w-2xl {
+	max-width: 42rem;
 }
 .flex-1 {
 	flex: 1 1 0%;
@@ -1612,6 +1615,14 @@ select {
 .rounded-b-none {
 	border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px;
+}
+.rounded-b-xl {
+	border-bottom-right-radius: 0.75rem;
+	border-bottom-left-radius: 0.75rem;
+}
+.rounded-t-xl {
+	border-top-left-radius: 0.75rem;
+	border-top-right-radius: 0.75rem;
 }
 .border {
 	border-width: 1px;
@@ -1861,10 +1872,6 @@ select {
 	padding-top: 5rem;
 	padding-bottom: 5rem;
 }
-.px-10 {
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-}
 .pt-6 {
 	padding-top: 1.5rem;
 }
@@ -2058,6 +2065,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
+.text-gray-200 {
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
+}
 .text-gray-300 {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
@@ -2069,14 +2080,6 @@ select {
 .text-gray-50 {
 	--tw-text-opacity: 1;
 	color: rgba(249, 250, 251, var(--tw-text-opacity));
-}
-.text-gray-200 {
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
-}
-.text-blue-900 {
-	--tw-text-opacity: 1;
-	color: rgba(30, 58, 138, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
@@ -2119,6 +2122,10 @@ select {
 .shadow-xl {
 	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.outline-none {
+	outline: 2px solid transparent;
+	outline-offset: 2px;
 }
 .ring-1 {
 	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -2219,6 +2226,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(67, 56, 202, var(--tw-bg-opacity));
 }
+.hover\:bg-green-700:hover {
+	--tw-bg-opacity: 1;
+	background-color: rgba(4, 120, 87, var(--tw-bg-opacity));
+}
 .hover\:text-gray-500:hover {
 	--tw-text-opacity: 1;
 	color: rgba(107, 114, 128, var(--tw-text-opacity));
@@ -2254,10 +2265,6 @@ select {
 .hover\:text-indigo-900:hover {
 	--tw-text-opacity: 1;
 	color: rgba(49, 46, 129, var(--tw-text-opacity));
-}
-.hover\:text-indigo-600:hover {
-	--tw-text-opacity: 1;
-	color: rgba(79, 70, 229, var(--tw-text-opacity));
 }
 .hover\:underline:hover {
 	text-decoration: underline;
@@ -2418,10 +2425,13 @@ select {
 		grid-column: span 6 / span 6;
 	}
 
+<<<<<<< HEAD
 	.sm\:col-span-5 {
 		grid-column: span 5 / span 5;
 	}
 
+=======
+>>>>>>> 6-Vehicle_List
 	.sm\:mx-0 {
 		margin-left: 0px;
 		margin-right: 0px;
@@ -2622,12 +2632,56 @@ select {
 }
 @media (min-width: 768px) {
 
+	.md\:container {
+		width: 100%;
+	}
+
+	@media (min-width: 640px) {
+
+		.md\:container {
+			max-width: 640px;
+		}
+	}
+
+	@media (min-width: 768px) {
+
+		.md\:container {
+			max-width: 768px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+
+		.md\:container {
+			max-width: 1024px;
+		}
+	}
+
+	@media (min-width: 1280px) {
+
+		.md\:container {
+			max-width: 1280px;
+		}
+	}
+
+	@media (min-width: 1536px) {
+
+		.md\:container {
+			max-width: 1536px;
+		}
+	}
+
 	.md\:col-span-2 {
 		grid-column: span 2 / span 2;
 	}
 
 	.md\:col-span-1 {
 		grid-column: span 1 / span 1;
+	}
+
+	.md\:mx-auto {
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.md\:mt-0 {
@@ -2640,6 +2694,10 @@ select {
 
 	.md\:mb-0 {
 		margin-bottom: 0px;
+	}
+
+	.md\:ml-10 {
+		margin-left: 2.5rem;
 	}
 
 	.md\:grid {
