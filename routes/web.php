@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Appointment\AppointmentController;
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PermissionTestController;
@@ -56,8 +57,15 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/locations/{locationId}/update', [LocationController::class, 'update']);
     Route::get('/locations/{locationId}/edit', [LocationController::class, 'edit']);
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
+
+    // Branch Routes
+    Route::post('/branches/store', [BranchController::class, 'store']);
 });
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index']);
+});
+
+Route::middleware(['role:branch manager', 'auth'])->group(function () {
+    Route::get('/branch/{branchId}/dashboard', [BranchController::class, 'index']);
 });

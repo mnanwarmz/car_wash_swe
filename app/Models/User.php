@@ -82,4 +82,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Appointment::class);
     }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+    public function setBranchManager($userId)
+    {
+        User::find($userId)->assignRole('branch_manager');
+    }
 }
