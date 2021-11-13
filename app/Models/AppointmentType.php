@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AppointmentType extends Model
 {
     use HasFactory;
-    protected $guarde = [];
+    protected $guarded = [];
 
     public function user()
     {
