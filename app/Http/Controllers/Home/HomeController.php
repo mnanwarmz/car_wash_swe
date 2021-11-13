@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,6 +21,20 @@ class HomeController extends Controller
     public function contact()
     {
         return inertia('Home/Contact');
+    }
+
+    public function contactStore($request)
+    {
+        $data = $request->validate([
+            'subject' => 'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            'query' => 'required',
+        ]);
+        if (auth()->user()) {
+            $data['user_id'] = auth()->user()->id;
+        }
+        Question::create($data);
     }
 
     public function services()
