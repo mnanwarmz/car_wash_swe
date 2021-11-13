@@ -1295,9 +1295,6 @@ select {
 .ml-auto {
 	margin-left: auto;
 }
-.mr-4 {
-	margin-right: 1rem;
-}
 .mr-1 {
 	margin-right: 0.25rem;
 }
@@ -1528,8 +1525,14 @@ select {
 .flex-wrap {
 	flex-wrap: wrap;
 }
+.place-items-end {
+	place-items: end;
+}
 .items-start {
 	align-items: flex-start;
+}
+.items-end {
+	align-items: flex-end;
 }
 .items-center {
 	align-items: center;
@@ -1542,6 +1545,9 @@ select {
 }
 .justify-between {
 	justify-content: space-between;
+}
+.justify-items-end {
+	justify-items: end;
 }
 .gap-6 {
 	gap: 1.5rem;

@@ -28,6 +28,7 @@ Route::get('/services', [HomeController::class, 'services']);
 Route::get('/pricing', [HomeController::class, 'pricing']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
+Route::post('/contact', [HomeController::class, 'contactStore']);
 require __DIR__ . '/auth.php';
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

@@ -23,7 +23,7 @@ class HomeController extends Controller
         return inertia('Home/Contact');
     }
 
-    public function contactStore($request)
+    public function contactStore(Request $request)
     {
         $data = $request->validate([
             'subject' => 'required',
