@@ -21,11 +21,7 @@ class DatabaseSeeder extends Seeder
         $admin = \App\Models\User::factory()->create(['email' => "admin@test.com"]);
         $admin->assignRole('admin');
         \App\Models\Appointment::factory()->create();
-<<<<<<< HEAD
-        \App\Models\Vehicle::factory()->count(10)->for($user)->create();
-=======
-        \App\Models\Vehicle::factory()->for($user)->create();
+        \App\Models\Vehicle::factory(10)->for($user)->create();
         \App\Models\Location::factory()->for($user)->create();
->>>>>>> 4-appointments-danial
     }
 }

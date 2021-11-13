@@ -1,5 +1,5 @@
 <template>
-<Navbartest></Navbartest>
+<Navbar></Navbar>
  <p class="text-center text-3xl m-8">Make an Appointment</p>
 <div class="md:container md:mx-auto px-4 bg-green-200 m-8">
  <div class="hidden sm:block" aria-hidden="true">
@@ -104,12 +104,12 @@
 
 
 <script>
-import Navbartest from "@/Components/NavbarTest";
+import Navbar from "@/Components/Navbar";
 export default {
     props: ["appointments"],
     computed: {},
     components: {
-        Navbartest,
+        Navbar,
     },
     created() {
         console.log("Created" + this.appointments);
