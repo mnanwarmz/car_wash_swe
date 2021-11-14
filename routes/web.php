@@ -55,5 +55,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin/dashboard', [AdminController::class, 'index']);
+    Route::get('/admin/dashboard/users', [AdminController::class, 'users']);
 });
