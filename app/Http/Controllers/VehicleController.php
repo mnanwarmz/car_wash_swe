@@ -52,7 +52,7 @@ class VehicleController extends Controller
         $vehicles = Vehicle::findOrFail($vehicleId);
         // do not delete if user_id is not null
             $vehicles->delete();
-
+    }
     public function edit($vehicleId)
     {
         $vehicle = Vehicle::findOrFail($vehicleId);

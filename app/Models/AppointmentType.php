@@ -15,9 +15,10 @@ class AppointmentType extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function appointment()
+    public function service()
     {
-        return $this->belongsToMany(Appointment::class);
+        return $this->belongsToMany(Service::class)
+        ->withPivot('price');
     
     }
 }
