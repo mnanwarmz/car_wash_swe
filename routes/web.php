@@ -60,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
 
     // Branch Routes
+    Route::get('/branches/create', [BranchController::class, 'create']);
     Route::post('/branches/store', [BranchController::class, 'store']);
 });
 

@@ -62,19 +62,19 @@
 			<div>
 				<ul>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/`" >Home</a>
+						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/`" >Home</inertia-link>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/about`">About Us</a>
+						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/about`">About Us</inertia-link>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/services`">Services</a>
+						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/services`">Services</inertia-link>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/pricing`">Pricing</a>
+						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/pricing`">Pricing</inertia-link>
 					</li>
 					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`contact`">Contact</a>
+						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`contact`">Contact</inertia-link>
 					</li>
 				</ul>
 			</div>
