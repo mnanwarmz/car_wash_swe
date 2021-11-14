@@ -38,6 +38,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
     // Appointment Routes
     Route::get('/appointments', [AppointmentController::class, 'index']);
+    Route::get('/appointments/create', [AppointmentController::class, 'create']);
+    Route::get('/appointments/{appointmentId}', [AppointmentController::class, 'show']);
     Route::post('/appointments', [AppointmentController::class, 'store']);
     Route::post('/appointments/{appointmentId}', [AppointmentController::class, 'applyForAppointment']);
     Route::post('/appointments/{appointmentId}/cancel', [AppointmentController::class, 'cancel']);
