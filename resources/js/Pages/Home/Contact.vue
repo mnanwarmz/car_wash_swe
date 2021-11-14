@@ -23,8 +23,8 @@
           <div class="mb-4">
 
           </div>
-          <div class="flex place-items-end">
-            <button @click="submit" class="inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose transition duration-200">Submit</button>
+          <div class="flex ">
+            <button @click="submit" class=" inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose transition duration-200">Submit</button>
           </div>
         </form>
       </div>

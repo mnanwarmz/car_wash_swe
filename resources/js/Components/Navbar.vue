@@ -17,27 +17,19 @@
             <ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
                 <li><a class="text-sm text-white hover:text-gray-500" :href="`/`">Home</a></li>
                 <li class="text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg>
+                    <Seperator></Seperator>
                 </li>
                 <li><a class="text-sm text-white hover:text-gray-500" :href="`/about`">About Us</a></li>
                 <li class="text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg>
+                    <Seperator></Seperator>
                 </li>
                 <li><a class="text-sm text-white hover:text-gray-500" :href="`/services`">Services</a></li>
                 <li class="text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg>
+                    <Seperator></Seperator>
                 </li>
                 <li><a class="text-sm text-white hover:text-gray-500" :href="`/pricing`">Pricing</a></li>
                 <li class="text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                    </svg>
+                    <Seperator></Seperator>
                 </li>
                 <li><a class="text-sm text-white hover:text-gray-500" :href="`/contact`">Contact</a></li>
             </ul>
@@ -103,6 +95,7 @@
 <script>
 
 import { defineComponent } from "@vue/runtime-core";
+import Seperator from "@/Components/Seperator.vue"
 
 export default defineComponent({
     data() {
@@ -113,6 +106,9 @@ export default defineComponent({
                 }
             }
         }
+    },
+    components: {
+        Seperator
     },
     mounted() {
         console.log("User: "+ {user});
