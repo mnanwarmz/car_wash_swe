@@ -30,6 +30,10 @@ class UserFactory extends Factory
             'phone' => "1-888-888-888",
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'address' => $this->faker->streetAddress,
+            'city' => $this->faker->city,
+            'state' => $this->faker->state,
+            'postcode' => $this->faker->postcode,
             'remember_token' => Str::random(10),
         ];
     }

@@ -16,12 +16,13 @@ class CreateAppointmentTypesTable extends Migration
         
         Schema::create('appointment_types', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->string('transcation_id');//transcation id == paymnent id
+            $table->integer('total')->deafult(0);
             $table->string("name");
             $table->string("slug")->unique();
             $table->integer("price")->default(0); //updated price to integer for better integration with stripe API
-            $table->text("description")->nullable();
-            $table->integer('payment_id');
-            $table->timestamps();
+             $table->timestamps();
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVehicleTypesTable extends Migration
+class CreateServiceTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateVehicleTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vehicle_types', function (Blueprint $table) {
-            $table->id();
-            $table->string("name");
-            $table->string("slug")->unique();
-            $table->float("price");
+        Schema::create('service_type', function (Blueprint $table) {
+            $table->id('service_id');
+            $table->string('service_name');
+            $table->string('slug');
+            $table->text('service_description');
+            $table->integer('price')->default(0);   
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateVehicleTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vehicle_types');
+        Schema::dropIfExists('service_type');
     }
 }
