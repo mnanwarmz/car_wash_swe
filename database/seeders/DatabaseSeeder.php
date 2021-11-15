@@ -16,8 +16,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(VehicleTypeSeeder::class);
+        $this->call(PermissionSeeder::class);
         $user = \App\Models\User::factory()->create(['email' => "test@test.com"]);
+        $admin = \App\Models\User::factory()->create(['email' => "admin@test.com"]);
+        $admin->assignRole('admin');
         \App\Models\Appointment::factory()->create();
         \App\Models\Vehicle::factory()->for($user)->create();
+        \App\Models\Location::factory()->for($user)->create();
     }
 }

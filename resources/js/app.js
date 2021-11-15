@@ -1,6 +1,7 @@
 require('./bootstrap');
 
 import { createApp, h } from 'vue';
+import LaravelPermissionToVueJS from 'laravel-permission-to-vuejs'
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import 'animate.css';
@@ -14,6 +15,7 @@ createInertiaApp({
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
+            .use(LaravelPermissionToVueJS)
             .mixin({ methods: { route } })
             .mount(el);
     },
