@@ -11,9 +11,15 @@ class Vehicle extends Model
 
     protected $table = 'vehicles';
     protected $guarded = [];
+    protected $with = ['type'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function type()
+    {
+        return $this->hasOne('App\Models\VehicleType', 'id', 'vehicle_type_id');
     }
 }

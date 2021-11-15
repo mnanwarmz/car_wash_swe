@@ -43,11 +43,24 @@ class AppointmentController extends Controller
     public function destroy($appointmentId)
     {
         $appointment = Appointment::findOrFail($appointmentId);
-        // 2 and 3 stands for Completed or Booked
-        if ($appointment->user_id == 2 || $appointment->status == 3)
+        if ($appointment->user_id == null)
             $appointment->delete();
         else
-            dd('You cannot delete this appointment');
+            return ('You can not delete this appointment');
+    }
+
+    public function cancel($appointmentId)
+    {
+        $appointment = Appointment::findOrFail($appointmentId);
+        $appointment->detachUser(auth()->id());
+        $appointment->status = 1;
+        // dd($appointment);
+        $appointment->save();
+    }
+    public function show($appointmentId)
+    {
+        $appointment = Appointment::findOrFail($appointmentId);
+        return inertia('Appointment/Show',compact('appointment'));
     }
 
     public function store(Request $request)

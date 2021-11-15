@@ -16,7 +16,9 @@ class CreateBranchesTable extends Migration
         Schema::create('branches', function (Blueprint $table) {
             $table->id();
             $table->foreignId('location_id')->constrained();
+            $table->foreignId('user_id')->nullable();
             $table->string('name');
+            $table->string('status')->default('Inactive');
             $table->timestamps();
         });
     }

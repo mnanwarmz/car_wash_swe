@@ -28,6 +28,10 @@ class Appointment extends Model
     {
         $this->user_id = $userId;
     }
+    public function detachUser()
+    {
+        $this->user_id = null;
+    }
     public function user()
     {
         return $this->belongsTo(User::class);

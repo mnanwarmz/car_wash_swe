@@ -95,23 +95,13 @@ class VehicleTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $vehicle = Vehicle::factory()->for($this->user)->create();
+        $vehicle2 = Vehicle::factory()->for($this->user)->make();
 
         $this->actingAs($this->user);
 
         $this->assertAuthenticated();
-        $this->get('/vehicles/' . $vehicle->id . '/edit')
-            ->assertStatus(200)
-            ->assertSee($vehicle->plate_no)
-            ->assertSee($vehicle->model);
+        $this->post('/vehicles/' . $vehicle->id . '/update', $vehicle2->toArray());
 
-        $this->post('/vehicles/' . $vehicle->id . '/update', [
-            'plate_no' => 'ABC-123',
-            'model' => 'Toyota',
-        ]);
-
-        $this->assertDatabaseHas('vehicles', [
-            'plate_no' => 'ABC-123',
-            'model' => 'Toyota',
-        ]);
+        $this->assertDatabaseHas('vehicles', $vehicle2->toArray());
     }
 }

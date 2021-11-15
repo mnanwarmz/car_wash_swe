@@ -1,5 +1,5 @@
 <template>
-    <Navbartest></Navbartest>
+    <Navbar></Navbar>
     <div class="">
         <div class="py-12 px-4">
             <div
@@ -26,18 +26,19 @@
                     <h2
                         class="
                             text-5xl
-                            mt-4
+                            mt-2
                             mb-6
                             leading-tight
                             font-semibold font-heading
                             text-black
                         "
                     >
-                        No car can be clean without <b><u>Nuecar</u></b>
+                        No car can be as clean as <b><u>Nuecar</u></b>
                     </h2>
-                    <a v-if="$page.props.user" class="text-lg text-indigo-600">
-                        Thank you for joining us!
-                    </a>
+                    <div v-if="$page.props.user" class="flex justify-between space-x-2 pt-6">
+                            <button @click="submit" class="flex-auto inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold transition duration-200">Get your car washed now!</button>
+                            <button @click="submit" class="flex-auto inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold transition duration-200">Become our rider or open up a branch here!</button>
+                    </div>
                     <a v-else class="text-lg text-indigo-600 hover:underline" href="/register">
                         Join us now!
                     </a>
@@ -153,16 +154,16 @@
 </template>
 
 <script>
-import Navbartest from "@/Components/NavbarTest";
+import Navbar from "@/Components/Navbar";
 export default {
+
     props: [],
     components: {
-        Navbartest,
+        Navbar,
     },
     data() {
         return {};
     },
-
     computed: {},
 
     methods() {},
