@@ -4,7 +4,7 @@
 	rel="stylesheet">
 
 
-<div class="flex flex-row h-auto">
+<div class="flex flex-row min-h-auto">
     <!-- Sidebar -->
     <Sidebar></Sidebar>
     <!-- End Sidebar -->
@@ -12,10 +12,11 @@
     <h1 class="text-black text-4xl flex flex-wrap justify-center ">Users</h1>
     <section class="container mx-auto p-6 font-mono">
         <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-            <div class="w-full overflow-x-auto">
+            <div class="w-full md:overflow-y-auto">
             <table class="w-full">
                 <thead>
                 <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                    <th class="px-4 py-3">Id</th>
                     <th class="px-4 py-3">Name</th>
                     <th class="px-4 py-3">Phone</th>
                     <th class="px-4 py-3">Email</th>
@@ -24,7 +25,10 @@
                 </tr>
                 </thead>
                 <tbody class="bg-white">
-                <tr class="text-gray-700" v-for="users in users" :key="users">
+                <tr class="text-gray-700" v-for="user in users" :key="user">
+                    <td class="px-4 py-3 border">
+                    {{ user.id }}
+                    </td>
                     <td class="px-4 py-3 border">
                     <div class="flex items-center text-sm">
                         <div class="relative w-8 h-8 mr-3 rounded-full md:block">
@@ -32,15 +36,15 @@
                         <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                         </div>
                         <div>
-                        <p class="font-semibold text-black">{{users.name}}</p>
+                        <p class="font-semibold text-black">{{user.name}}</p>
                         </div>
                     </div>
                     </td>
-                    <td class="px-4 py-3 text-sm font-semibold border">{{users.phone}}</td>
+                    <td class="px-4 py-3 text-sm font-semibold border">{{user.phone}}</td>
                     <td class="px-4 py-3 text-sm border">
-                    <span class="px-2 py-1 font-semibold leading-tight text-gray-600 rounded-sm"> {{users.email}} </span>
+                    <span class="px-2 py-1 font-semibold leading-tight text-gray-600 rounded-sm"> {{user.email}} </span>
                     </td>
-                    <td class="px-4 py-3 border">{{users.role}}</td>
+                    <td class="px-4 py-3 border">{{user.role}}</td>
                     <td class="px-4 py-3 text-sm border">
                         <a href="#" class="h-1 text-gray-400 hover:text-gray-100">
 							<i class="material-icons-outlined text-base">visibility</i>
@@ -76,8 +80,8 @@ export default {
 </script>
 
 <style>
-	tr td:nth-child(n+5),
-	tr th:nth-child(n+5) {
+	tr td:nth-child(n+6),
+	tr th:nth-child(n+6) {
 		border-radius: 0 .625rem .625rem 0;
 	}
 

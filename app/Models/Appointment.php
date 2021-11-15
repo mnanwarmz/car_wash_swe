@@ -66,4 +66,9 @@ class Appointment extends Model
         else
             return true;
     }
+
+    public function types()
+    {
+        return $this->hasMany('App\Models\Type', 'appointment_type', 'appointment_id', 'type_id');
+    }
 }

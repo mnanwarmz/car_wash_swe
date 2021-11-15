@@ -10,20 +10,28 @@
           <div class="mt-10">
             <ul>
               <li class="mb-6">
-                <a href="#">
+                <a href="/admin/dashboard">
                   <span>
                     <svg
-                      class="fill-current h-5 w-5 text-gray-300 mx-auto hover:text-green-500 "
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M14 3V3.28988C16.8915 4.15043 19 6.82898 19 10V17H20V19H4V17H5V10C5 6.82898 7.10851 4.15043 10 3.28988V3C10 1.89543 10.8954 1 12 1C13.1046 1 14 1.89543 14 3ZM7 17H17V10C17 7.23858 14.7614 5 12 5C9.23858 5 7 7.23858 7 10V17ZM14 21V20H10V21C10 22.1046 10.8954 23 12 23C13.1046 23 14 22.1046 14 21Z"
+                        class="fill-current h-5 w-5 text-gray-900 mx-auto hover:text-green-500"
+                        viewBox="0 0 24 24"
                         fill="currentColor"
-                      />
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M21 4H3C1.89543 4 1 4.89543 1 6V18C1 19.1046 1.89543 20 3 20H21C22.1046 20 23 19.1046 23 18V6C23 4.89543 22.1046 4 21 4Z"
+                            stroke="#F9FAFB"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M1 10H23"
+                            stroke="#F9FAFB"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
                     </svg>
                   </span>
                 </a>
@@ -49,7 +57,7 @@
                 </a>
               </li>
               <li class="mb-6">
-                <a href="#">
+                <a href="/admin/dashboard/vehicles">
                   <span>
                     <svg
                         class="fill-current h-5 w-5 text-gray-300 mx-auto hover:text-green-500"
@@ -66,7 +74,7 @@
                 </a>
               </li>
               <li class="mb-6">
-                <a href="#">
+                <a href="/admin/dashboard/branches">
                   <span>
                     <svg
                         class="fill-current h-5 w-5 text-gray-300 mx-auto hover:text-green-500"

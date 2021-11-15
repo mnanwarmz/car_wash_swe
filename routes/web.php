@@ -57,4 +57,6 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['role:admin', 'auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index']);
     Route::get('/admin/dashboard/users', [AdminController::class, 'users']);
+    Route::get('/admin/dashboard/vehicles', [AdminController::class, 'vehicles']);
+    Route::get('/admin/dashboard/branches', [AdminController::class, 'branches']);
 });
