@@ -55,8 +55,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/locations/{locationId}/edit', [LocationController::class, 'edit']);
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
 
-    // Branch Manager Routes
-    Route::get('/branch', [AppointmentController::class, 'index']);
+
 });
 
 Route::middleware(['role:admin', 'auth'])->group(function () {

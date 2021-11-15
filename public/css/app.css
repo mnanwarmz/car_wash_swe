@@ -456,7 +456,7 @@ button,
  * as it triggers the better focus styles even for links, which still use a dotted
  * outline in Firefox by default.
  */
-
+ 
 :-moz-focusring {
 	outline: auto;
 }
@@ -523,14 +523,14 @@ samp {
  *    CSS Remedy, with `svg` added as well.
  *
  *    https://github.com/mozdevs/cssremedy/issues/14
- *
+ * 
  * 2. Add `vertical-align: middle` to align replaced elements more
  *    sensibly by default when overriding `display` by adding a
  *    utility like `inline`.
  *
  *    This can trigger a poorly considered linting error in some
  *    tools but is included by design.
- *
+ * 
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
 
@@ -1167,11 +1167,11 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
-.m-8 {
-	margin: 2rem;
-}
 .m-4 {
 	margin: 1rem;
+}
+.m-8 {
+	margin: 2rem;
 }
 .mx-auto {
 	margin-left: auto;
@@ -1357,11 +1357,11 @@ select {
 .h-screen {
 	height: 100vh;
 }
-.h-64 {
-	height: 16rem;
-}
 .h-32 {
 	height: 8rem;
+}
+.h-64 {
+	height: 16rem;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1694,6 +1694,10 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(52, 211, 153, var(--tw-border-opacity));
 }
+.border-blue-200 {
+	--tw-border-opacity: 1;
+	border-color: rgba(191, 219, 254, var(--tw-border-opacity));
+}
 .bg-white {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -1773,6 +1777,18 @@ select {
 .bg-green-400 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
+}
+.bg-green-300 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
+}
+.bg-green-600 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
+}
+.bg-blue-900 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -1958,13 +1974,13 @@ select {
 	font-size: 8rem;
 	line-height: 1;
 }
-.text-5xl {
-	font-size: 3rem;
-	line-height: 1;
-}
 .text-4xl {
 	font-size: 2.25rem;
 	line-height: 2.5rem;
+}
+.text-5xl {
+	font-size: 3rem;
+	line-height: 1;
 }
 .font-medium {
 	font-weight: 500;
@@ -2073,13 +2089,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
-.text-black {
-	--tw-text-opacity: 1;
-	color: rgba(0, 0, 0, var(--tw-text-opacity));
-}
 .text-gray-50 {
 	--tw-text-opacity: 1;
 	color: rgba(249, 250, 251, var(--tw-text-opacity));
+}
+.text-black {
+	--tw-text-opacity: 1;
+	color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
@@ -2425,13 +2441,10 @@ select {
 		grid-column: span 6 / span 6;
 	}
 
-<<<<<<< HEAD
 	.sm\:col-span-5 {
 		grid-column: span 5 / span 5;
 	}
 
-=======
->>>>>>> 6-Vehicle_List
 	.sm\:mx-0 {
 		margin-left: 0px;
 		margin-right: 0px;
@@ -2632,56 +2645,12 @@ select {
 }
 @media (min-width: 768px) {
 
-	.md\:container {
-		width: 100%;
-	}
-
-	@media (min-width: 640px) {
-
-		.md\:container {
-			max-width: 640px;
-		}
-	}
-
-	@media (min-width: 768px) {
-
-		.md\:container {
-			max-width: 768px;
-		}
-	}
-
-	@media (min-width: 1024px) {
-
-		.md\:container {
-			max-width: 1024px;
-		}
-	}
-
-	@media (min-width: 1280px) {
-
-		.md\:container {
-			max-width: 1280px;
-		}
-	}
-
-	@media (min-width: 1536px) {
-
-		.md\:container {
-			max-width: 1536px;
-		}
-	}
-
 	.md\:col-span-2 {
 		grid-column: span 2 / span 2;
 	}
 
 	.md\:col-span-1 {
 		grid-column: span 1 / span 1;
-	}
-
-	.md\:mx-auto {
-		margin-left: auto;
-		margin-right: auto;
 	}
 
 	.md\:mt-0 {
@@ -2694,10 +2663,6 @@ select {
 
 	.md\:mb-0 {
 		margin-bottom: 0px;
-	}
-
-	.md\:ml-10 {
-		margin-left: 2.5rem;
 	}
 
 	.md\:grid {
