@@ -25,7 +25,7 @@
                          <div class="relative h-64 mx-auto rounded flex flex-wrap justify-center" id="list">
                             <div class="absolute inset-0 p-6 flex flex-col items-start">
                                     <span class="mt-90 text-xl lg:text-2xl text-gray-300 font-bold">
-                                        Haiqal Mok
+                                        Fahmi mikail
                                     </span>
                                     <p class="text-xl lg:text-2xl text-white font-bold">
                                         VAE 2910
