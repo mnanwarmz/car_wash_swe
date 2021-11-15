@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Appointment\AppointmentController;
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PermissionTestController;
@@ -22,7 +23,12 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/about', [HomeController::class, 'about']);
+Route::get('/services', [HomeController::class, 'services']);
+Route::get('/pricing', [HomeController::class, 'pricing']);
+Route::get('/contact', [HomeController::class, 'contact']);
 
+Route::post('/contact', [HomeController::class, 'contactStore']);
 require __DIR__ . '/auth.php';
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -55,9 +61,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/locations/{locationId}/edit', [LocationController::class, 'edit']);
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
 
-
+    // Branch Routes
+    Route::get('/branches/create', [BranchController::class, 'create']);
+    Route::post('/branches/store', [BranchController::class, 'store']);
 });
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin/dashboard', [AdminController::class, 'index']);
+});
+
+Route::middleware(['role:branch manager', 'auth'])->group(function () {
+    Route::get('/branch/{branchId}/dashboard', [BranchController::class, 'index']);
 });
