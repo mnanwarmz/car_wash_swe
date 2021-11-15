@@ -30,8 +30,12 @@
         "vue-loader": "^16.8.1"
     },
     "dependencies": {
+        "@vueform/multiselect": "^2.2.0",
         "animate.css": "^4.1.1",
+        "gitart-vue-dialog": "^1.1.0",
         "laravel-permission-to-vuejs": "^3.0.0",
-        "vue-carousel": "^0.18.0"
+        "vue-carousel": "^0.18.0",
+        "vue-select": "^3.16.0",
+        "vue3-date-time-picker": "^2.3.5"
     }
 }

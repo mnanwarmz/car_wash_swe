@@ -6,6 +6,9 @@
       <div class="border-t border-gray-200" />
     </div>
   </div>
+  <GDialog v-model="value">
+  Content
+</GDialog>
 
   <h1 class="flex justify-center">Make an Appointment</h1>
   <div class="mt-10 sm:mt-0">
@@ -17,59 +20,37 @@
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                   <label for="first-name" class="block text-sm font-medium text-gray-700"><b>Registered Vehicle</b></label>
-                  <input type="text" name="#" id="#"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <select v-if="vehicles" v-model="vehicleSelected" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option v-for="vehicle in vehicles" :key="vehicle.id">
+                        {{ vehicle.plate_no.toUpperCase() }}</option>
+                  </select>
+
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="country" class="block text-sm font-medium text-gray-700">Time Slot</label>
-                  <select id="#" name="#"  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>11-1130</option>
-                    <option>12-1230</option>
-                    <option>1-130</option>
-                  </select>
-                </div>
-                <!-- <div class="col-span-6 sm:col-span-3">
-                  <label for="last-name" class="block text-sm font-medium text-gray-700">Car Model</label>
-                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div> -->
+                  <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Time Slot</label>
+                  <Datepicker v-model="date"></Datepicker>
 
+                </div>
                 <div class="col-span-6 sm:col-span-6">
                   <label for="country" class="block text-sm font-medium text-gray-700">Appointment Type</label>
-                  <select id="#" name="#"  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>Standard</option>
-                    <option>Vacuum </option>
-                    <option>Vacuum and Polish</option>
-                  </select>
+                  <Multiselect
+                  v-model="values"
+                  mode="multiple"
+                  valueProp="price"
+                    label="name"
+                  :options="this.appointment_types"/>
                 </div>
 
                 <div class="col-span-6 sm:col-span-6">
                   <label for="country" class="block text-sm font-medium text-gray-700">Location</label>
-                  <select id="country" name="country"  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
+                  <select v-model="locationSelected" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option v-for="location in locations" :key="location">
+                        {{ location.address }}
+                    </option>
                   </select>
                 </div>
 
-                <!-- <div class="col-span-6">
-                  <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-                  <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                  <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                  <input type="text" name="city" id="city" autocomplete="address-level2" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label for="region" class="block text-sm font-medium text-gray-700">State / Province</label>
-                  <input type="text" name="region" id="region" autocomplete="address-level1" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal code</label>
-                  <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div> -->
               </div>
                 <div class="flex mt-8">
                     <div class="max-w-2xl rounded-lg shadow-xl bg-gray-50">
@@ -116,26 +97,65 @@
         <p class="text-center text-base">Car wash with vacuuming servics</p>
       </div>
     </div>
+
   </div>
+
+
 </template>
 
 
 
 <script>
+
 import Navbar from "@/Components/Navbar";
+import JetDropdown from '@/Jetstream/Dropdown.vue';
+import Multiselect from '@vueform/multiselect';
+import Datepicker from 'vue3-date-time-picker';
+import { GDialog, plugin } from "gitart-vue-dialog";
+import "gitart-vue-dialog/dist/style.css";
+import 'vue3-date-time-picker/dist/main.css'
+
 export default {
-    props: ["appointments"],
-    computed: {},
+    props: ["appointments","appointment_types","locations","vehicles"],
+    computed: {
+        total()
+        {
+            return this.values.reduce((a, b) => a + b, 0);
+        },
+    },
     components: {
         Navbar,
+        JetDropdown,
+        Multiselect,
+        Datepicker,
+        GDialog,
     },
     created() {
-        console.log("Created" + this.appointments);
-    },
-    data() {
-        return {};
-    },
+        console.log(this.locations);
+        console.log(this.vehicles);
+      },
+    data:() => ({
+        values : [],
+        value: false,
+        total_price: 0,
+        vehicleSelected: '',
+        locationSelected: '',
+        vehicles: [],
+    }),
+    methods() {
+        return {
+            registerVehicleModal()
+            {
+                return true;
+            },
+            toggleModal()
+            {
+                this.value = !this.value;
+            },
 
-    methods() {},
+        }
+    },
 };
 </script>
+<style src="@vueform/multiselect/themes/default.css"></style>
+

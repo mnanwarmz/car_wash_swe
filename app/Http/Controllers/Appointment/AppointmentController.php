@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Appointment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
+use App\Models\AppointmentType;
+use Auth;
 
 class AppointmentController extends Controller
 {
@@ -16,7 +18,16 @@ class AppointmentController extends Controller
 
     public function create()
     {
-        return inertia('Appointment/Create');
+        $appointment_types = AppointmentType::latest()->get()->toArray();
+        $vehicles =  Auth::user()->vehicles()->get()->toArray();
+        $locations =  Auth::user()->locations()->get()->toArray();
+
+
+        return inertia('Appointment/Create', [
+            'appointment_types' => $appointment_types,
+            'vehicles' => $vehicles,
+            'locations' => $locations,
+        ]);
     }
 
     public function applyForAppointment($appointmentId)
@@ -60,7 +71,7 @@ class AppointmentController extends Controller
     public function show($appointmentId)
     {
         $appointment = Appointment::findOrFail($appointmentId);
-        return inertia('Appointment/Show',compact('appointment'));
+        return inertia('Appointment/Show', compact('appointment'));
     }
 
     public function store(Request $request)

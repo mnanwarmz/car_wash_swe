@@ -36,7 +36,7 @@
             <div v-if="$page.props.user">
                 <div class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" id="dashboard">
                     <a v-if="is('admin | superadmin')" href="/admin/dashboard">Dashboard</a>
-                    <a v-else href="dashboard">Dashboard</a>
+                    <a v-else href="/dashboard">Dashboard</a>
                 </div>
             </div>
             <div v-else>
@@ -111,7 +111,6 @@ export default defineComponent({
         Seperator
     },
     mounted() {
-        console.log("User: "+ {user});
     },
     methods: {
         toggleMenu() {
