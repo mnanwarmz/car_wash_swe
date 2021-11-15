@@ -42,6 +42,8 @@ class PermissionSeeder extends Seeder
         $superadmin->givePermissionTo(Permission::all());
 
         $admin = Role::create(['name' => 'admin']);
+        $branch_manager = Role::create(['name' => 'branch manager']);
+        $branch_manager->givePermissionTo(['create-appointment', 'edit-appointment', 'delete-appointment']);
         $admin->givePermissionTo(['create-user', 'edit-user', 'delete-user', 'create-vehicle', 'edit-vehicle', 'delete-vehicle', 'create-vehicle-type', 'edit-vehicle-type', 'delete-vehicle-type', 'create-appointment', 'edit-appointment', 'delete-appointment', 'create-location', 'edit-location', 'delete-location']);
     }
 }
