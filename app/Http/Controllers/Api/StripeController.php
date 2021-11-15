@@ -12,7 +12,7 @@ class StripeController extends Controller
     //
     public function handleGet()
     {
-        return view('home');
+        return inertia('Payment/Show');
     }
 
     //Handle the payment with post method

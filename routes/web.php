@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\StripeController;
 use App\Http\Controllers\Appointment\AppointmentController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\VehicleController;
