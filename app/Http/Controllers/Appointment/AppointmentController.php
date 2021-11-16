@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use App\Models\AppointmentType;
 use Auth;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -80,11 +81,14 @@ class AppointmentController extends Controller
             'start_at' => 'required',
             'end_at' => 'required',
             'location_id' => 'required|exists:locations,id',
+            'location_id' => 'required|exists:vehicles,id',
             'appointment_type_id' => 'required|exists:appointment_types,id',
             'status' => 'required',
-            'rate' => 'required',
+            'price' => 'required',
         ]);
+        $data['start_at'] = Carbon::parse($data['start_at']);
+        $data['end_at'] = Carbon::parse($data['end_at']);
         Appointment::create($data);
-        return inertia('Appointment/Index');
+        return redirect('/appointments');
     }
 }

@@ -16,12 +16,13 @@ class CreateAppointmentsTable extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('location_id')->constrained();
+            $table->foreignId('vehicle_id')->constrained();
             $table->foreignId('appointment_type_id')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->timestamp('start_at');
             $table->timestamp('end_at');
             $table->integer('status');
-            $table->integer('rate');
+            $table->integer('price');
             $table->timestamps();
         });
     }

@@ -5,6 +5,8 @@ import LaravelPermissionToVueJS from 'laravel-permission-to-vuejs'
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import Datepicker from 'vue3-date-time-picker';
+import VueTimepicker from 'vue3-timepicker'
+import 'vue3-timepicker/dist/VueTimepicker.css'
 import 'animate.css';
 import 'vue-carousel';
 
@@ -16,6 +18,7 @@ createInertiaApp({
         return createApp({ render: () => h(app, props) })
             .use(plugin)
             .use(LaravelPermissionToVueJS)
+            .use(VueTimepicker)
             .component('Datepicker', Datepicker)
             .mixin({ methods: { route } })
             .mount(el);
