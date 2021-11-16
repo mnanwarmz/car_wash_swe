@@ -1316,6 +1316,24 @@ select {
 .mb-5 {
 	margin-bottom: 1.25rem;
 }
+.mr-20 {
+	margin-right: 5rem;
+}
+.mr-60 {
+	margin-right: 15rem;
+}
+.mr-24 {
+	margin-right: 6rem;
+}
+.mr-28 {
+	margin-right: 7rem;
+}
+.mr-32 {
+	margin-right: 8rem;
+}
+.mt-60 {
+	margin-top: 15rem;
+}
 .block {
 	display: block;
 }

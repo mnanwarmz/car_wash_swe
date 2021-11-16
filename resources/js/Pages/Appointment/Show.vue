@@ -91,18 +91,15 @@
       </div>
       <div class="shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300" id="form">
            <div class="px-4 py-3 bg-blue-900 text-right sm:px-6 m-8 text-white">
-        <p class="text-center text-Base "><b>Order Total</b></p>
-        <p class="text-center text-3xl mt-4">RM 20.00</p>
-        <p class="text-center text-base">1xFull Car Wash </p>
+                <p class="text-center text-Base "><b>Order Total</b></p>
+                <p class="text-center text-3xl mt-4">RM 20.00</p>
+                <p class="text-center text-base">1xFull Car Wash </p>
 
-        <p class="text-center text-base mt-8">Promo</p>
-        <p class="text-center text-base">Payment Method</p>
-
-          </div>
-           <div class="px-4 py-3 bg-blue-900 text-center sm:px-6 m-8">
-              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Make Payment
-              </button>
+                <p class="text-center text-base mt-8">Promo</p>
+                <p class="text-center text-base">Payment Method</p>
+                <button type="submit" class="mt-60 mr-32 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Make Payment
+                </button>
             </div>
       </div>
     </div>

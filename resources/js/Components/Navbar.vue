@@ -79,10 +79,14 @@
 				</ul>
 			</div>
 			<div class="mt-auto">
-				<div v-if="!($page.props.user)" class="pt-6">
-					<a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="/login">Sign in</a>
-					<a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="/register">Sign Up</a>
+				<div v-if="($page.props.user)" class="pt-6 ">
+                    <a class="block px-4 py-3 mb-3 leading-loose text-sm text-center text-white font-bold leading-none bg-blue-500 hover:bg-blue-600 rounded-xl" id="dashboard" v-if="is('admin | superadmin')" href="/admin/dashboard">Dashboard</a>
+                    <a class="block px-4 py-3 mb-3 leading-loose text-sm text-center text-white font-bold leading-none bg-blue-500 hover:bg-blue-600 rounded-xl" id="dashboard" v-else href="/dashboard">Dashboard</a>
 				</div>
+                <div v-else>
+                    <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="/login">Sign in</a>
+					<a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="/register">Sign Up</a>
+                </div>
 				<p class="my-4 text-xs text-center text-gray-400">
 					<span>Copyright © 2021</span>
 				</p>

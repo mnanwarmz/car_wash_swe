@@ -32,7 +32,7 @@ Route::post('/contact', [HomeController::class, 'contactStore']);
 require __DIR__ . '/auth.php';
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('User/Dashboard');
 })->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
