@@ -32,9 +32,9 @@
     "dependencies": {
         "@vue-stripe/vue-stripe": "^4.2.8",
         "animate.css": "^4.1.1",
+        "cashier": "^0.1.5",
+        "laravel-permission-to-vuejs": "^3.0.0",
         "vue-carousel": "^0.18.0",
         "vue-stripe-elements-plus": "^1.0.3"
-        "laravel-permission-to-vuejs": "^3.0.0",
-        "vue-carousel": "^0.18.0"
     }
 }

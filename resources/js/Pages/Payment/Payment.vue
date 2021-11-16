@@ -10,7 +10,7 @@
     import { defineComponent } from 'vue'
     import AppLayout from '@/Layouts/AppLayout.vue'
     import Welcome from '@/Jetstream/Welcome.vue'
-    import Stripe from '@/Jetstream/Stripe.vue'
+    // import Stripe from '@/Jetstream/Stripe.vue'
     export default defineComponent({
         components: {
             AppLayout,
