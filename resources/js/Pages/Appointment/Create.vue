@@ -9,7 +9,8 @@
   </div>
   <GDialog v-model="value">
   Content
-</GDialog>
+  </GDialog>
+
 
   <h1 class="flex justify-center">Make an Appointment</h1>
   <div class="mt-10 sm:mt-0">
@@ -101,7 +102,7 @@
 
   </div>
 
-
+</div>
 </template>
 
 

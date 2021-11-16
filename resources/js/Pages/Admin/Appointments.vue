@@ -9,7 +9,7 @@
     <Sidebar></Sidebar>
     <!-- End Sidebar -->
 <div class="px-16 py-20 text-gray-700 bg-gray-200 h-auto w-screen">
-    <h1 class="text-black text-4xl flex flex-wrap justify-center ">Users</h1>
+    <h1 class="text-black text-4xl flex flex-wrap justify-center ">Appointments</h1>
     <section class="container mx-auto p-6 font-mono">
         <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <div class="w-full md:overflow-y-auto">
@@ -18,15 +18,15 @@
                 <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                     <th class="px-4 py-3">Id</th>
                     <th class="px-4 py-3">Name</th>
-                    <th class="px-4 py-3">Phone</th>
-                    <th class="px-4 py-3">Email</th>
+                    <th class="px-4 py-3">Start At</th>
+                    <th class="px-4 py-3">End At</th>
                     <th class="px-4 py-3">Actions</th>
                 </tr>
                 </thead>
                 <tbody class="bg-white">
-                <tr class="text-gray-700" v-for="user in users" :key="user">
+                <tr class="text-gray-700" v-for="appointment in appointments" :key="appointment">
                     <td class="px-4 py-3 border">
-                    {{ user.id }}
+                    {{ appointment.id }}
                     </td>
                     <td class="px-4 py-3 border">
                     <div class="flex items-center text-sm">
@@ -35,13 +35,13 @@
                         <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                         </div>
                         <div>
-                        <p class="font-semibold text-black">{{user.name}}</p>
+                        <p class="font-semibold text-black"></p>
                         </div>
                     </div>
                     </td>
-                    <td class="px-4 py-3 text-sm font-semibold border">{{user.phone}}</td>
-                    <td class="px-4 py-3 text-sm border">
-                    <span class="px-2 py-1 font-semibold leading-tight text-gray-600 rounded-sm"> {{user.email}} </span>
+                    <td class="px-4 py-3 text-sm font-semibold border">{{appointment.start}}</td>
+                    <td class="px-4 py-3 text-sm font-semibold border">
+                   {{appointment.end}}
                     </td>
                     <td class="px-4 py-3 text-sm border">
                         <a href="#" class="h-1 text-gray-400 hover:text-gray-100">
@@ -72,7 +72,7 @@ export default {
     },
 
     props: [
-        'users'
+        'appointments'
     ]
 }
 </script>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Branch extends Model
 {
     protected $guarded = [];
+    protected $with = ['location'];
     use HasFactory;
 
     public function user()
@@ -18,5 +19,10 @@ class Branch extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
     }
 }

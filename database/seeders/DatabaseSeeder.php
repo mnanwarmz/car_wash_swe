@@ -25,5 +25,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Vehicle::factory(10)->for($user)->create();
         \App\Models\Location::factory()->for($user)->create();
         \App\Models\User::factory(10)->create();
+        \App\Models\Branch::factory(10)->create();
     }
 }

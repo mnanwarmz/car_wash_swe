@@ -456,7 +456,7 @@ button,
  * as it triggers the better focus styles even for links, which still use a dotted
  * outline in Firefox by default.
  */
-
+ 
 :-moz-focusring {
 	outline: auto;
 }
@@ -523,14 +523,14 @@ samp {
  *    CSS Remedy, with `svg` added as well.
  *
  *    https://github.com/mozdevs/cssremedy/issues/14
- *
+ * 
  * 2. Add `vertical-align: middle` to align replaced elements more
  *    sensibly by default when overriding `display` by adding a
  *    utility like `inline`.
  *
  *    This can trigger a poorly considered linting error in some
  *    tools but is included by design.
- *
+ * 
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
 
@@ -1167,11 +1167,17 @@ select {
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
-.m-4 {
-	margin: 1rem;
+.m-5 {
+	margin: 1.25rem;
+}
+.m-3 {
+	margin: 0.75rem;
 }
 .m-8 {
 	margin: 2rem;
+}
+.m-4 {
+	margin: 1rem;
 }
 .mx-auto {
 	margin-left: auto;
@@ -1181,6 +1187,14 @@ select {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
+.my-3\.5 {
+	margin-top: 0.875rem;
+	margin-bottom: 0.875rem;
+}
+.my-3 {
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
+}
 .-mx-4 {
 	margin-left: -1rem;
 	margin-right: -1rem;
@@ -1188,10 +1202,6 @@ select {
 .-mx-2 {
 	margin-left: -0.5rem;
 	margin-right: -0.5rem;
-}
-.my-3 {
-	margin-top: 0.75rem;
-	margin-bottom: 0.75rem;
 }
 .my-2 {
 	margin-top: 0.5rem;
@@ -1354,8 +1364,14 @@ select {
 .h-20 {
 	height: 5rem;
 }
+.h-auto {
+	height: auto;
+}
 .h-full {
 	height: 100%;
+}
+.h-1 {
+	height: 0.25rem;
 }
 .h-screen {
 	height: 100vh;
@@ -1371,6 +1387,9 @@ select {
 }
 .h-64 {
 	height: 16rem;
+}
+.max-h-20 {
+	max-height: 5rem;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1653,6 +1672,22 @@ select {
 	border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px;
 }
+.rounded-l-2xl {
+	border-top-left-radius: 1rem;
+	border-bottom-left-radius: 1rem;
+}
+.rounded-r-sm {
+	border-top-right-radius: 0.125rem;
+	border-bottom-right-radius: 0.125rem;
+}
+.rounded-r-2xl {
+	border-top-right-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+}
+.rounded-l-sm {
+	border-top-left-radius: 0.125rem;
+	border-bottom-left-radius: 0.125rem;
+}
 .rounded-l-xl {
 	border-top-left-radius: 0.75rem;
 	border-bottom-left-radius: 0.75rem;
@@ -1660,6 +1695,10 @@ select {
 .rounded-t-xl {
 	border-top-left-radius: 0.75rem;
 	border-top-right-radius: 0.75rem;
+}
+.rounded-b-xl {
+	border-bottom-right-radius: 0.75rem;
+	border-bottom-left-radius: 0.75rem;
 }
 .border {
 	border-width: 1px;
@@ -1711,6 +1750,10 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
+.border-gray-600 {
+	--tw-border-opacity: 1;
+	border-color: rgba(75, 85, 99, var(--tw-border-opacity));
+}
 .border-purple-400 {
 	--tw-border-opacity: 1;
 	border-color: rgba(167, 139, 250, var(--tw-border-opacity));
@@ -1726,14 +1769,6 @@ select {
 .border-red-400 {
 	--tw-border-opacity: 1;
 	border-color: rgba(248, 113, 113, var(--tw-border-opacity));
-}
-.border-gray-600 {
-	--tw-border-opacity: 1;
-	border-color: rgba(75, 85, 99, var(--tw-border-opacity));
-}
-.border-blue-200 {
-	--tw-border-opacity: 1;
-	border-color: rgba(191, 219, 254, var(--tw-border-opacity));
 }
 .border-blue-200 {
 	--tw-border-opacity: 1;
@@ -1818,14 +1853,6 @@ select {
 .bg-green-200 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
-}
-.bg-green-300 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
-}
-.bg-green-600 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(5, 150, 105, var(--tw-bg-opacity));
 }
 .bg-green-300 {
 	--tw-bg-opacity: 1;
@@ -2037,10 +2064,6 @@ select {
 	font-size: 3.75rem;
 	line-height: 1;
 }
-.text-5xl {
-	font-size: 3rem;
-	line-height: 1;
-}
 .font-medium {
 	font-weight: 500;
 }
@@ -2154,13 +2177,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
-.text-gray-50 {
-	--tw-text-opacity: 1;
-	color: rgba(249, 250, 251, var(--tw-text-opacity));
-}
 .text-black {
 	--tw-text-opacity: 1;
 	color: rgba(0, 0, 0, var(--tw-text-opacity));
+}
+.text-gray-50 {
+	--tw-text-opacity: 1;
+	color: rgba(249, 250, 251, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
@@ -2205,6 +2228,10 @@ select {
 }
 .shadow-xl {
 	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-inner {
+	--tw-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .outline-none {
@@ -2346,9 +2373,17 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(239, 68, 68, var(--tw-text-opacity));
 }
+.hover\:text-gray-100:hover {
+	--tw-text-opacity: 1;
+	color: rgba(243, 244, 246, var(--tw-text-opacity));
+}
 .hover\:text-white:hover {
 	--tw-text-opacity: 1;
 	color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.hover\:text-indigo-900:hover {
+	--tw-text-opacity: 1;
+	color: rgba(49, 46, 129, var(--tw-text-opacity));
 }
 .hover\:underline:hover {
 	text-decoration: underline;
@@ -2781,10 +2816,6 @@ select {
 		margin-bottom: 0px;
 	}
 
-	.md\:ml-10 {
-		margin-left: 2.5rem;
-	}
-
 	.md\:block {
 		display: block;
 	}
@@ -2799,6 +2830,10 @@ select {
 
 	.md\:w-1\/4 {
 		width: 25%;
+	}
+
+	.md\:w-1\/2 {
+		width: 50%;
 	}
 
 	.md\:grid-cols-3 {
@@ -2877,10 +2912,6 @@ select {
 		margin-bottom: 0px;
 	}
 
-	.lg\:mt-0 {
-		margin-top: 0px;
-	}
-
 	.lg\:inline-block {
 		display: inline-block;
 	}
@@ -2903,10 +2934,6 @@ select {
 
 	.lg\:w-auto {
 		width: auto;
-	}
-
-	.lg\:w-1\/5 {
-		width: 20%;
 	}
 
 	.lg\:w-1\/2 {

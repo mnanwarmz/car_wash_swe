@@ -109,7 +109,7 @@
                 </a>
               </li>
               <li class="mb-6">
-                <a href="#">
+                <a href="/admin/dashboard/appointments">
                   <span>
                     <svg
                         class="fill-current h-5 w-5 text-gray-900 mx-auto hover:text-green-500"

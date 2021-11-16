@@ -47,5 +47,12 @@ class AdminController extends Controller
             'branches' => $branches,
         ]);
     }
-    
+
+    public function appointments()
+    {
+        $appointments = Appointment::latest()->get();
+        return inertia('Admin/Appointments', [
+            'appointments' => $appointments,
+        ]);
+    }
 }

@@ -18,9 +18,8 @@
                 <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
                     <th class="px-4 py-3">Id</th>
                     <th class="px-4 py-3">Name</th>
-                    <th class="px-4 py-3">Phone</th>
-                    <th class="px-4 py-3">Email</th>
-                    <th class="px-4 py-3">Role</th>
+                    <th class="px-4 py-3">Address</th>
+                    <th class="px-4 py-3">Status</th>
                     <th class="px-4 py-3">Actions</th>
                 </tr>
                 </thead>
@@ -40,11 +39,8 @@
                         </div>
                     </div>
                     </td>
-                    <td class="px-4 py-3 text-sm font-semibold border">{{branch.phone}}</td>
-                    <td class="px-4 py-3 text-sm border">
-                    <span class="px-2 py-1 font-semibold leading-tight text-gray-600 rounded-sm"> {{branch.email}} </span>
-                    </td>
-                    <td class="px-4 py-3 border">{{branch.role}}</td>
+                    <td class="px-4 py-3 text-sm font-semibold border">{{branch.location.address}}</td>
+                    <td class="px-4 py-3 border">{{branch.status}}</td>
                     <td class="px-4 py-3 text-sm border">
                         <a href="#" class="h-1 text-gray-400 hover:text-gray-100">
 							<i class="material-icons-outlined text-base">visibility</i>
@@ -74,7 +70,7 @@ export default {
     },
 
     props: [
-        'users'
+        'branches'
     ]
 }
 </script>

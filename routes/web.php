@@ -71,6 +71,7 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
     Route::get('/admin/dashboard/users', [AdminController::class, 'users']);
     Route::get('/admin/dashboard/vehicles', [AdminController::class, 'vehicles']);
     Route::get('/admin/dashboard/branches', [AdminController::class, 'branches']);
+    Route::get('/admin/dashboard/appointments', [AdminController::class, 'appointments']);
 });
 
 Route::middleware(['role:branch manager', 'auth'])->group(function () {

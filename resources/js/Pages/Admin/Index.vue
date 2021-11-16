@@ -6,7 +6,7 @@
 <div class="px-16 py-20 text-gray-700 bg-gray-200 h-screen w-screen">
 <div class="">
     <div class="max-w-7xl w-full mx-auto py-6 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap justify-center ">
+        <div class="text-4xl flex flex-wrap justify-center ">
         <h1>Dashboard</h1>
         </div>
         <div class="bg-white card border w-auto hover:shadow-none relative flex flex-col mx-auto shadow-lg m-5">
