@@ -6,6 +6,7 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PermissionTestController;
+use App\Http\Controllers\RiderController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -76,4 +77,8 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
 
 Route::middleware(['role:branch manager', 'auth'])->group(function () {
     Route::get('/branch/{branchId}/dashboard', [BranchController::class, 'index']);
+});
+
+Route::middleware(['role:rider', 'auth'])->group(function () {
+    Route::get('/rider/dashboard', [RiderController::class, 'index']);
 });

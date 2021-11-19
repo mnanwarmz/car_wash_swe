@@ -3,7 +3,7 @@
 	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
 	rel="stylesheet">
 
-
+<Navbar></Navbar>
 <div class="flex flex-row min-h-auto">
     <!-- Sidebar -->
     <Sidebar></Sidebar>
@@ -12,7 +12,7 @@
     <h1 class="text-black text-4xl flex flex-wrap justify-center ">Vehicles</h1>
     <section class="container mx-auto p-6 font-mono">
         <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-            <div class="w-full md:overflow-y-auto">
+            <div class="w-full md:overflow-x-auto">
             <table class="w-full">
                 <thead>
                 <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
@@ -57,10 +57,12 @@
 </template>
 
 <script>
+import Navbar from '@/Components/Navbar'
 import Sidebar from '@/Components/Sidebar'
 export default {
     components: {
-        Sidebar
+        Sidebar,
+        Navbar,
     },
 
     props: [
@@ -70,8 +72,8 @@ export default {
 </script>
 
 <style>
-	tr td:nth-child(n+5),
-	tr th:nth-child(n+5) {
+	tr td:nth-child(n+4),
+	tr th:nth-child(n+4) {
 		border-radius: 0 .625rem .625rem 0;
 	}
 

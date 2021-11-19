@@ -1,14 +1,14 @@
 <template>
-<body class="bg-blue-500">
+<body class="bg-blue-400">
     <div>
-        <nav class="relative px-4 py-4 flex justify-between items-center">
+        <nav class=" relative px-4 py-4 flex justify-between items-center h-20">
             <a class="text-3xl font-bold leading-none" href="#">
                 <img src="/images/logo.png" alt="Home" id="logo" class="h-10">
             </a>
             <h6 class="mr-auto mt-5 text-3xl text-white">NueCar</h6>
             <div class="lg:hidden">
                 <button @click="toggleMenu" class="navbar-burger flex items-center text-white p-3">
-                    <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="block h-4 w-full fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <title>Mobile menu</title>
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                     </svg>
@@ -34,9 +34,15 @@
                 <li><a class="text-sm text-white hover:text-gray-500" :href="`/contact`">Contact</a></li>
             </ul>
             <div v-if="$page.props.user">
-                <div class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" id="dashboard">
-                    <a v-if="is('admin | superadmin')" href="/admin/dashboard">Dashboard</a>
-                    <a v-else href="/dashboard">Dashboard</a>
+                <div class="hidden lg:inline-block">
+                    <a>
+                        <button @click="toggleDropdown">
+                            <img
+                            class="mx-auto h-10"
+                            :src="`https://ui-avatars.com/api/?name=${$page.props.user.name}&rounded=true&background=0D8ABC&color=fff`"
+                            />
+                        </button>
+                    </a>
                 </div>
             </div>
             <div v-else>
@@ -62,26 +68,31 @@
 			<div>
 				<ul>
 					<li class="mb-1">
-						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/`" >Home</inertia-link>
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/`" >Home</a>
 					</li>
 					<li class="mb-1">
-						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/about`">About Us</inertia-link>
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/about`">About Us</a>
 					</li>
 					<li class="mb-1">
-						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/services`">Services</inertia-link>
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/services`">Services</a>
 					</li>
 					<li class="mb-1">
-						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/pricing`">Pricing</inertia-link>
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`/pricing`">Pricing</a>
 					</li>
 					<li class="mb-1">
-						<inertia-link class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`contact`">Contact</inertia-link>
+						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" :href="`contact`">Contact</a>
 					</li>
 				</ul>
 			</div>
 			<div class="mt-auto">
 				<div v-if="($page.props.user)" class="pt-6 ">
                     <a class="block px-4 py-3 mb-3 leading-loose text-sm text-center text-white font-bold leading-none bg-blue-500 hover:bg-blue-600 rounded-xl" id="dashboard" v-if="is('admin | superadmin')" href="/admin/dashboard">Dashboard</a>
-                    <a class="block px-4 py-3 mb-3 leading-loose text-sm text-center text-white font-bold leading-none bg-blue-500 hover:bg-blue-600 rounded-xl" id="dashboard" v-else href="/dashboard">Dashboard</a>
+                    <a class="" id="dashboard" v-else href="/dashboard">
+                        <img
+                        class="mx-auto h-12"
+                        :src="`https://ui-avatars.com/api/?name=${$page.props.user.name}&rounded=true&background=0D8ABC&color=fff`"
+                        />
+                    </a>
 				</div>
                 <div v-else>
                     <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="/login">Sign in</a>
@@ -93,11 +104,48 @@
 			</div>
 		</nav>
 	</div>
+
+    <div ref="dropdown" class="border rounded-lg filter drop-shadow z-40 hidden absolute top-14 right-8">
+        <div ref="props" class="hidden"></div>
+        <div class="border rounded-lg ml-auto bg-white dark:bg-gray-800 h-40 w-56  shadow flex justify-center items-center">
+                <ul class="space-y-3 dark:text-white">
+                    <li class="font-medium">
+                    <a v-if="is('admin | superadmin')" href="/admin/dashboard" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700">
+                        <jet-responsive-nav-link>
+                            Dashboard
+                        </jet-responsive-nav-link>
+                    </a>
+                    <a v-else href="/dashboard" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700">
+                        <jet-responsive-nav-link>
+                            Dashboard
+                        </jet-responsive-nav-link>
+                    </a>
+                    </li>
+                    <li class="font-medium">
+                    <a href="" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700">
+                        <jet-responsive-nav-link :href="route('profile.show')" :active="route().current('profile.show')">
+                            Settings
+                        </jet-responsive-nav-link>
+                    </a>
+                    </li>
+                    <hr class="dark:border-gray-700">
+                    <li class="font-medium">
+                    <a href="#" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600">
+                        <form method="POST" @submit.prevent="logout">
+                            <jet-responsive-nav-link as="button" href="/">
+                                Logout
+                            </jet-responsive-nav-link>
+                        </form>
+                    </a>
+                    </li>
+                </ul>
+        </div>
+    </div>
 </body>
 </template>
 
 <script>
-
+import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
 import { defineComponent } from "@vue/runtime-core";
 import Seperator from "@/Components/Seperator.vue"
 
@@ -112,7 +160,8 @@ export default defineComponent({
         }
     },
     components: {
-        Seperator
+        Seperator,
+        JetResponsiveNavLink,
     },
     mounted() {
     },
@@ -121,13 +170,22 @@ export default defineComponent({
             this.$refs.menu.classList.toggle('hidden');
             this.$refs.backdrop.classList.toggle('hidden');
         },
+
+        toggleDropdown() {
+            this.$refs.dropdown.classList.toggle('hidden');
+            this.$refs.props.classList.toggle('hidden');
+        },
+
+        logout() {
+            this.$inertia.post(route('logout'));
+        },
     },
 });
 </script>
 
 <style>
     nav{
-        background: rgba(92, 219, 149, 0.51);
+        background: rgb(0, 113, 158);
     }
 
     #logo{

@@ -3,7 +3,7 @@
 	href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
 	rel="stylesheet">
 
-
+<Navbar></Navbar>
 <div class="flex flex-row min-h-auto">
     <!-- Sidebar -->
     <Sidebar></Sidebar>
@@ -65,10 +65,12 @@
 </template>
 
 <script>
+import Navbar from '@/Components/Navbar'
 import Sidebar from '@/Components/Sidebar'
 export default {
     components: {
-        Sidebar
+        Sidebar,
+        Navbar
     },
 
     props: [

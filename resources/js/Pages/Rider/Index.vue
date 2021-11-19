@@ -1,7 +1,6 @@
 <template>
     <Navbar></Navbar>
     <div class="bg-gray-100 h-screen w-auto flex flex-row">
-        <Sidebar></Sidebar>
         <div class="max-w-7xl w-full mx-auto py-6 sm:px-6 lg:px-8">
             <div class="text-4xl flex flex-wrap justify-center ">
             <h1>Dashboard</h1>
@@ -15,7 +14,7 @@
                 <div class="title mt-3 ml-3 font-bold flex flex-col">
                     <div class="text-black name break-words">{{ $page.props.user.name }}</div>
                     <!--  add [dark] class for bright background -->
-                    <div class="text-black add font-semibold text-sm italic dark">User</div>
+                    <div class="text-black add font-semibold text-sm italic dark">Rider</div>
                 </div>
                 </div>
                 <div class="buttons flex absolute bottom-0 font-bold right-0 text-xs text-gray-500 space-x-0 my-3.5 mr-3">
@@ -33,7 +32,7 @@
                                 </svg>
                             </div>
                             <div class="flex flex-col justify-center">
-                                <div class="text-sm text-black-400 font-bold">Vehicles</div>
+                                <div class="text-sm text-black-400 font-bold">Open Appointments</div>
                             </div>
                         </div>
                         <hr class="my-3 border-purple-400">
@@ -56,7 +55,7 @@
                                 </svg>
                             </div>
                             <div class="flex flex-col justify-center">
-                                <div class="text-sm text-black-400 font-bold">Appointments</div>
+                                <div class="text-sm text-black-400 font-bold">Closed Appointments</div>
                             </div>
                         </div>
                         <hr class="my-3 border-blue-400">
@@ -79,7 +78,7 @@
                                 </svg>
                             </div>
                             <div class="flex flex-col justify-center">
-                                <div class="text-sm text-black-400 font-bold">Locations</div>
+                                <div class="text-sm text-black-400 font-bold">In-Progress Appointments</div>
                             </div>
                         </div>
                         <hr class="my-3 border-red-400">
@@ -99,12 +98,10 @@
 <script>
     import { defineComponent } from 'vue'
     import Navbar from '@/Components/Navbar'
-    import Sidebar from '@/Components/Sidebar'
 
     export default defineComponent({
         components: {
             Navbar,
-            Sidebar,
         },
     })
 </script>

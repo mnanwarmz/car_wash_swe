@@ -1,4 +1,5 @@
 <template>
+<Navbar></Navbar>
 <!-- This is an example component -->
 <div class="flex flex-row h-full">
   <!-- Sidebar -->
@@ -107,10 +108,12 @@
 </template>
 
 <script>
+import Navbar from '@/Components/Navbar'
 import Sidebar from '@/Components/Sidebar'
 export default {
     components: {
-        Sidebar
+        Sidebar,
+        Navbar,
     },
 
     props: [
