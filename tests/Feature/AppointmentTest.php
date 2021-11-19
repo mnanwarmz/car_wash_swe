@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Appointment;
+use App\Models\AppointmentType;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -41,6 +42,7 @@ class AppointmentTest extends TestCase
     {
         $user = User::factory()->create();
         $appointment = Appointment::factory()->make();
+        $appointment_type = AppointmentType::factory()->for($appointment)->make();
         // Login as User
         $this->actingAs($user);
 

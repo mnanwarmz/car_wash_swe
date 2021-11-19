@@ -49,10 +49,11 @@
                   <Multiselect
                   v-model="typesSelected"
                   mode="multiple"
-                  valueProp="price"
+                  valueProp="id"
                     label="name"
-                  :options="this.appointment_types"/>
+                  :options="appointment_types"/>
                 </div>
+                {{ this.total }}
                 <div class="col-span-6 sm:col-span-6">
                   <label for="country" class="block text-sm font-medium text-gray-700">Location</label>
                   <!-- <button @click="value = true" class="bg-def-500 hover:bg-def-700 h-1/2 flex-2 font-bold py-2 px-4 rounded">
@@ -61,7 +62,7 @@
                             </span>
                     </button> -->
                   <select v-model="form.location_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option v-for="location in locations" :key="location">
+                    <option v-for="location in locations" :key="location.id">
                         {{ location.address }}
                     </option>
                   </select>
@@ -76,7 +77,7 @@
                 </div>
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" @click="submit">
+              <button  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" @click="submitForm">
                 Create Appointment
               </button>
             </div>
@@ -126,9 +127,16 @@ export default {
     computed: {
         total()
         {
-            return this.typesSelected.reduce((a, b) => a + b, 0);
+            let tot = 0;
+            this.typesSelected.forEach(element => {
+                this.appointment_types.forEach(type => {
+                    if(element == type.id)
+                        tot += type.price;
+                });
+            });
+            // return this.typesSelected.reduce((a, b) => a + b, 0);
+            return tot;
         },
-
     },
     data:() => ({
         typesSelected : [],
@@ -139,7 +147,7 @@ export default {
     }),
     setup()
     {
-        let form = useForm({
+        const form = useForm({
                 start_at: null,
                 end_at: null,
                 location_id: null,
@@ -151,13 +159,14 @@ export default {
     },
     updated()
     {
+        form.start_at = moment(form.start_at).format('YYYY-MM-DD');
         form.end_at = moment(form.start_at).add(30,'m');
-        console.log(form.end_at);
-        console.log(moment(form.start_at));
+
         form.price = this.total;
+        form.appointment_type_ids = this.typesSelected;
+        console.log(this.form);
     },
-    methods() {
-        return {
+    methods: {
             registerVehicleModal()
             {
                 return true;
@@ -166,12 +175,10 @@ export default {
             {
                 this.value = !this.value;
             },
-            submit()
+            submitForm()
             {
-                console.log("Submitted")
-                this.form.post('/appointments')
-            }
-        }
+                this.form.post("/appointments")
+            },
     },
 };
 </script>

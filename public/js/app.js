@@ -21168,9 +21168,16 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     total: function total() {
-      return this.typesSelected.reduce(function (a, b) {
-        return a + b;
-      }, 0);
+      var _this = this;
+
+      var tot = 0;
+      this.typesSelected.forEach(function (element) {
+        _this.appointment_types.forEach(function (type) {
+          if (element == type.id) tot += type.price;
+        });
+      }); // return this.typesSelected.reduce((a, b) => a + b, 0);
+
+      return tot;
     }
   },
   data: function data() {
@@ -21196,24 +21203,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   updated: function updated() {
+    form.start_at = moment__WEBPACK_IMPORTED_MODULE_6___default()(form.start_at).format('YYYY-MM-DD');
     form.end_at = moment__WEBPACK_IMPORTED_MODULE_6___default()(form.start_at).add(30, 'm');
-    console.log(form.end_at);
-    console.log(moment__WEBPACK_IMPORTED_MODULE_6___default()(form.start_at));
     form.price = this.total;
+    form.appointment_type_ids = this.typesSelected;
+    console.log(this.form);
   },
-  methods: function methods() {
-    return {
-      registerVehicleModal: function registerVehicleModal() {
-        return true;
-      },
-      toggleModal: function toggleModal() {
-        this.value = !this.value;
-      },
-      submit: function submit() {
-        console.log("Submitted");
-        this.form.post('/appointments');
-      }
-    };
+  methods: {
+    registerVehicleModal: function registerVehicleModal() {
+      return true;
+    },
+    toggleModal: function toggleModal() {
+      this.value = !this.value;
+    },
+    submitForm: function submitForm() {
+      this.form.post("/appointments");
+    }
   }
 });
 
@@ -25452,19 +25457,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _ctx.typesSelected = $event;
     }),
     mode: "multiple",
-    valueProp: "price",
+    valueProp: "id",
     label: "name",
-    options: this.appointment_types
+    options: $props.appointment_types
   }, null, 8
   /* PROPS */
-  , ["modelValue", "options"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"value = true\" class=\"bg-def-500 hover:bg-def-700 h-1/2 flex-2 font-bold py-2 px-4 rounded\">\n                        <span class=\"text-white text-sm\">\n                            <i class=\"fas fa-plus\"></i>\n                            </span>\n                    </button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  , ["modelValue", "options"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.total) + " ", 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"value = true\" class=\"bg-def-500 hover:bg-def-700 h-1/2 flex-2 font-bold py-2 px-4 rounded\">\n                        <span class=\"text-white text-sm\">\n                            <i class=\"fas fa-plus\"></i>\n                            </span>\n                    </button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $setup.form.location_id = $event;
     }),
     "class": "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.locations, function (location) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
-      key: location
+      key: location.id
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(location.address), 1
     /* TEXT */
     );
@@ -25475,7 +25482,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.location_id]])])]), _hoisted_21]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
     onClick: _cache[6] || (_cache[6] = function () {
-      return _ctx.submit && _ctx.submit.apply(_ctx, arguments);
+      return $options.submitForm && $options.submitForm.apply($options, arguments);
     })
   }, " Create Appointment ")])])]), _hoisted_23])])], 64
   /* STABLE_FRAGMENT */

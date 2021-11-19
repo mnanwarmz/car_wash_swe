@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Appointment;
 use App\Models\AppointmentType;
 use App\Models\Location;
+use App\Models\Vehicle;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AppointmentFactory extends Factory
@@ -27,9 +28,9 @@ class AppointmentFactory extends Factory
             'start_at' => $this->faker->date,
             'end_at' => $this->faker->date,
             'status' => $this->faker->numberBetween(1, 3),
-            'status' => $this->faker->numberBetween(1, 3),
-            'rate' => $this->faker->numberBetween(1, 3),
+            'price' => $this->faker->numberBetween(1, 3),
             'location_id' => Location::factory(),
+            'vehicle_id' => Vehicle::factory(),
             'appointment_type_id' => AppointmentType::factory(),
         ];
     }

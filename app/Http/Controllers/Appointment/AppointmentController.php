@@ -23,6 +23,8 @@ class AppointmentController extends Controller
         $vehicles =  Auth::user()->vehicles()->get()->toArray();
         $locations =  Auth::user()->locations()->get()->toArray();
 
+        // return appointment types array under a data key
+
 
         return inertia('Appointment/Create', [
             'appointment_types' => $appointment_types,
@@ -84,10 +86,11 @@ class AppointmentController extends Controller
             'location_id' => 'required|exists:vehicles,id',
             'appointment_type_id' => 'required|exists:appointment_types,id',
             'status' => 'required',
-            'price' => 'required',
         ]);
+
         $data['start_at'] = Carbon::parse($data['start_at']);
         $data['end_at'] = Carbon::parse($data['end_at']);
+        // dd($data);
         Appointment::create($data);
         return redirect('/appointments');
     }
