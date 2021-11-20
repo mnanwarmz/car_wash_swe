@@ -1,5 +1,5 @@
 <template>
-<body class="bg-blue-400">
+<body class="">
     <div>
         <nav class=" relative px-4 py-4 flex justify-between items-center h-20">
             <a class="text-3xl font-bold leading-none" href="/">
@@ -7,7 +7,7 @@
             </a>
             <h6 class="mr-auto mt-5 text-3xl text-white">NueCar</h6>
             <div class="lg:hidden">
-                <button @click="toggleMenu" class="navbar-burger flex items-center text-white p-3">
+                <button @click="toggleMenu" class="navbar-burger flex items-center text-white p-3" id="burger">
                     <svg class="block h-4 w-full fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <title>Mobile menu</title>
                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
@@ -59,7 +59,7 @@
 					<img src="/images/logo.png" alt="Home" id="logo" class="h-12">
                     <!-- <p>NueCar</p> -->
 				</a>
-				<button @click="toggleMenu" class="navbar-close">
+				<button @click="toggleMenu" class="navbar-close hover:bg-gray-100">
 					<svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
 					</svg>
@@ -86,13 +86,12 @@
 			</div>
 			<div class="mt-auto">
 				<div v-if="($page.props.user)" class="pt-6 ">
-                    <a class="block px-4 py-3 mb-3 leading-loose text-sm text-center text-white font-bold leading-none bg-blue-500 hover:bg-blue-600 rounded-xl" id="dashboard" v-if="is('admin | superadmin')" href="/admin/dashboard">Dashboard</a>
-                    <a class="" id="dashboard" v-else href="/dashboard">
-                        <img
-                        class="mx-auto h-12"
-                        :src="`https://ui-avatars.com/api/?name=${$page.props.user.name}&rounded=true&background=0D8ABC&color=fff`"
-                        />
-                    </a>
+                    <a class="block px-4 py-3 mb-3 leading-loose text-sm text-center text-white font-bold leading-none bg-blue-500 hover:bg-blue-600 rounded-xl" v-if="is('admin | superadmin')" href="/admin/dashboard">Dashboard</a>
+                    <form v-else method="POST" @submit.prevent="logout">
+                        <jet-responsive-nav-link as="button" href="/" class="hover:bg-blue-50 hover:text-blue-600">
+                            Logout
+                        </jet-responsive-nav-link>
+                    </form>
 				</div>
                 <div v-else>
                     <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="/login">Sign in</a>
@@ -200,5 +199,9 @@ export default defineComponent({
 
     #dashboard:hover{
         background: #074c7a;
+    }
+
+    #burger:hover{
+        background: rgb(0, 129, 180);
     }
 </style>

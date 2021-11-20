@@ -2,15 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Branch;
+use App\Models\Location;
 use Illuminate\Http\Request;
 
 class BranchController extends Controller
 {
-    public function index($branchId)
+    public function index()
     {
-        $branch = Branch::findOrFail($branchId);
-        return inertia('Branch/Index', compact('branch'));
+        $auth = auth()->user();
+        return inertia('Branch/Index', [
+            'auth' => $auth,
+        ]);
+    }
+
+    public function appointments()
+    {
+        $appointments = Appointment::latest()->get();
+        return inertia('Branch/Appointments', [
+            'appointments' => $appointments,
+        ]);
+    }
+
+    public function locations()
+    {
+        $locations = Location::latest()->get();
+        $branches = Branch::latest()->get();
+        return inertia('Branch/Locations', [
+            'locations' => $locations,
+            'branches' => $branches,
+        ]);
     }
 
     public function create()
@@ -33,10 +55,5 @@ class BranchController extends Controller
             'status' => 'Inactive'
         ]);
         // Once Branch is deemed valid, give user branch manager role
-    }
-
-    public function show($id)
-    {
-        return inertia('Branch/Show');
     }
 }
