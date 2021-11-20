@@ -1,78 +1,73 @@
 <template>
-    <div>
-        <!-- display list of appointments -->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Appointments</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table
-                                class="
-                                    table
-                                    table-striped
-                                    table-bordered
-                                    table-hover
-                                "
-                            >
-                                <thead>
-                                    <tr>
-                                        <th>Time</th>
-                                        <th>Duration</th>
-                                        <th>Address</th>
-                                        <th>State</th>
-                                        <th>Type</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr
-                                        v-for="appointment in appointments"
-                                        :key="appointment"
-                                    >
-                                        <td>
-                                            <strong>{{
-                                                appointment.date
-                                            }}</strong>
-                                        </td>
-                                        <td>
-                                            {{ appointment.start }} ~
-                                            {{ appointment.end }}
-                                        </td>
-                                        <td>{{ appointment.duration }}</td>
-                                        <td>
-                                            {{ appointment.location.address }}
-                                        </td>
-                                        <td>
-                                            {{ appointment.location.state }}
-                                        </td>
-                                        <td>{{ appointment.type_name }}</td>
-                                        <td v-if="appointment.status == 1">
-                                            Waiting
-                                        </td>
-                                        <td v-else>Completed</td>
-
-                                        <!-- <td>
-                                            <a href="#" class="btn btn-primary" @click="showEdit(appointment)">Edit</a>
-                                            <a href="#" class="btn btn-danger" @click="remove(appointment)">Remove</a>
-                                        </td> -->
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<Navbar></Navbar>
+<div class="skew skew-bottom mr-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
+    </svg>
+  </div>
+  <div class="skew skew-bottom ml-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
+    </svg>
     </div>
+
+ <div class="py-20 bg-gray-50 radius-for-skewed">
+     <div class="container mx-auto px-4">
+        <div class="mb-16 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold font-heading">Your Appointments</h2>
+            <div class="mt-10"><a class="inline-block py-2 px-6 rounded-b-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose outline-none transition duration-200" href="#">Add an Appointment</a></div>
+        </div>
+           <div class="flex flex-wrap justify-center " >
+             <div class="flex flex-wrap w-full lg:w-1/2">
+
+                <div class="w-full px-3 mb-5">
+                    <a href="#">
+                         <div class="relative h-64 mx-auto rounded flex flex-wrap justify-center" id="list">
+                            <div class="absolute inset-0 p-6 flex flex-col items-start">
+                                    <span class="mt-90 text-xl lg:text-2xl text-gray-300 font-bold">
+                                        Fahmi mikail
+                                    </span>
+                                    <p class="text-xl lg:text-2xl text-white font-bold">
+                                        VAE 2910
+                                    </p>
+                                    <p class="text-xl lg:text-2xl text-white font-bold">
+                                        Adris Car Wash Ltd
+                                    </p>
+                                    <a class="mt-auto ml-auto py-1 px-3 text-sm bg-white rounded-full text-green-600 uppercase font-bold">Cancel Appointment</a>
+                            </div>
+                         </div>
+                     </a>
+                </div>
+
+             </div>
+             </div>
+      </div>
+</div>
+
+    <div class="skew skew-bottom mr-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
+    </svg>
+  </div>
+  <div class="skew skew-bottom ml-for-radius">
+    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
+      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
+    </svg>
+  </div>
+
 </template>
 
 <script>
+import Navbar from "@/Components/Navbar";
 export default {
+     setup() {
+
+     },
     props: ["appointments"],
     computed: {},
+  components: {
+        Navbar,
+    },
     created() {
         console.log("Created" + this.appointments);
     },
@@ -83,3 +78,14 @@ export default {
     methods() {},
 };
 </script>
+
+<style>
+    #list{
+        background-color: #05385B;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    #list:hover{
+        background: #074c7a;
+    }
+</style>

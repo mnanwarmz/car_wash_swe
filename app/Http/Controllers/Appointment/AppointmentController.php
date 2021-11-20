@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Appointment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
+use App\Models\AppointmentAppointmentType;
 use App\Models\AppointmentType;
 use Auth;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -21,6 +23,8 @@ class AppointmentController extends Controller
         $appointment_types = AppointmentType::latest()->get()->toArray();
         $vehicles =  Auth::user()->vehicles()->get()->toArray();
         $locations =  Auth::user()->locations()->get()->toArray();
+
+        // return appointment types array under a data key
 
 
         return inertia('Appointment/Create', [
@@ -80,11 +84,25 @@ class AppointmentController extends Controller
             'start_at' => 'required',
             'end_at' => 'required',
             'location_id' => 'required|exists:locations,id',
-            'appointment_type_id' => 'required|exists:appointment_types,id',
-            'status' => 'required',
-            'rate' => 'required',
+            'vehicle_id' => 'required|exists:vehicles,id',
+            'price' => 'required',
         ]);
-        Appointment::create($data);
-        return inertia('Appointment/Index');
+        dd($data);
+        // $data['start_at'] = Carbon::parse($data['start_at']);
+        // $data['end_at'] = Carbon::parse($data['end_at']);
+
+        $appointment_types = $request->validate([
+            'appointment_type_ids' => 'required|exists:appointment_types,id',
+        ]);
+        dd($data);
+
+        $appointment = Appointment::create($data + ['user_id' => auth()->id()]);
+        foreach ($appointment_types as $appointment_type) {
+            AppointmentAppointmentType::create([
+                'appointment_id' => $appointment->id,
+                'appointment_type_id' => $appointment_type,
+            ]);
+        }
+        return redirect('/appointments');
     }
 }

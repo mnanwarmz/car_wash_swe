@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Appointment\AppointmentController;
+use App\Http\Controllers\AppointmentTypeController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PermissionTestController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\VehicleController;
+use App\Models\AppointmentType;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
