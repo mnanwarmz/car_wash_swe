@@ -38,8 +38,8 @@
                     <div v-if="$page.props.user" class="flex justify-between space-x-2 pt-6">
 
                     <a :href="`/appointments/create`">
-                            <button @click="location.href='/appointments/create'" class="flex-auto inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold transition duration-200">Get your car washed now!</button></a>
-                            <a :href="`/branch/create`"><button class="flex-auto inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold transition duration-200">Become our rider or open up a branch here!</button></a>
+                            <button @click="location.href='/appointments/create'" class="flex-auto inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold hover:shadow-xl transform transition duration-500 hover:scale-105">Get your car washed now!</button></a>
+                            <a :href="`/branch/create`"><button class="flex-auto inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold transition hover:shadow-xl transform transition duration-500 hover:scale-105">Become our rider or open up a branch here!</button></a>
                     </div>
                     <a v-else class="text-lg text-indigo-600 hover:underline" href="/register">
                         Join us now!

@@ -3,7 +3,9 @@
 
     <jet-authentication-card>
         <template #logo>
-            <jet-authentication-card-logo />
+            <a class="mr-auto text-3xl font-bold leading-none" href="/">
+				<img src="/images/logo.png" alt="Home" id="logo" class="h-12 hover:shadow-xl transform transition duration-500 hover:scale-105">
+			</a>
         </template>
 
         <jet-validation-errors class="mb-4" />
