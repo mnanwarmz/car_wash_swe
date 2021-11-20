@@ -31,7 +31,6 @@ class AppointmentFactory extends Factory
             'price' => $this->faker->numberBetween(1, 3),
             'location_id' => Location::factory(),
             'vehicle_id' => Vehicle::factory(),
-            'appointment_type_id' => AppointmentType::factory(),
         ];
     }
 }

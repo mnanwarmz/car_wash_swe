@@ -21,7 +21,7 @@
                   <label for="first-name" class="block text-sm font-medium text-gray-700"><b>Registered Vehicle</b></label>
                   <div class="flex">
                   <select v-if="vehicles" v-model="form.vehicle_id" class=" mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option v-for="vehicle in vehicles" :key="vehicle.id">
+                    <option v-for="vehicle in vehicles" :key="vehicle" :value="`${vehicle.id}`" >
                         {{ vehicle.plate_no.toUpperCase() }}</option>
                   </select>
                     <button @click="value = true" class="bg-def-500 hover:bg-def-700 h-1/2 flex-2 font-bold py-2 px-4 rounded">
@@ -53,7 +53,6 @@
                     label="name"
                   :options="appointment_types"/>
                 </div>
-                {{ this.total }}
                 <div class="col-span-6 sm:col-span-6">
                   <label for="country" class="block text-sm font-medium text-gray-700">Location</label>
                   <!-- <button @click="value = true" class="bg-def-500 hover:bg-def-700 h-1/2 flex-2 font-bold py-2 px-4 rounded">
@@ -94,14 +93,8 @@
         <p class="text-center text-base">Car wash with vacuuming servics</p>
       </div>
     </div>
-
   </div>
-
-
 </template>
-
-
-
 <script>
 import { useForm } from '@inertiajs/inertia-vue3';
 import Navbar from "@/Components/Navbar";
@@ -113,6 +106,7 @@ import moment from 'moment'
 import { GDialog, plugin } from "gitart-vue-dialog";
 import "gitart-vue-dialog/dist/style.css";
 import 'vue3-date-time-picker/dist/main.css'
+import axios from 'axios';
 
 export default {
     props: ["appointments","appointment_types","locations","vehicles"],
@@ -147,38 +141,61 @@ export default {
     }),
     setup()
     {
-        const form = useForm({
+        let form = {
                 start_at: null,
                 end_at: null,
                 location_id: null,
                 vehicle_id: null,
                 appointment_type_ids: null,
                 price:null,
-        });
+                status:1,
+        };
+        // const form = useForm({
+        //         start_at: null,
+        //         end_at: null,
+        //         location_id: null,
+        //         vehicle_id: null,
+        //         appointment_type_ids: null,
+        //         price:null,
+        //         status:1,
+        // });
         return { form }
     },
     updated()
     {
-        form.start_at = moment(form.start_at).format('YYYY-MM-DD');
-        form.end_at = moment(form.start_at).add(30,'m');
+        // this.form.start_at = moment(form.start_at).format('YYYY-MM-DD');
+        // this.form.end_at = moment(form.start_at).add(30,'m');
+        this.form.end_at = this.form.start_at
 
-        form.price = this.total;
-        form.appointment_type_ids = this.typesSelected;
+        this.form.price = this.total;
+        this.form.appointment_type_ids = this.typesSelected;
         console.log(this.form);
     },
     methods: {
-            registerVehicleModal()
-            {
-                return true;
-            },
-            toggleModal()
-            {
-                this.value = !this.value;
-            },
+            // registerVehicleModal()
+            // {
+            //     return true;
+            // },
+            // toggleModal()
+            // {
+            //     this.value = !this.value;
+            // },
             submitForm()
             {
-                this.form.post("/appointments")
+                axios.post("/appointments",{
+                    start_at: this.form.start_at,
+                    end_at: this.form.end_at,
+                    location_id: this.form.location_id,
+                    vehicle_id: this.form.vehicle_id,
+                    appointment_type_ids: this.form.appointment_type_ids,
+                    price: this.form.price,
+                    status: this.form.status,
+                });
             },
+            // submitForm()
+            // {
+            //     this.form.post("/appointments");
+            // },
     },
 };
 </script>
