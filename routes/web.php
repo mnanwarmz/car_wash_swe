@@ -64,11 +64,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/locations/{locationId}/edit', [LocationController::class, 'edit']);
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
 
-    // Branch Routes
-
-    Route::get('/branch/dashboard', [BranchController::class, 'index']);
-    Route::get('/branches/create', [BranchController::class, 'create']);
-    Route::post('/branches/store', [BranchController::class, 'store']);
 });
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
@@ -79,10 +74,12 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
     Route::get('/admin/dashboard/appointments', [AdminController::class, 'appointments']);
 });
 
-// Route::middleware(['role:branch manager', 'auth'])->group(function () {
-//     Route::get('/branch/dashboard', [BranchController::class, 'index']);
-//     Route::post('/branches/store', [BranchController::class, 'store']);
-// });
+Route::middleware(['role:branch manager', 'auth'])->group(function () {
+    Route::get('/branch/dashboard', [BranchController::class, 'index']);
+    Route::get('/branches/create', [BranchController::class, 'create']);
+    Route::post('/branches/store', [BranchController::class, 'store']);
+    Route::get('/branches/appointments', [BranchController::class, 'appointments']);
+});
 
 Route::middleware(['role:rider', 'auth'])->group(function () {
     Route::get('/rider/dashboard', [RiderController::class, 'index']);

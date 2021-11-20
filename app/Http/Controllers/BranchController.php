@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Branch;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,14 @@ class BranchController extends Controller
         $auth = auth()->user();
         return inertia('Branch/Index', [
             'auth' => $auth,
+        ]);
+    }
+
+    public function appointments()
+    {
+        $appointments = Appointment::latest()->get();
+        return inertia('Branch/Appointments', [
+            'appointments' => $appointments,
         ]);
     }
 

@@ -15,7 +15,7 @@
                 <div class="title mt-3 ml-3 font-bold flex flex-col">
                     <div class="text-black name break-words">{{ $page.props.user.name }}</div>
                     <!--  add [dark] class for bright background -->
-                    <div class="text-black add font-semibold text-sm italic dark">Branch</div>
+                    <div class="text-black add font-semibold text-sm italic dark">Branch Manager</div>
                 </div>
                 </div>
                 <div class="buttons flex absolute bottom-0 font-bold right-0 text-xs text-gray-500 space-x-0 my-3.5 mr-3">
@@ -25,19 +25,18 @@
             </div>
             <div class="flex flex-col lg:flex-row w-full lg:space-x-4 space-y-2 lg:space-y-0 mb-2 lg:mb-4">
                 <div class="w-full lg:w-1/2">
-                    <div class="widget w-full p-4 rounded-lg bg-white border-l-4 border-purple-400">
+                    <div class="shadow-lg widget w-full p-4 rounded-lg bg-white border-l-4 border-purple-400 hover:shadow-none">
                         <div class="flex items-center">
-                            <!-- <div class="icon w-14 p-3.5 bg-purple-400 text-white rounded-full mr-3">
+                            <div class="icon w-14 p-3.5 bg-purple-400 text-white rounded-full mr-3">
                                 <svg viewBox="0 0 25 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M24.4134 5.46875H21.4901L20.6776 3.4375C19.8426 1.34912 17.8499 0 15.6004 0H9.39924C7.15021 0 5.15705 1.34912 4.3216 3.4375L3.5091 5.46875H0.586248C0.204901 5.46875 -0.0748846 5.82715 0.0178888 6.19678L0.310858 7.36865C0.375799 7.62939 0.610174 7.8125 0.879217 7.8125H1.8592C1.20344 8.38525 0.781072 9.21777 0.781072 10.1562V12.5C0.781072 13.2871 1.08185 13.9976 1.56232 14.5474V17.1875C1.56232 18.0503 2.26203 18.75 3.12482 18.75H4.68732C5.55012 18.75 6.24982 18.0503 6.24982 17.1875V15.625H18.7498V17.1875C18.7498 18.0503 19.4495 18.75 20.3123 18.75H21.8748C22.7376 18.75 23.4373 18.0503 23.4373 17.1875V14.5474C23.9178 13.998 24.2186 13.2876 24.2186 12.5V10.1562C24.2186 9.21777 23.7962 8.38525 23.1409 7.8125H24.1209C24.39 7.8125 24.6243 7.62939 24.6893 7.36865L24.9822 6.19678C25.0745 5.82715 24.7947 5.46875 24.4134 5.46875ZM7.22297 4.59814C7.57892 3.7085 8.44074 3.125 9.39924 3.125H15.6004C16.5589 3.125 17.4207 3.7085 17.7767 4.59814L18.7498 7.03125H6.24982L7.22297 4.59814ZM4.68732 12.4902C3.74982 12.4902 3.12482 11.8672 3.12482 10.9326C3.12482 9.99805 3.74982 9.375 4.68732 9.375C5.62482 9.375 7.03107 10.7769 7.03107 11.7114C7.03107 12.646 5.62482 12.4902 4.68732 12.4902ZM20.3123 12.4902C19.3748 12.4902 17.9686 12.646 17.9686 11.7114C17.9686 10.7769 19.3748 9.375 20.3123 9.375C21.2498 9.375 21.8748 9.99805 21.8748 10.9326C21.8748 11.8672 21.2498 12.4902 20.3123 12.4902V12.4902Z" fill="white"/>
                                 </svg>
-                            </div> -->
+                            </div>
                             <div class="flex flex-col justify-center">
-                                <div class="text-sm text-black-400 font-bold">Upcoming Appointments</div>
+                                <div class="text-base text-black-400 font-bold">Open Appointments</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-3 shadow-lg widget w-full p-4 rounded-lg bg-white border-l-4 border-purple-400">
+                        <hr class="my-3 border-purple-400">
                         <div class="w-full p-4 rounded-lg bg-white border-2 border-purple-400 mt-2">
                             <div class="text-sm text-black-400 font-bold">
                                 Prop
@@ -46,7 +45,7 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2">
-                    <div class="shadow-lg widget w-full p-4 rounded-lg bg-white border-l-4 border-blue-400">
+                    <div class="shadow-lg widget w-full p-4 rounded-lg bg-white border-l-4 border-blue-400 hover:shadow-none">
                         <div class="flex items-center">
                             <div class="icon w-14 p-3.5 bg-blue-400 text-white rounded-full mr-3">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,11 +56,10 @@
                                 </svg>
                             </div>
                             <div class="flex flex-col justify-center">
-                                <div class="text-sm text-black-400 font-bold">Appointments</div>
+                                <div class="text-sm text-black-400 font-bold">In-Progress Appointments</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="shadow-lg widget w-full p-4 rounded-lg bg-white border-l-4 border-blue-400">
+                        <hr class="my-3 border-blue-400">
                         <div class="w-full p-4 rounded-lg bg-white border-2 border-purple-400 mt-2">
                             <div class="text-sm text-black-400 font-bold">
                                 Prop
@@ -72,7 +70,7 @@
             </div>
             <div class="flex flex-col lg:flex-row w-full lg:space-x-4 space-y-2 lg:space-y-0 mb-2 lg:mb-4">
                 <div class="w-full">
-                    <div class="shadow-lg widget w-full p-4 rounded-lg bg-white border-l-4 border-red-400">
+                    <div class="shadow-lg widget w-full p-4 rounded-lg bg-white border-l-4 border-red-400 hover:shadow-none">
                         <div class="flex items-center">
                             <div class="icon w-14 p-3.5 bg-red-400 text-white rounded-full mr-3">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +79,7 @@
                                 </svg>
                             </div>
                             <div class="flex flex-col justify-center">
-                                <div class="text-sm text-black-400 font-bold">Locations</div>
+                                <div class="text-sm text-black-400 font-bold">Branches</div>
                             </div>
                         </div>
                         <hr class="my-3 border-red-400">
@@ -110,3 +108,4 @@
         },
     })
 </script>
+
