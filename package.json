@@ -32,11 +32,14 @@
     "dependencies": {
         "@vueform/multiselect": "^2.2.0",
         "animate.css": "^4.1.1",
+        "fontawesome": "^5.6.3",
         "gitart-vue-dialog": "^1.1.0",
         "laravel-permission-to-vuejs": "^3.0.0",
+        "moment": "^2.29.1",
         "vue-carousel": "^0.18.0",
         "vue-moment": "^4.1.0",
         "vue-select": "^3.16.0",
-        "vue3-date-time-picker": "^2.3.5"
+        "vue3-date-time-picker": "^2.3.5",
+        "vue3-timepicker": "^1.0.0-beta.2"
     }
 }

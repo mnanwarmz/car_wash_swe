@@ -21,10 +21,6 @@ class AppointmentTypeFactory extends Factory
      */
     public function definition()
     {
-        // Wash
-        // Vacuum
-        // Wax
-        // Polish
         return [
             'name' => $this->faker->randomElement(['Wash', 'Vacuum', 'Wax', 'Polish']),
             'slug' => $this->faker->word,

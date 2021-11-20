@@ -28,6 +28,7 @@ class VehicleFactory extends Factory
             'brand' => $this->faker->word(),
             'model' => $this->faker->word(),
             'vehicle_type_id' => VehicleType::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

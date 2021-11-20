@@ -76,7 +76,7 @@
     <div class="container mx-auto px-4">
       <div class="mb-16 text-center">
         <h2 class="text-4xl lg:text-5xl font-bold font-heading">Your vehicles</h2>
-        <div class="mt-10"><a class="inline-block py-2 px-6 rounded-b-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose outline-none transition duration-200" href="#">Add a Vehicle</a></div>
+        <div class="mt-10"><a class="inline-block py-2 px-6 rounded-b-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose outline-none transition duration-200" :href="`/vehicles/create`">Add a Vehicle</a></div>
       </div>
       <div class="flex flex-wrap justify-center ">
         <div class="flex flex-wrap w-full lg:w-1/2">

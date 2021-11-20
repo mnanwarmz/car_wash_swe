@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Appointment\AppointmentController;
+use App\Http\Controllers\AppointmentTypeController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PermissionTestController;
 use App\Http\Controllers\RiderController;
 use App\Http\Controllers\VehicleController;
+use App\Models\AppointmentType;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -50,7 +52,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/vehicles', [VehicleController::class, 'index']);
     Route::get('/vehicles/create', [VehicleController::class, 'create']);
     Route::get('/vehicles/{vehicleId}', [VehicleController::class, 'show']);
-    Route::post('/vehicles', [VehicleController::class, 'store']);
+    Route::post('/vehicles/create', [VehicleController::class, 'store']);
     Route::post('/vehicles/{vehicleId}/update', [VehicleController::class, 'update']);
     Route::get('/vehicles/{vehicleId}/edit', [VehicleController::class, 'edit']);
 

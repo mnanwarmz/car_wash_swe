@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
+use App\Models\VehicleType;
 use Illuminate\Http\Request;
 
 class VehicleController extends Controller
@@ -28,11 +29,13 @@ class VehicleController extends Controller
             'vehicle_type_id' => 'required|exists:vehicle_types,id'
         ]);
         Vehicle::create($data + ['user_id' => auth()->id()]);
+        return redirect('vehicles');
     }
 
     public function create()
     {
-        return inertia('Vehicle/Create');
+        $vehicle_types = VehicleType::all();
+        return inertia('Vehicle/Create', compact('vehicle_types'));
     }
 
     public function edit($vehicleId)
