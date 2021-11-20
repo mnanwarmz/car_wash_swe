@@ -69,6 +69,6 @@ class Appointment extends Model
 
     public function types()
     {
-        return $this->hasMany('App\Models\Type', 'appointment_type', 'appointment_id', 'type_id');
-    }
+        return $this->belongsToMany('App\Models\AppointmentType', 'appointment_appointment_types', 'appointment_id', 'appointment_type_id');
+	}
 }

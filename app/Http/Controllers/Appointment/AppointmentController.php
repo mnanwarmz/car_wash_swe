@@ -87,22 +87,14 @@ class AppointmentController extends Controller
             'vehicle_id' => 'required|exists:vehicles,id',
             'price' => 'required',
         ]);
-        dd($data);
-        // $data['start_at'] = Carbon::parse($data['start_at']);
-        // $data['end_at'] = Carbon::parse($data['end_at']);
+        $data['start_at'] = Carbon::parse($data['start_at']);
+        $data['end_at'] = Carbon::parse($data['end_at']);
 
         $appointment_types = $request->validate([
             'appointment_type_ids' => 'required|exists:appointment_types,id',
         ]);
-        dd($data);
-
         $appointment = Appointment::create($data + ['user_id' => auth()->id()]);
-        foreach ($appointment_types as $appointment_type) {
-            AppointmentAppointmentType::create([
-                'appointment_id' => $appointment->id,
-                'appointment_type_id' => $appointment_type,
-            ]);
-        }
+			$appointment->types()->attach($appointment_types['appointment_type_ids']);	
         return redirect('/appointments');
     }
 }

@@ -21265,9 +21265,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var gitart_vue_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! gitart-vue-dialog */ "./node_modules/gitart-vue-dialog/dist/index.es.js");
 /* harmony import */ var gitart_vue_dialog_dist_style_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! gitart-vue-dialog/dist/style.css */ "./node_modules/gitart-vue-dialog/dist/style.css");
 /* harmony import */ var vue3_date_time_picker_dist_main_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue3-date-time-picker/dist/main.css */ "./node_modules/vue3-date-time-picker/dist/main.css");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_10__);
-
 
 
 
@@ -21312,7 +21309,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   setup: function setup() {
-    var form = {
+    var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
       start_at: null,
       end_at: null,
       location_id: null,
@@ -21320,27 +21317,17 @@ __webpack_require__.r(__webpack_exports__);
       appointment_type_ids: null,
       price: null,
       status: 1
-    }; // const form = useForm({
-    //         start_at: null,
-    //         end_at: null,
-    //         location_id: null,
-    //         vehicle_id: null,
-    //         appointment_type_ids: null,
-    //         price:null,
-    //         status:1,
-    // });
-
+    });
     return {
       form: form
     };
   },
   updated: function updated() {
-    // this.form.start_at = moment(form.start_at).format('YYYY-MM-DD');
-    // this.form.end_at = moment(form.start_at).add(30,'m');
+    this.form.start_at = moment__WEBPACK_IMPORTED_MODULE_6___default()(form.start_at).format('YYYY-MM-DD');
+    this.form.end_at = moment__WEBPACK_IMPORTED_MODULE_6___default()(form.start_at).add(30, 'm');
     this.form.end_at = this.form.start_at;
     this.form.price = this.total;
     this.form.appointment_type_ids = this.typesSelected;
-    console.log(this.form);
   },
   methods: {
     // registerVehicleModal()
@@ -21352,20 +21339,8 @@ __webpack_require__.r(__webpack_exports__);
     //     this.value = !this.value;
     // },
     submitForm: function submitForm() {
-      axios__WEBPACK_IMPORTED_MODULE_10___default().post("/appointments", {
-        start_at: this.form.start_at,
-        end_at: this.form.end_at,
-        location_id: this.form.location_id,
-        vehicle_id: this.form.vehicle_id,
-        appointment_type_ids: this.form.appointment_type_ids,
-        price: this.form.price,
-        status: this.form.status
-      });
-    } // submitForm()
-    // {
-    //     this.form.post("/appointments");
-    // },
-
+      this.form.post("/appointments");
+    }
   }
 });
 
@@ -26368,7 +26343,9 @@ var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_24 = ["value"];
+
+var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex mt-8"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "max-w-2xl rounded-lg shadow-xl bg-gray-50"
@@ -26376,11 +26353,11 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_25 = {
+var _hoisted_26 = {
   "class": "px-4 py-3 bg-gray-50 text-right sm:px-6"
 };
 
-var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300\" id=\"form\"><p class=\"text-center text-2xl\"><u><b>Services</b></u></p><p class=\"text-center text-base mt-2\">Appointment Type :-</p><p class=\"text-center text-base mt-8\">Full car wash (Available only at Branches) : </p><p class=\"text-center text-base\">Car wash with Vacuum and Polish</p><p class=\"text-center text-base mt-8\">Wash only :</p><p class=\"text-center text-base\">Car wash without vacuum or polish</p><p class=\"text-center text-base mt-8\">Wash + Vacuum :</p><p class=\"text-center text-base\">Car wash with vacuuming servics</p></div>", 1);
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300\" id=\"form\"><p class=\"text-center text-2xl\"><u><b>Services</b></u></p><p class=\"text-center text-base mt-2\">Appointment Type :-</p><p class=\"text-center text-base mt-8\">Full car wash (Available only at Branches) : </p><p class=\"text-center text-base\">Car wash with Vacuum and Polish</p><p class=\"text-center text-base mt-8\">Wash only :</p><p class=\"text-center text-base\">Car wash without vacuum or polish</p><p class=\"text-center text-base mt-8\">Wash + Vacuum :</p><p class=\"text-center text-base\">Car wash with vacuuming servics</p></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Navbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navbar");
@@ -26455,20 +26432,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.locations, function (location) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
-      key: location.id
-    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(location.address), 1
-    /* TEXT */
-    );
+      value: location.id,
+      key: location
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(location.address), 9
+    /* TEXT, PROPS */
+    , _hoisted_24);
   }), 128
   /* KEYED_FRAGMENT */
   ))], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.location_id]])])]), _hoisted_24]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.location_id]])])]), _hoisted_25]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
     onClick: _cache[6] || (_cache[6] = function () {
       return $options.submitForm && $options.submitForm.apply($options, arguments);
     })
-  }, " Create Appointment ")])])]), _hoisted_26])])])], 64
+  }, " Create Appointment ")])])]), _hoisted_27])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
