@@ -16,8 +16,9 @@ class Appointment extends Model
         'end',
         'duration',
         'price',
-        'type_name'
+        // 'type_name'
     ];
+	protected $with = ['types', 'vehicle'];
 
     // Get the duration by using carbon's diff function.
     public function getDurationAttribute()
@@ -70,5 +71,10 @@ class Appointment extends Model
     public function types()
     {
         return $this->belongsToMany('App\Models\AppointmentType', 'appointment_appointment_types', 'appointment_id', 'appointment_type_id');
+	}
+
+	public function vehicle()
+	{
+		return $this->belongsTo('App\Models\Vehicle', 'vehicle_id');
 	}
 }

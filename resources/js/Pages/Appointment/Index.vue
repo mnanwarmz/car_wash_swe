@@ -1,15 +1,5 @@
 <template>
 <Navbar></Navbar>
-<div class="skew skew-bottom mr-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
-    </svg>
-  </div>
-  <div class="skew skew-bottom ml-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
-    </svg>
-    </div>
 
  <div class="py-20 bg-gray-50 radius-for-skewed">
      <div class="container mx-auto px-4">
@@ -22,16 +12,16 @@
 
                 <div class="w-full px-3 mb-5">
                     <a href="#">
-                         <div class="relative h-64 mx-auto rounded flex flex-wrap justify-center" id="list">
+                         <div v-for="appointment in appointments" :key="appointment" class="relative h-64 mx-auto rounded flex flex-wrap justify-center" id="list">
                             <div class="absolute inset-0 p-6 flex flex-col items-start">
                                     <span class="mt-90 text-xl lg:text-2xl text-gray-300 font-bold">
-                                        Fahmi mikail
+                                        {{appointment.start}} - {{appointment.end}}
                                     </span>
                                     <p class="text-xl lg:text-2xl text-white font-bold">
-                                        VAE 2910
+                                        {{appointment.vehicle.plate_no.toUpperCase()}}
                                     </p>
                                     <p class="text-xl lg:text-2xl text-white font-bold">
-                                        Adris Car Wash Ltd
+                                        {{appointment.location.address}}
                                     </p>
                                     <a class="mt-auto ml-auto py-1 px-3 text-sm bg-white rounded-full text-green-600 uppercase font-bold">Cancel Appointment</a>
                             </div>
