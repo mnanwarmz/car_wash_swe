@@ -11,13 +11,13 @@ class Appointment extends Model
     use HasFactory;
 
     protected $guarded = [];
-    // protected $appends = [
-    //     'start',
-    //     'end',
-    //     'duration',
-    //     'price',
-    //     'type_name'
-    // ];
+    protected $appends = [
+        'start',
+        'end',
+        'duration',
+        'price',
+        'type_name'
+    ];
 
     // Get the duration by using carbon's diff function.
     public function getDurationAttribute()
@@ -42,11 +42,11 @@ class Appointment extends Model
     }
     public function getStartAttribute()
     {
-        return Carbon::parse($this->start_at);
+        return Carbon::parse($this->start_at)->format('d-n-Y h:iA');
     }
     public function getEndAttribute()
     {
-        return Carbon::parse($this->end_at);
+        return Carbon::parse($this->end_at)->format('d-n-Y h:iA');
     }
     public function getTypeNameAttribute()
     {
@@ -65,5 +65,10 @@ class Appointment extends Model
             return false;
         else
             return true;
+    }
+
+    public function types()
+    {
+        return $this->hasMany('App\Models\Type', 'appointment_type', 'appointment_id', 'type_id');
     }
 }

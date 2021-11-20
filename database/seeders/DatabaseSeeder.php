@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(VehicleTypeSeeder::class);
         $this->call(PermissionSeeder::class);
+        $this->call(AppointmentTypeSeeder::class);
         $user = \App\Models\User::factory()->create(['email' => "test@test.com"]);
         $admin = \App\Models\User::factory()->create(['email' => "admin@test.com"]);
         $admin->assignRole('admin');
@@ -24,6 +25,12 @@ class DatabaseSeeder extends Seeder
         $branch->assignRole('branch');
         \App\Models\Appointment::factory()->create();
         \App\Models\Vehicle::factory()->for($user)->create();
+        $rider = \App\Models\User::factory()->create(['email' => "rider@test.com"]);
+        $rider->assignRole('rider');
+        \App\Models\Appointment::factory(10)->create();
+        \App\Models\Vehicle::factory(10)->for($user)->create();
         \App\Models\Location::factory()->for($user)->create();
+        \App\Models\User::factory(10)->create();
+        \App\Models\Branch::factory(10)->create();
     }
 }

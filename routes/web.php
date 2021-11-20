@@ -6,6 +6,7 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PermissionTestController;
+use App\Http\Controllers\RiderController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -28,15 +29,18 @@ Route::get('/services', [HomeController::class, 'services']);
 Route::get('/pricing', [HomeController::class, 'pricing']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
+Route::post('/contact', [HomeController::class, 'contactStore']);
 require __DIR__ . '/auth.php';
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('User/Dashboard');
 })->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     // Appointment Routes
     Route::get('/appointments', [AppointmentController::class, 'index']);
+    Route::get('/appointments/create', [AppointmentController::class, 'create']);
+    Route::get('/appointments/{appointmentId}', [AppointmentController::class, 'show']);
     Route::post('/appointments', [AppointmentController::class, 'store']);
     Route::post('/appointments/{appointmentId}', [AppointmentController::class, 'applyForAppointment']);
     Route::post('/appointments/{appointmentId}/cancel', [AppointmentController::class, 'cancel']);
@@ -58,15 +62,26 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/locations/{locationId}/edit', [LocationController::class, 'edit']);
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
 
+    // Branch Routes
+
     Route::get('/branch/dashboard', [BranchController::class, 'index']);
+    Route::get('/branches/create', [BranchController::class, 'create']);
     Route::post('/branches/store', [BranchController::class, 'store']);
 });
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index']);
+    Route::get('/admin/dashboard/users', [AdminController::class, 'users']);
+    Route::get('/admin/dashboard/vehicles', [AdminController::class, 'vehicles']);
+    Route::get('/admin/dashboard/branches', [AdminController::class, 'branches']);
+    Route::get('/admin/dashboard/appointments', [AdminController::class, 'appointments']);
 });
 
 // Route::middleware(['role:branch manager', 'auth'])->group(function () {
 //     Route::get('/branch/dashboard', [BranchController::class, 'index']);
 //     Route::post('/branches/store', [BranchController::class, 'store']);
 // });
+
+Route::middleware(['role:rider', 'auth'])->group(function () {
+    Route::get('/rider/dashboard', [RiderController::class, 'index']);
+});

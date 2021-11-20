@@ -1,23 +1,13 @@
 <template>
-    <Navbar></Navbar>
-    <!-- component -->
-    <div class="skew skew-bottom mr-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
-    </svg>
-  </div>
-  <div class="skew skew-bottom ml-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
-    </svg>
-  </div>
+<Navbar></Navbar>
+   <!-- component -->
   <div class="hidden sm:block" aria-hidden="true">
     <div class="py-5">
       <div class="border-t border-gray-200" />
     </div>
   </div>
 
-  <h1 class="flex justify-center">Register Your Vehicle</h1>
+  <h1 class="flex justify-center">Appointment Details</h1>
   <div class="mt-10 sm:mt-0">
     <div class="md:grid md:grid-cols-3 md:ml-10">
       <div class="mt-5 md:mt-0 md:col-span-2">
@@ -26,27 +16,23 @@
             <div class="px-4 py-5 sm:p-6">
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="first-name" class="block text-sm font-medium text-gray-700"><b>Car Brand</b></label>
-                  <input type="text" name="first-name" id="first-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <label for="first-name" class="block text-sm font-medium text-gray-700"><b>Registered Vehicle</b></label>
+                  <input type="text" name="#" id="#" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="last-name" class="block text-sm font-medium text-gray-700"><b>Car Model</b></label>
-                  <input type="text" name="last-name" id="last-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <label for="last-name" class="block text-sm font-medium text-gray-700">Time Slot</label>
+                  <input type="text" name="#" id="#" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
+                <div class="col-span-6 sm:col-span-5">
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">Appointment Type</label>
+                  <input type="text" name="#" id="#"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700"><b>Plate Number</b></label>
-                  <input type="text" name="email-address" id="email-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="country" class="block text-sm font-medium text-gray-700"><b>Car Type</b></label>
-                  <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
-                  </select>
+                  <label for="email-address" class="block text-sm font-medium text-gray-700">Location</label>
+                  <input type="text" name="#" id="#"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <!-- <div class="col-span-6">
@@ -69,9 +55,7 @@
                   <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div> -->
               </div>
-
-                <h1 class="mt-8">Upload a picture of your car</h1>
-                <div class="flex">
+                <div class="flex mt-8">
                     <div class="max-w-2xl rounded-lg shadow-xl bg-gray-50">
                         <div class="m-4">
                             <label class="inline-block mb-2 text-gray-500">File Upload</label>
@@ -97,47 +81,45 @@
                     </div>
                 </div>
             </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+            <!-- <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
               <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Save
               </button>
-            </div>
+            </div> -->
           </div>
         </form>
       </div>
       <div class="shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300" id="form">
-        <p class="text-center text-2xl "><u><b>Services</b></u></p>
-        <p class="text-center text-base mt-2 ">Appointment Type :-</p>
-        <p class="text-center text-base mt-8">Full car wash (Available only at Branches) : </p>
-        <p class="text-center text-base">Car wash with Vacuum and Polish</p>
-        <p class="text-center text-base mt-8 ">Wash only :</p>
-        <p class="text-center text-base">Car wash without vacuum or polish</p>
-        <p class="text-center text-base mt-8 ">Wash + Vacuum :</p>
-        <p class="text-center text-base">Car wash with vacuuming servics</p>
+           <div class="px-4 py-3 bg-blue-900 text-right sm:px-6 m-8 text-white">
+                <p class="text-center text-Base "><b>Order Total</b></p>
+                <p class="text-center text-3xl mt-4">RM 20.00</p>
+                <p class="text-center text-base">1xFull Car Wash </p>
+
+                <p class="text-center text-base mt-8">Promo</p>
+                <p class="text-center text-base">Payment Method</p>
+                <button type="submit" class="mt-60 mr-32 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Make Payment
+                </button>
+            </div>
       </div>
     </div>
   </div>
-  <div class="skew skew-bottom mr-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
-    </svg>
-  </div>
-  <div class="skew skew-bottom ml-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
-    </svg>
-  </div>
 </template>
-
 <script>
-import Navbar from '@/Components/Navbar';
+import Navbar from "@/Components/Navbar";
 export default {
+    props: ["appointment"],
+    computed: {},
     components: {
-      Navbar,
+        Navbar,
     },
-}
+    created() {
+    },
+    data() {
+        return {};
+    },
+
+    methods() {},
+};
 </script>
 
-<style>
-
-</style>
