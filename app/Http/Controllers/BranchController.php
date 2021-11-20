@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\Branch;
+use App\Models\Location;
 use Illuminate\Http\Request;
 
 class BranchController extends Controller
@@ -21,6 +22,16 @@ class BranchController extends Controller
         $appointments = Appointment::latest()->get();
         return inertia('Branch/Appointments', [
             'appointments' => $appointments,
+        ]);
+    }
+
+    public function locations()
+    {
+        $locations = Location::latest()->get();
+        $branches = Branch::latest()->get();
+        return inertia('Branch/Locations', [
+            'locations' => $locations,
+            'branches' => $branches,
         ]);
     }
 

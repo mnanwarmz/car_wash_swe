@@ -153,7 +153,7 @@
         <div v-if="is('branch manager')" class="mt-10 mb-10">
             <ul>
               <li class="mb-6">
-                <a href="/admin/dashboard">
+                <a href="/branch/dashboard">
                   <span>
                     <svg
                         class="fill-current h-5 w-5 text-gray-900 mx-auto hover:text-green-500"
@@ -180,7 +180,7 @@
                 </a>
               </li>
               <li class="mb-6">
-                <a href="/admin/dashboard/branches">
+                <a href="/branches/locations">
                   <span>
                         <svg
                             class="fill-current h-5 w-5 text-gray-900 mx-auto hover:text-green-500"

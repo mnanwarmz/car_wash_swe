@@ -59,6 +59,10 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </section>
+    <section class="container mx-auto p-6 font-mono">
+        <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
             <div class="mt-3 w-full md:overflow-y-auto">
                 <h1 class="text-black text-2xl flex flex-wrap justify-center">In-Progress Appointments</h1>
                 <table class="w-full">
@@ -107,7 +111,7 @@
                 </table>
             </div>
         </div>
-        </section>
+    </section>
 </div>
 </div>
 </template>

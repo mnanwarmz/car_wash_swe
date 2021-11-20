@@ -20,6 +20,11 @@
             </div>
 
             <div class="mt-4">
+                <jet-label for="phone" value="Phone" />
+                <jet-input id="phone" type="tel" class="mt-1 block w-full" v-model="form.phone" required />
+            </div>
+
+            <div class="mt-4">
                 <jet-label for="password" value="Password" />
                 <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
             </div>
@@ -83,6 +88,7 @@
                 form: this.$inertia.form({
                     name: '',
                     email: '',
+                    phone: '',
                     password: '',
                     password_confirmation: '',
                     terms: false,
