@@ -117,7 +117,6 @@ export default {
         Navbar,
     },
     created() {
-        console.log("Created" + this.appointment);
     },
     data() {
         return {};

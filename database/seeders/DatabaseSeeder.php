@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(VehicleTypeSeeder::class);
         $this->call(PermissionSeeder::class);
+        $this->call(AppointmentTypeSeeder::class);
         $user = \App\Models\User::factory()->create(['email' => "test@test.com"]);
         $admin = \App\Models\User::factory()->create(['email' => "admin@test.com"]);
         $admin->assignRole('admin');
