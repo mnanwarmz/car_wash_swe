@@ -2,14 +2,7 @@
     <Navbar></Navbar>
     <!-- component -->
     <div class="skew skew-bottom mr-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
-    </svg>
-  </div>
-  <div class="skew skew-bottom ml-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
-    </svg>
+
   </div>
   <div class="hidden sm:block" aria-hidden="true">
     <div class="py-5">
@@ -27,25 +20,23 @@
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                   <label for="first-name" class="block text-sm font-medium text-gray-700"><b>Car Brand</b></label>
-                  <input type="text" name="first-name" id="first-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <input  type="text" v-model="form.brand" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
                   <label for="last-name" class="block text-sm font-medium text-gray-700"><b>Car Model</b></label>
-                  <input type="text" name="last-name" id="last-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <input type="text" v-model="form.model" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
                   <label for="email-address" class="block text-sm font-medium text-gray-700"><b>Plate Number</b></label>
-                  <input type="text" name="email-address" id="email-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                  <input type="text" v-model="form.plate_no" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
                   <label for="country" class="block text-sm font-medium text-gray-700"><b>Car Type</b></label>
-                  <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
+                  <select v-model="form.vehicle_type_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option v-for="vehicle_type in vehicle_types" :key="vehicle_type" :value="`${vehicle_type.id}`">{{ vehicle_type.name }}</option>
                   </select>
                 </div>
 
@@ -98,8 +89,8 @@
                 </div>
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Save
+              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" @click="submitForm">
+                Submit
               </button>
             </div>
           </div>
@@ -130,11 +121,27 @@
 </template>
 
 <script>
+import { useForm } from '@inertiajs/inertia-vue3';
 import Navbar from '@/Components/Navbar';
 export default {
+    props:["vehicle_types"],
     components: {
       Navbar,
     },
+    setup(){
+        const form = useForm({
+            plate_no: null,
+            brand: null,
+            model: null,
+            vehicle_type_id: null,
+        })
+        return {form}
+    },
+    methods: {
+        submitForm() {
+            this.form.post('/vehicles/create')
+        }
+    }
 }
 </script>
 

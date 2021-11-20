@@ -60,10 +60,10 @@ class VehicleTest extends TestCase
 
     public function test_authenticated_user_can_add_vehicle()
     {
-        $vehicle = Vehicle::factory()->make();
 
         $this->actingAs($this->user);
 
+        $vehicle = Vehicle::factory()->make(['user_id' => $this->user->id]);
         $this->assertAuthenticated();
         $this->assertDatabaseMissing('vehicles', $vehicle->toArray());
         $this->post('/vehicles', $vehicle->toArray());
