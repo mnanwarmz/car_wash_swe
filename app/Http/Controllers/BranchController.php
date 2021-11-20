@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 
 class BranchController extends Controller
 {
-    public function index($branchId)
+    public function index()
     {
-        $branch = Branch::findOrFail($branchId);
-        return inertia('Branch/Index', compact('branch'));
+        $auth = auth()->user();
+        return inertia('Branch/Index', [
+            'auth' => $auth,
+        ]);
     }
 
     public function create()
@@ -33,10 +35,5 @@ class BranchController extends Controller
             'status' => 'Inactive'
         ]);
         // Once Branch is deemed valid, give user branch manager role
-    }
-
-    public function show($id)
-    {
-        return inertia('Branch/Show');
     }
 }

@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::factory()->create(['email' => "test@test.com"]);
         $admin = \App\Models\User::factory()->create(['email' => "admin@test.com"]);
         $admin->assignRole('admin');
+        $branch = \App\Models\User::factory()->create(['email' => "branch@test.com"]);
+        $branch->assignRole('branch');
         \App\Models\Appointment::factory()->create();
         \App\Models\Vehicle::factory()->for($user)->create();
         \App\Models\Location::factory()->for($user)->create();

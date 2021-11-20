@@ -58,7 +58,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/locations/{locationId}/edit', [LocationController::class, 'edit']);
     Route::delete('/locations/{locationId}', [LocationController::class, 'destroy']);
 
-    // Branch Routes
+    Route::get('/branch/dashboard', [BranchController::class, 'index']);
     Route::post('/branches/store', [BranchController::class, 'store']);
 });
 
@@ -66,6 +66,7 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index']);
 });
 
-Route::middleware(['role:branch manager', 'auth'])->group(function () {
-    Route::get('/branch/{branchId}/dashboard', [BranchController::class, 'index']);
-});
+// Route::middleware(['role:branch manager', 'auth'])->group(function () {
+//     Route::get('/branch/dashboard', [BranchController::class, 'index']);
+//     Route::post('/branches/store', [BranchController::class, 'store']);
+// });
