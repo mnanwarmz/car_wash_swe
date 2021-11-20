@@ -22,12 +22,6 @@
     @routes
     <script src="{{ mix('js/app.js') }}" defer></script>
 
-    <script type="text/javascript">
-        window.Laravel = {
-            csrfToken: "{{ csrf_token() }}",
-            jsPermissions: {!! auth()->check()?auth()->user()->jsPermissions():0 !!}
-        }
-    </script>
 </head>
 
 <body class="font-sans antialiased">
@@ -39,3 +33,10 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+        window.Laravel = {
+            // csrfToken: "{{ csrf_token() }}",
+            jsPermissions: {!! auth()->check()?auth()->user()->jsPermissions():0 !!}
+        }
+    </script>

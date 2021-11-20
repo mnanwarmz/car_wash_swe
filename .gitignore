@@ -15,5 +15,5 @@ yarn-error.log
 /.vscode
 webpack.mix.js
 node_modules
-public/css
-public/js
+/public/css
+/public/js

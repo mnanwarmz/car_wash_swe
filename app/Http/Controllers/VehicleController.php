@@ -29,7 +29,7 @@ class VehicleController extends Controller
             'vehicle_type_id' => 'required|exists:vehicle_types,id'
         ]);
         Vehicle::create($data + ['user_id' => auth()->id()]);
-        return redirect()('vehicles');
+        return redirect('vehicles');
     }
 
     public function create()
