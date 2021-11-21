@@ -1,5 +1,8 @@
 <template>
 <Navbar></Navbar>
+  <GDialog v-model="this.submitModal" v-cloak max-width="500">
+
+	</GDialog>
   <div class="z-0 bg-gray-50 flex flex-row h-screen w-screen">
     <Sidebar></Sidebar>
     <div class="container mx-auto px-4">
@@ -36,6 +39,10 @@
 <script>
 import Navbar from '@/Components/Navbar';
 import Sidebar from '@/Components/Sidebar';
+import { useForm } from '@inertiajs/inertia-vue3';
+import { GDialog, plugin } from "gitart-vue-dialog";
+import "gitart-vue-dialog/dist/style.css";
+
 export default {
   setup() {
 
@@ -43,9 +50,17 @@ export default {
   props:["vehicles"],
   components: {
       Navbar,
-	  Sidebar
+	  Sidebar,
+	  GDialog
   },
-
+  data:() => ({
+	  vehicleModal: false,
+  }),
+  methods: {
+	toggleModal() {
+	  this.submitModal = true;
+	}
+  }
 }
 </script>
 

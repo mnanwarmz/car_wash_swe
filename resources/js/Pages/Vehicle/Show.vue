@@ -1,6 +1,5 @@
 <template>
-    <div>Show Works!</div>
-    <div>Vehicle {{vehicle.id}}</div>
+
 </template>
 
 <script>
