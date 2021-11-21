@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--
+    <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
 
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
@@ -35,8 +36,8 @@
 </html>
 
 <script type="text/javascript">
-        window.Laravel = {
+    window.Laravel = {
             // csrfToken: "{{ csrf_token() }}",
             jsPermissions: {!! auth()->check()?auth()->user()->jsPermissions():0 !!}
         }
-    </script>
+</script>
