@@ -66,6 +66,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Branch Routes
     Route::get('/branches/create', [BranchController::class, 'create']);
+	Route::post('/branches/store', [BranchController::class, 'store']);
 
 });
 
@@ -79,7 +80,6 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
 
 Route::middleware(['role:branch manager', 'auth'])->group(function () {
     Route::get('/branch/dashboard', [BranchController::class, 'index']);
-    Route::post('/branches/store', [BranchController::class, 'store']);
     Route::get('/branches/appointments', [BranchController::class, 'appointments']);
     Route::get('/branches/locations', [BranchController::class, 'locations']);
 });

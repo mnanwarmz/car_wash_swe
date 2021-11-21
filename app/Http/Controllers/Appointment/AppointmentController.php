@@ -14,7 +14,7 @@ class AppointmentController extends Controller
 {
     public function index()
     {
-        $appointments = Appointment::with(['location'])->latest()->get();
+        $appointments = Appointment::with(['location'])->where(['user_id' => auth()->id()])->latest()->get();
         return inertia('Appointment/Index', ['appointments' => $appointments]);
     }
 
@@ -69,8 +69,9 @@ class AppointmentController extends Controller
         $appointment = Appointment::findOrFail($appointmentId);
         $appointment->detachUser(auth()->id());
         $appointment->status = 1;
-        // dd($appointment);
         $appointment->save();
+
+		return redirect('/appointments');
     }
     public function show($appointmentId)
     {

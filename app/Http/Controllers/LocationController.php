@@ -9,7 +9,7 @@ class LocationController extends Controller
 {
     public function index()
     {
-        $locations = Location::latest()->get();
+        $locations = Location::latest()->where(['user_id' => auth()->id()])->get();
         return inertia('Location/Index', compact('locations'));
     }
     public function create()

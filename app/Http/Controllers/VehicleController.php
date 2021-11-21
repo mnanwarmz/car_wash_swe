@@ -11,7 +11,7 @@ class VehicleController extends Controller
 
     public function index()
     {
-        $vehicles = Vehicle::latest()->get();
+        $vehicles = Vehicle::latest()->where(['user_id' => auth()->id()] )->get();
         return inertia('Vehicle/Index', compact('vehicles'));
     }
     public function show($vehicleId)
