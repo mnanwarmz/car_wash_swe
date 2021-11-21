@@ -1,11 +1,12 @@
 
 <template class="max-h-screen">
 <Navbar></Navbar>
-    <Sidebar class="absolute z-50 h-full"></Sidebar>
-  <div class="ml-3 py-20 z-0 bg-gray-50 radius-for-skewed">
+
+  <div class="z-0 bg-gray-50 radius-for-skewed flex flex-row h-full w-full">
+      <Sidebar></Sidebar>
     <div class="container mx-auto px-4">
       <div class="mb-16 text-center">
-        <h2 class="text-4xl lg:text-5xl font-bold font-heading">Your Saved Locations</h2>
+        <h2 class="text-4xl lg:text-5xl font-bold font-heading mt-10">Your Saved Locations</h2>
       </div>
       <div class="flex flex-wrap justify-center ">
         <div class="flex flex-wrap w-full lg:w-1/2">

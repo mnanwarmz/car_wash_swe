@@ -2,13 +2,14 @@
 <Navbar></Navbar>
 
 
-        <Sidebar class="absolute z-50 h-screen"></Sidebar>
-  <div class="ml-3 py-20 z-0 bg-gray-50 radius-for-skewed">
+
+<div class="z-0 bg-gray-50 flex flex-row h-full w-full">
+    <Sidebar></Sidebar>
  <!-- <div class="py-20 bg-gray-50 radius-for-skewed"> -->
      <div class="container mx-auto px-4">
         <div class="mb-16 text-center">
-            <h2 class="text-4xl lg:text-5xl font-bold font-heading">Your Appointments</h2>
-            <div class="mt-10"><a class="inline-block py-2 px-6 rounded-b-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose outline-none transition duration-200" href="#">Add an Appointment</a></div>
+            <h2 class="mt-10 text-4xl lg:text-5xl font-bold font-heading">Your Appointments</h2>
+            <div class="mt-10"><a class="inline-block py-2 px-6 rounded-b-xl rounded-t-xl bg-green-600 hover:bg-green-700 text-gray-50 font-bold leading-loose outline-none transition duration-200" href="/appointments/create">Add an Appointment</a></div>
         </div>
            <div class="flex flex-wrap justify-center " >
              <div class="flex flex-wrap w-full lg:w-1/2">
@@ -36,18 +37,6 @@
              </div>
       </div>
 </div>
-
-    <div class="skew skew-bottom mr-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
-    </svg>
-  </div>
-  <div class="skew skew-bottom ml-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
-    </svg>
-  </div>
-
 </template>
 
 <script>

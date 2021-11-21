@@ -9,6 +9,8 @@ import VueTimepicker from 'vue3-timepicker'
 import 'vue3-timepicker/dist/VueTimepicker.css'
 import 'animate.css';
 import 'vue-carousel';
+import InfiniteLoading from "v3-infinite-loading";
+import "v3-infinite-loading/lib/style.css";
 // import VueTableDynamic from 'vue-table-dynamic';
 
 
@@ -23,6 +25,7 @@ createInertiaApp({
             .use(plugin)
             .use(LaravelPermissionToVueJS)
             .use(VueTimepicker)
+            .component("infinite-loading", InfiniteLoading)
             .component('Datepicker', Datepicker)
             .mixin({ methods: { route } })
             .mount(el);
