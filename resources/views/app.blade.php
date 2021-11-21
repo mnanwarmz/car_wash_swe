@@ -21,6 +21,7 @@
     <!-- Scripts -->
     @routes
     <script src="{{ mix('js/app.js') }}" defer></script>
+	<script src="https://js.stripe.com/v3/"></script>
 
 </head>
 

@@ -93,6 +93,8 @@ class AppointmentController extends Controller
         $appointment_types = $request->validate([
             'appointment_type_ids' => 'required|exists:appointment_types,id',
         ]);
+
+		$request->user()->charge($data['price'],);
         $appointment = Appointment::create($data + ['user_id' => auth()->id()]);
 			$appointment->types()->attach($appointment_types['appointment_type_ids']);	
         return redirect('/appointments');
