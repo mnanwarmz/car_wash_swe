@@ -148,6 +148,69 @@
             </div>
         </section>
     </GDialog>
+    <GDialog v-model="deleteModal" v-cloak max-width="500">
+        <div class="flex flex-col items-start p-4">
+            <div class="flex items-center w-full">
+                <div class="text-gray-900 font-medium text-2xl py-2">
+                    Confirm Deletion
+                </div>
+                <svg
+                    class="
+                        ml-auto
+                        fill-current
+                        text-gray-700
+                        w-6
+                        h-6
+                        cursor-pointer
+                    "
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 18 18"
+                >
+                    <path
+                        d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                    />
+                </svg>
+            </div>
+            <hr />
+            <div class="">
+                Are you sure you want to cancel selected appointment?
+            </div>
+            <hr />
+            <div class="ml-auto flex">
+                <button
+                    @click="deleteVehicle"
+                    class="
+                        bg-red-500
+                        hover:bg-red-700
+                        text-white
+                        font-bold
+                        py-2
+                        px-4
+                        rounded
+                    "
+                >
+                    Confirm
+                </button>
+                <div class="pr-2"></div>
+                <button
+                    class="
+                        bg-transparent
+                        hover:bg-gray-500
+                        text-blue-700
+                        font-semibold
+                        hover:text-white
+                        py-2
+                        px-4
+                        border border-blue-500
+                        hover:border-transparent
+                        rounded
+                    "
+                >
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </GDialog>
     <div class="z-0 bg-gray-50 flex flex-row h-screen w-screen">
         <Sidebar></Sidebar>
         <div class="container mx-auto px-4">
@@ -234,39 +297,43 @@
                                 >
                                     {{ vehicle.type.name }}
                                 </p>
-                                <a
-                                    class="
-                                        mt-auto
-                                        ml-auto
-                                        py-1
-                                        px-3
-                                        text-sm
-                                        bg-red-400
-                                        rounded-full
-                                        text-white
-                                        uppercase
-                                        font-bold
-                                    "
-                                    @click="toggleDeleteModal(vehicle.id)"
-                                    >Delete Vehicle</a
-                                >
-                                <button
-                                    class="
-                                        mt-auto
-                                        ml-auto
-                                        py-1
-                                        px-3
-                                        text-sm
-                                        bg-white
-                                        rounded-full
-                                        text-green-600
-                                        uppercase
-                                        font-bold
-                                    "
-                                    @click="toggleVehicleModal(vehicle.id)"
-                                >
-                                    Edit Vehicle
-                                </button>
+                                <div class="flex mt-auto ml-auto">
+                                    <button
+                                        class="
+                                            mt-auto
+                                            ml-auto
+                                            py-1
+                                            px-3
+                                            text-sm
+                                            bg-red-400
+                                            rounded-full
+                                            text-white
+                                            uppercase
+                                            font-bold
+                                        "
+                                        @click="toggleDeleteModal(vehicle.id)"
+                                    >
+                                        Delete Vehicle
+                                    </button>
+                                    >
+                                    <button
+                                        class="
+                                            mt-auto
+                                            ml-auto
+                                            py-1
+                                            px-3
+                                            text-sm
+                                            bg-white
+                                            rounded-full
+                                            text-green-600
+                                            uppercase
+                                            font-bold
+                                        "
+                                        @click="toggleVehicleModal(vehicle.id)"
+                                    >
+                                        Edit Vehicle
+                                    </button>
+                                </div>
                                 <!-- </a> -->
                             </div>
                         </div>
@@ -329,6 +396,21 @@ export default {
             );
             this.vehicleModal = false;
             this.deleteModal = true;
+        },
+        deleteVehicle() {
+            this.$inertia.post(
+                `/vehicles/${this.vehicleSelected_id}`,
+                {
+                    _method: "delete",
+                },
+                {
+                    preserveState: false,
+                }
+            );
+            this.deleteModal = false;
+            this.$nextTick(() => {
+                this.$forceUpdate();
+            });
         },
         submit() {
             this.vehicleModal = false;

@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/vehicles/{vehicleId}', [VehicleController::class, 'show']);
     Route::get('/vehicles/{vehicleId}/edit', [VehicleController::class, 'edit']);
     Route::post('/vehicles/create', [VehicleController::class, 'store']);
+    Route::delete('/vehicles/{vehicleId}', [VehicleController::class, 'destroy']);
 
     // Location Routes
     Route::get('/locations', [LocationController::class, 'index']);
