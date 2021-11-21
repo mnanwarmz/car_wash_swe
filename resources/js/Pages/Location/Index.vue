@@ -1,7 +1,8 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
-<template>
+
+<template class="max-h-screen">
 <Navbar></Navbar>
-  <div class="py-20 bg-gray-50 radius-for-skewed">
+    <Sidebar class="absolute z-50 h-full"></Sidebar>
+  <div class="ml-3 py-20 z-0 bg-gray-50 radius-for-skewed">
     <div class="container mx-auto px-4">
       <div class="mb-16 text-center">
         <h2 class="text-4xl lg:text-5xl font-bold font-heading">Your Saved Locations</h2>
@@ -43,6 +44,7 @@
 
 <script>
 import Navbar from '@/Components/Navbar';
+import Sidebar from '@/Components/Sidebar';
 export default {
   setup() {
 
@@ -50,6 +52,7 @@ export default {
   props:["locations"],
   components: {
       Navbar,
+	  Sidebar
   },
 }
 </script>

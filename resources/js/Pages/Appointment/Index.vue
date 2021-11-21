@@ -1,7 +1,10 @@
 <template>
 <Navbar></Navbar>
 
- <div class="py-20 bg-gray-50 radius-for-skewed">
+
+        <Sidebar class="absolute z-50 h-screen"></Sidebar>
+  <div class="ml-3 py-20 z-0 bg-gray-50 radius-for-skewed">
+ <!-- <div class="py-20 bg-gray-50 radius-for-skewed"> -->
      <div class="container mx-auto px-4">
         <div class="mb-16 text-center">
             <h2 class="text-4xl lg:text-5xl font-bold font-heading">Your Appointments</h2>
@@ -10,9 +13,9 @@
            <div class="flex flex-wrap justify-center " >
              <div class="flex flex-wrap w-full lg:w-1/2">
 
-                <div class="w-full px-3 mb-5">
+                <div class="w-full px-3 mb-5" v-for="appointment in appointments" :key="appointment">
                     <a href="#">
-                         <div v-for="appointment in appointments" :key="appointment" class="relative h-64 mx-auto rounded flex flex-wrap justify-center" id="list">
+                         <div  class="relative h-64 mx-auto rounded flex flex-wrap justify-center" id="list">
                             <div class="absolute inset-0 p-6 flex flex-col items-start">
                                     <span class="mt-90 text-xl lg:text-2xl text-gray-300 font-bold">
                                         {{appointment.start}} - {{appointment.end}}
@@ -49,6 +52,7 @@
 
 <script>
 import Navbar from "@/Components/Navbar";
+import Sidebar from "@/Components/Sidebar";
 export default {
      setup() {
 
@@ -57,6 +61,7 @@ export default {
     computed: {},
   components: {
         Navbar,
+		Sidebar
     },
     created() {
         console.log("Created" + this.appointments);

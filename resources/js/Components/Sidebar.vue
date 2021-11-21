@@ -237,7 +237,7 @@
                     </a>
                 </li>
                 <li class="mb-6">
-                    <a href="">
+                    <a href="/locations">
                         <span>
                             <svg
                                 class="fill-current h-5 w-5 text-gray-300 mx-auto hover:text-green-500"
