@@ -34,7 +34,7 @@
                   <label class="block text-sm font-medium text-gray-700 mb-1">Appointment Time</label>
                   <div class="relative col-span-4">
                     <vue-timepicker
-                    format="h:mm A"
+                    format="H:mm"
                     :minute-interval="30"
                     :minute-range="[0,30]"
                     v-model="form.start_at">
@@ -166,11 +166,12 @@ export default {
     },
     updated()
     {
-        this.form.start_at = moment(form.start_at).format('YYYY-MM-DD');
-        this.form.end_at = moment(form.start_at).add(30,'m');
+        this.form.start_at = moment({hours:this.form.start_at.H,minutes:this.form.start_at.mm,}).format('YYYY-MM-DD HH:mm:ss');
+        this.form.start_at = moment(this.form.start_at);
+		this.form.end_at = moment(this.form.start_at).add(30,'m').format('YYYY-MM-DD HH:mm:ss');
         this.form.appointment_type_ids = this.typesSelected;
         this.form.price = this.total;
-    },
+		},
     methods: {
             // registerVehicleModal()
             // {
