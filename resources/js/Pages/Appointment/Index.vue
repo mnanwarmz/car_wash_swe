@@ -1,6 +1,8 @@
 <template>
 <Navbar></Navbar>
-	<Sidebar class="absolute z-50 h-screen"></Sidebar>
+<div class="z-0 bg-gray-50 flex flex-row h-screen w-full">
+
+	<Sidebar ></Sidebar>
   <GDialog v-model="this.submitModal" v-cloak max-width="500">
     <div class="flex flex-col items-start p-4">
       <div class="flex items-center w-full">
@@ -23,7 +25,7 @@
       </div>
     </div>
   </GDialog>
-  <div class="ml-3 py-20 z-0 bg-gray-50 radius-for-skewed">
+  <div class="ml-3 py-20 z-0 bg-gray-50 radius-for-skewed h-full w-full">
  <!-- <div class="py-20 bg-gray-50 radius-for-skewed"> -->
      <div class="container mx-auto px-4">
         <div class="mb-16 text-center">
@@ -56,18 +58,7 @@
              </div>
       </div>
 </div>
-
-    <div class="skew skew-bottom mr-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
-    </svg>
-  </div>
-  <div class="skew skew-bottom ml-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
-    </svg>
-  </div>
-
+</div>
 </template>
 
 <script>
