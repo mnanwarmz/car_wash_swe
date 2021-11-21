@@ -21294,8 +21294,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.appointment_types.forEach(function (type) {
           if (element == type.id) tot += type.price;
         });
-      }); // return this.typesSelected.reduce((a, b) => a + b, 0);
-
+      });
       return tot;
     }
   },
@@ -21305,7 +21304,9 @@ __webpack_require__.r(__webpack_exports__);
       vehcleRegisterModal: false,
       LocationRegisterModal: false,
       total_price: 0,
-      vehicles: []
+      vehicles: [],
+      types: [],
+      vehicleSelected: null
     };
   },
   setup: function setup() {
@@ -21315,7 +21316,7 @@ __webpack_require__.r(__webpack_exports__);
       location_id: null,
       vehicle_id: null,
       appointment_type_ids: null,
-      price: null,
+      price: 0,
       status: 1
     });
     return {
@@ -21323,11 +21324,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   updated: function updated() {
-    this.form.start_at = moment__WEBPACK_IMPORTED_MODULE_6___default()(form.start_at).format('YYYY-MM-DD');
-    this.form.end_at = moment__WEBPACK_IMPORTED_MODULE_6___default()(form.start_at).add(30, 'm');
-    this.form.end_at = this.form.start_at;
-    this.form.price = this.total;
+    this.form.start_at = moment__WEBPACK_IMPORTED_MODULE_6___default()({
+      hours: this.form.start_at.H,
+      minutes: this.form.start_at.mm
+    }).format('YYYY-MM-DD HH:mm:ss');
+    this.form.start_at = moment__WEBPACK_IMPORTED_MODULE_6___default()(this.form.start_at);
+    this.form.end_at = moment__WEBPACK_IMPORTED_MODULE_6___default()(this.form.start_at).add(30, 'm').format('YYYY-MM-DD HH:mm:ss');
     this.form.appointment_type_ids = this.typesSelected;
+    µµ;
+    this.form.price = this.total;
   },
   methods: {
     // registerVehicleModal()
@@ -26533,8 +26538,35 @@ var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_24 = {
   "class": "px-4 py-3 bg-gray-50 text-right sm:px-6"
 };
+var _hoisted_25 = {
+  "class": "shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300",
+  id: "form"
+};
+var _hoisted_26 = {
+  "class": "px-4 py-3 bg-blue-900 text-right sm:px-6 m-8 text-white"
+};
 
-var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300\" id=\"form\"><p class=\"text-center text-2xl\"><u><b>Services</b></u></p><p class=\"text-center text-base mt-2\">Appointment Type :-</p><p class=\"text-center text-base mt-8\">Full car wash (Available only at Branches) : </p><p class=\"text-center text-base\">Car wash with Vacuum and Polish</p><p class=\"text-center text-base mt-8\">Wash only :</p><p class=\"text-center text-base\">Car wash without vacuum or polish</p><p class=\"text-center text-base mt-8\">Wash + Vacuum :</p><p class=\"text-center text-base\">Car wash with vacuuming servics</p></div>", 1);
+var _hoisted_27 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-center font-bold text-2xl"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Order Review")], -1
+/* HOISTED */
+);
+
+var _hoisted_28 = {
+  "class": "text-center text-5xl mt-4 pt-3"
+};
+
+var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-center font-bold text-2xl mt-8 pt-3"
+}, "Services", -1
+/* HOISTED */
+);
+
+var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "text-center font-bold text-2xl pt-3"
+}, "Payment Method", -1
+/* HOISTED */
+);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Navbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navbar");
@@ -26566,7 +26598,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     "class": "bg-def-500 hover:bg-def-700 h-1/2 flex-2 font-bold py-2 px-4 rounded"
   }, _hoisted_15)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_vue_timepicker, {
-    format: "h:mm A",
+    format: "H:mm",
     "minute-interval": 30,
     "minute-range": [0, 30],
     modelValue: $setup.form.start_at,
@@ -26586,7 +26618,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     options: $props.appointment_types
   }, null, 8
   /* PROPS */
-  , ["modelValue", "options"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"value = true\" class=\"bg-def-500 hover:bg-def-700 h-1/2 flex-2 font-bold py-2 px-4 rounded\">\n                        <span class=\"text-white text-sm\">\n                            <i class=\"fas fa-plus\"></i>\n                            </span>\n                    </button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  , ["modelValue", "options"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"value = true\" class=\"bg-def-500 hover:bg-def-700 h-1/2 flex-2 font-bold py-2 px-4 rounded\">\r\n                        <span class=\"text-white text-sm\">\r\n                            <i class=\"fas fa-plus\"></i>\r\n                            </span>\r\n                    </button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $setup.form.location_id = $event;
     }),
@@ -26607,7 +26639,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[5] || (_cache[5] = function () {
       return $options.submitForm && $options.submitForm.apply($options, arguments);
     })
-  }, " Create Appointment ")])])]), _hoisted_25])])])], 64
+  }, " Create Appointment ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300\" id=\"form\">\r\n        <p class=\"text-center text-2xl \"><u><b>Services</b></u></p>\r\n        <p class=\"text-center text-base mt-2 \">Appointment Type :-</p>\r\n        <p class=\"text-center text-base mt-8\">Full car wash (Available only at Branches) : </p>\r\n        <p class=\"text-center text-base\">Car wash with Vacuum and Polish</p>\r\n        <p class=\"text-center text-base mt-8 \">Wash only :</p>\r\n        <p class=\"text-center text-base\">Car wash without vacuum or polish</p>\r\n        <p class=\"text-center text-base mt-8 \">Wash + Vacuum :</p>\r\n        <p class=\"text-center text-base\">Car wash with vacuuming servics</p>\r\n      </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_26, [_hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_28, "RM " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.form.price), 1
+  /* TEXT */
+  ), _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p v-for=\"type in types\" :key=\"type\" class=\"text-center text-xl pt-2\">{{type.name}} <span class=\"font-medium \"> RM{{type.price}}</span> </p> "), _hoisted_30, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[6] || (_cache[6] = function () {
+      return _ctx.checkout && _ctx.checkout.apply(_ctx, arguments);
+    }),
+    "class": "text-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+  }, " Make Payment ")])])])])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -28757,7 +28796,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section><div class=\"py-20 bg-gray-50 radius-for-skewed\"><div class=\"container mx-auto px-4\"><div class=\"max-w-2xl mx-auto text-center mb-16\"><h2 class=\"mb-2 text-4xl lg:text-5xl font-bold font-heading\">SERVICES</h2></div><div class=\"flex flex-wrap -mx-4\"><div class=\"w-full md:w-1/2 lg:w-1/3 px-4 mb-8 lg:mb-0\"><div class=\"p-8 bg-white shadow rounded\"><div><h4 class=\"mb-2 text-2xl font-bold text-black\">Standard Wash</h4><img class=\"w-full\" src=\"/images/standardwash.jpg\"><div class=\"px-4 py-2\"><div class=\"flex space-x-2 mt-2\"><span><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-7 w-7 text-yellow-400\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\"></path><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\"></path></svg></span><h3 class=\"text-lg text-black font-semibold mb-2\">New York</h3></div><p class=\"text-md tracking-normal\">The polishing process removes a very small amount of the clearcoat, because it&#39;s the clearcoat that gets damaged. A polish is designed to remove that damage, whether it be in the form of water marks, acid-rain etch, fine scratches or swirl marks.</p></div></div><a class=\"inline-block text-center py-2 px-4 w-full rounded-l-xl rounded-t-xl bg-green-600 text-white font-bold leading-loose shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105\" href=\"#\">Get Started</a></div></div><div class=\"w-full md:w-1/2 lg:w-1/3 px-4 mb-8 lg:mb-0\"><div class=\"p-8 bg-green-600 shadow rounded\"><div><h4 class=\"mb-2 text-2xl font-bold text-white\">Standard Wash</h4><img class=\"w-full\" src=\"/images/standardwash.jpg\"><div class=\"px-4 py-2\"><div class=\"flex space-x-2 mt-2\"><span><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-7 w-7 text-yellow-400\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\"></path><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\"></path></svg></span><h3 class=\"text-lg text-white font-semibold mb-2\">New York</h3></div><p class=\"text-md tracking-normal text-white\">The polishing process removes a very small amount of the clearcoat, because it&#39;s the clearcoat that gets damaged. A polish is designed to remove that damage, whether it be in the form of water marks, acid-rain etch, fine scratches or swirl marks.</p></div></div><a class=\"inline-block text-center py-2 px-4 w-full rounded-l-xl rounded-t-xl bg-white hover:bg-gray-50 font-bold leading-loose shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105\" href=\"#\">Get Started</a></div></div><div class=\"w-full lg:w-1/3 px-4\"><div class=\"p-8 bg-white shadow rounded\"><div><h4 class=\"mb-2 text-2xl font-bold text-black\">Standard Wash</h4><img class=\"w-full\" src=\"/images/standardwash.jpg\"><div class=\"px-4 py-2\"><div class=\"flex space-x-2 mt-2\"><span><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"h-7 w-7 text-yellow-400\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\"></path><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\"></path></svg></span><h3 class=\"text-lg text-black font-semibold mb-2\">New York</h3></div><p class=\"text-md tracking-normal\">The polishing process removes a very small amount of the clearcoat, because it&#39;s the clearcoat that gets damaged. A polish is designed to remove that damage, whether it be in the form of water marks, acid-rain etch, fine scratches or swirl marks.</p></div></div><a class=\"inline-block text-center py-2 px-4 w-full rounded-l-xl rounded-t-xl bg-green-600 text-white font-bold leading-loose shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105\" href=\"#\">Get Started</a></div></div></div></div></div><div class=\"skew skew-bottom mr-for-radius\"><svg class=\"h-8 md:h-12 lg:h-20 w-full text-gray-50\" viewBox=\"0 0 10 10\" preserveAspectRatio=\"none\"><polygon fill=\"currentColor\" points=\"0 0 10 0 0 10\"></polygon></svg></div><div class=\"skew skew-bottom ml-for-radius\"><svg class=\"h-8 md:h-12 lg:h-20 w-full text-gray-50\" viewBox=\"0 0 10 10\" preserveAspectRatio=\"none\"><polygon fill=\"currentColor\" points=\"0 0 10 0 10 10\"></polygon></svg></div></section>", 1);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<section><div class=\"py-20 bg-gray-50 radius-for-skewed\"><div class=\"container mx-auto px-4\"><div class=\"max-w-2xl mx-auto text-center mb-16\"><h2 class=\"mb-2 text-4xl lg:text-5xl font-bold font-heading\">SERVICES</h2></div><div class=\"flex flex-wrap -mx-4\"><div class=\"w-full md:w-1/2 lg:w-1/3 px-4 mb-8 lg:mb-0\"><div class=\"p-8 bg-white shadow rounded\"><div><h4 class=\"mb-2 text-2xl font-bold text-black\">Standard Wash</h4><img class=\"w-full\" src=\"/images/standardwash.jpg\"><div class=\"px-4 py-2\"><div class=\"flex space-x-2 mt-2\"></div><p class=\"text-md tracking-normal\">Car washes can be self-service (DIY), full-service (with attendants who wash the vehicle), or fully automated (possibly connected to a gas station).</p></div></div><a class=\"inline-block text-center py-2 px-4 w-full rounded-l-xl rounded-t-xl bg-green-600 text-white font-bold leading-loose shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105\" href=\"#\">Get Started</a></div></div><div class=\"w-full md:w-1/2 lg:w-1/3 px-4 mb-8 lg:mb-0\"><div class=\"p-8 bg-green-600 shadow rounded\"><div><h4 class=\"mb-2 text-2xl font-bold text-white\">Standard Polish</h4><img class=\"w-full\" src=\"/images/standardwash.jpg\"><div class=\"px-4 py-2\"><div class=\"flex space-x-2 mt-2\"></div><p class=\"text-md tracking-normal text-white\">The polishing process removes a very small amount of the clearcoat, because it&#39;s the clearcoat that gets damaged. A polish is designed to remove that damage, whether it be in the form of water marks, acid-rain etch, fine scratches or swirl marks.</p></div></div><a class=\"inline-block text-center py-2 px-4 w-full rounded-l-xl rounded-t-xl bg-white hover:bg-gray-50 font-bold leading-loose shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105\" href=\"#\">Get Started</a></div></div><div class=\"w-full lg:w-1/3 px-4\"><div class=\"p-8 bg-white shadow rounded\"><div><h4 class=\"mb-2 text-2xl font-bold text-black\">Standard Vacuum</h4><img class=\"w-full\" src=\"/images/standardwash.jpg\"><div class=\"px-4 py-2\"><div class=\"flex space-x-2 mt-2\"></div><p class=\"text-md tracking-normal\">The vacuuming process will ensure that no dirt will be left inside your car, best done after washing and polishing your car for maximum output</p></div></div><a class=\"inline-block text-center py-2 px-4 w-full rounded-l-xl rounded-t-xl bg-green-600 text-white font-bold leading-loose shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105\" href=\"#\">Get Started</a></div></div></div></div></div><div class=\"skew skew-bottom mr-for-radius\"><svg class=\"h-8 md:h-12 lg:h-20 w-full text-gray-50\" viewBox=\"0 0 10 10\" preserveAspectRatio=\"none\"><polygon fill=\"currentColor\" points=\"0 0 10 0 0 10\"></polygon></svg></div><div class=\"skew skew-bottom ml-for-radius\"><svg class=\"h-8 md:h-12 lg:h-20 w-full text-gray-50\" viewBox=\"0 0 10 10\" preserveAspectRatio=\"none\"><polygon fill=\"currentColor\" points=\"0 0 10 0 10 10\"></polygon></svg></div></section>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Navbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navbar");
@@ -30391,7 +30430,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<header class=\"bg-white shadow\"><div class=\"max-w-7xl mx-auto py-6 sm:px-6\"><h2 name=\"header\" class=\"font-semibold text-xl text-gray-800 leading-tight\">Vehicle Registration</h2></div></header><div class=\"py-5\"><div class=\"border-t border-gray-200\"></div></div>", 2);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", {
+  "class": "bg-white shadow"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "max-w-7xl mx-auto py-6 sm:px-6"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
+  name: "header",
+  "class": "font-semibold text-xl text-gray-800 leading-tight"
+}, "Vehicle Registration")])], -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "py-5"
+}, null, -1
+/* HOISTED */
+);
 
 var _hoisted_3 = {
   "class": "mt-10 sm:mt-0"
@@ -30405,42 +30459,39 @@ var _hoisted_5 = {
 var _hoisted_6 = {
   "class": "shadow overflow-hidden sm:rounded-md bg-green-300"
 };
-var _hoisted_7 = {
-  "class": "px-4 py-5 sm:p-6"
-};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "bg-blue-200 py-1 rounded-md"
+}, null, -1
+/* HOISTED */
+);
+
 var _hoisted_8 = {
-  "class": "grid grid-cols-6 gap-6"
+  "class": "px-4 py-10"
 };
 var _hoisted_9 = {
+  "class": "grid grid-cols-6 gap-6"
+};
+var _hoisted_10 = {
   "class": "col-span-6 sm:col-span-3"
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "first-name",
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "country",
   "class": "block text-sm font-medium text-gray-700"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Car Brand")], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Car Type")], -1
 /* HOISTED */
 );
 
-var _hoisted_11 = {
-  "class": "col-span-6 sm:col-span-3"
-};
-
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "last-name",
-  "class": "block text-sm font-medium text-gray-700"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Car Model")], -1
-/* HOISTED */
-);
-
+var _hoisted_12 = ["value"];
 var _hoisted_13 = {
   "class": "col-span-6 sm:col-span-3"
 };
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "email-address",
+  "for": "first-name",
   "class": "block text-sm font-medium text-gray-700"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Plate Number")], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Car Brand")], -1
 /* HOISTED */
 );
 
@@ -30449,35 +30500,42 @@ var _hoisted_15 = {
 };
 
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "country",
+  "for": "last-name",
   "class": "block text-sm font-medium text-gray-700"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Car Type")], -1
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Car Model")], -1
 /* HOISTED */
 );
 
-var _hoisted_17 = ["value"];
-var _hoisted_18 = {
+var _hoisted_17 = {
+  "class": "col-span-6 sm:col-span-3"
+};
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "email-address",
+  "class": "block text-sm font-medium text-gray-700"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Plate Number")], -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
   "class": "px-4 py-3 bg-gray-50 text-right sm:px-6"
 };
-var _hoisted_19 = {
+var _hoisted_20 = {
   "class": "shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300",
   id: "form"
 };
-var _hoisted_20 = {
+var _hoisted_21 = {
   "class": "px-4 py-3 bg-blue-900 text-right sm:px-6 m-8 text-white"
 };
 
-var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-center font-bold text-2xl"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "Vehicle Details")], -1
 /* HOISTED */
 );
 
-var _hoisted_22 = {
-  "class": "text-center text-5xl mt-4"
-};
 var _hoisted_23 = {
-  "class": "text-center text-xl mt-4"
+  "class": "text-center text-5xl mt-4"
 };
 var _hoisted_24 = {
   "class": "text-center text-xl mt-4"
@@ -30488,35 +30546,14 @@ var _hoisted_25 = {
 var _hoisted_26 = {
   "class": "text-center text-xl mt-4"
 };
+var _hoisted_27 = {
+  "class": "text-center text-xl mt-4"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Navbar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Navbar");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" component "), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Navbar), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" component "), _hoisted_1, _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-      return $setup.form.brand = $event;
-    }),
-    "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.brand]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $setup.form.model = $event;
-    }),
-    "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.model]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-      return $setup.form.plate_no = $event;
-    }),
-    "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.plate_no]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $setup.form.vehicle_type_id = $event;
     }),
     "class": "mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -30526,26 +30563,50 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       value: "".concat(vehicle_type.id)
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(vehicle_type.name), 9
     /* TEXT, PROPS */
-    , _hoisted_17);
+    , _hoisted_12);
   }), 128
   /* KEYED_FRAGMENT */
   ))], 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.vehicle_type_id]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"col-span-6\">\r\n                  <label for=\"street-address\" class=\"block text-sm font-medium text-gray-700\">Street address</label>\r\n                  <input type=\"text\" name=\"street-address\" id=\"street-address\" autocomplete=\"street-address\" class=\"mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md\" />\r\n                </div>\r\n\r\n                <div class=\"col-span-6 sm:col-span-6 lg:col-span-2\">\r\n                  <label for=\"city\" class=\"block text-sm font-medium text-gray-700\">City</label>\r\n                  <input type=\"text\" name=\"city\" id=\"city\" autocomplete=\"address-level2\" class=\"mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md\" />\r\n                </div>\r\n\r\n                <div class=\"col-span-6 sm:col-span-3 lg:col-span-2\">\r\n                  <label for=\"region\" class=\"block text-sm font-medium text-gray-700\">State / Province</label>\r\n                  <input type=\"text\" name=\"region\" id=\"region\" autocomplete=\"address-level1\" class=\"mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md\" />\r\n                </div>\r\n\r\n                <div class=\"col-span-6 sm:col-span-3 lg:col-span-2\">\r\n                  <label for=\"postal-code\" class=\"block text-sm font-medium text-gray-700\">ZIP / Postal code</label>\r\n                  <input type=\"text\" name=\"postal-code\" id=\"postal-code\" autocomplete=\"postal-code\" class=\"mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md\" />\r\n                </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <h1 class=\"mt-8\">Upload a picture of your car</h1>\r\n                <div class=\"flex\">\r\n                    <div class=\"max-w-2xl rounded-lg shadow-xl bg-gray-50\">\r\n                        <div class=\"m-4\">\r\n                            <label class=\"inline-block mb-2 text-gray-500\">File Upload</label>\r\n                            <div class=\"flex items-center justify-center w-full\">\r\n                                <label\r\n                                    class=\"flex flex-col w-full h-32 border-4 border-blue-200 border-dashed hover:bg-gray-100 hover:border-gray-300\">\r\n                                    <div class=\"flex flex-col items-center justify-center pt-7\">\r\n                                        <svg xmlns=\"http://www.w3.org/2000/svg\" class=\"w-8 h-8 text-gray-400 group-hover:text-gray-600\"\r\n                                            fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\">\r\n                                            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\"\r\n                                                d=\"M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12\" />\r\n                                        </svg>\r\n                                        <p class=\"pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600\">\r\n                                            Attach a file</p>\r\n                                    </div>\r\n                                    <input type=\"file\" class=\"opacity-0\" />\r\n                                </label>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"flex justify-center p-2\">\r\n                            <button class=\"w-full px-4 py-2 text-white bg-blue-500 rounded shadow-xl\">Create</button>\r\n                        </div>\r\n                    </div>\r\n                </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.vehicle_type_id]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $setup.form.brand = $event;
+    }),
+    "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.brand]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $setup.form.model = $event;
+    }),
+    "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.model]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $setup.form.plate_no = $event;
+    }),
+    "class": "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.plate_no]])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
     "class": "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
     onClick: _cache[4] || (_cache[4] = function () {
       return $options.submitForm && $options.submitForm.apply($options, arguments);
     })
-  }, " Submit ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.plate_no), 1
+  }, " Submit ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [_hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_23, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.plate_no), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_23, "Brand : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.brand), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_24, "Brand : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.brand), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_24, "Model : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.model), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_25, "Model : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.model), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_25, "Type : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.vehicle_type_name), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_26, "Type : " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.vehicle_type_name), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_26, "Rate : RM " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.price), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_27, "Rate : RM " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.price), 1
   /* TEXT */
   )])])])])], 64
   /* STABLE_FRAGMENT */

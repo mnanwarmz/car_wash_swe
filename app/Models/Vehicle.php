@@ -18,8 +18,14 @@ class Vehicle extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function type()
-    {
-        return $this->hasOne('App\Models\VehicleType', 'id', 'vehicle_type_id');
-    }
+    // public function type()
+    // {
+    //     return $this->belongsTo('App\Models\VehicleType');
+    // }
+
+	// Vehicle has one vehicle type
+	public function type()
+	{
+		return $this->belongsTo('App\Models\VehicleType', 'vehicle_type_id');
+	}
 }
