@@ -86,9 +86,8 @@
 			</div>
 			<div class="mt-auto">
 				<div v-if="($page.props.user)" class="pt-6 ">
-                    <a class="block px-4 py-3 mb-3 leading-loose text-sm text-center text-white font-bold leading-none bg-blue-500 hover:bg-blue-600 rounded-xl" v-if="is('admin | superadmin')" href="/admin/dashboard">Dashboard</a>
-                    <form v-else method="POST" @submit.prevent="logout">
-                        <jet-responsive-nav-link as="button" href="/" class="hover:bg-blue-50 hover:text-blue-600">
+                    <form method="POST" @submit.prevent="logout">
+                        <jet-responsive-nav-link as="button" href="/" class="hover:bg-blue-50">
                             Logout
                         </jet-responsive-nav-link>
                     </form>
@@ -131,9 +130,11 @@
                     <li class="font-medium">
                     <a href="#" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-red-600">
                         <form method="POST" @submit.prevent="logout">
-                            <jet-responsive-nav-link as="button" href="/">
-                                Logout
-                            </jet-responsive-nav-link>
+                            <button class="navbar-close">
+                                <jet-responsive-nav-link as="button" href="/">
+                                    Logout
+                                </jet-responsive-nav-link>
+                            </button>
                         </form>
                     </a>
                     </li>
