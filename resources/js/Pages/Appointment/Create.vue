@@ -80,7 +80,7 @@
             </div>
           </div>
       </div>
-      <div class="shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300" id="form">
+      <!-- <div class="shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300" id="form">
         <p class="text-center text-2xl "><u><b>Services</b></u></p>
         <p class="text-center text-base mt-2 ">Appointment Type :-</p>
         <p class="text-center text-base mt-8">Full car wash (Available only at Branches) : </p>
@@ -89,6 +89,18 @@
         <p class="text-center text-base">Car wash without vacuum or polish</p>
         <p class="text-center text-base mt-8 ">Wash + Vacuum :</p>
         <p class="text-center text-base">Car wash with vacuuming servics</p>
+      </div> -->
+	  <div class="shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300" id="form">
+           <div class="px-4 py-3 bg-blue-900 text-right sm:px-6 m-8 text-white">
+                <p class="text-center font-bold text-2xl  "><b>Order Review</b></p>
+                <p class="text-center text-5xl mt-4 pt-3">RM {{form.price}}</p>
+                <p class="text-center font-bold text-2xl  mt-8 pt-3">Services</p>
+                <!-- <p v-for="type in types" :key="type" class="text-center text-xl pt-2">{{type.name}} <span class="font-medium "> RM{{type.price}}</span> </p> -->
+                <p class="text-center  font-bold text-2xl pt-3">Payment Method</p>
+                <button @click="checkout" class=" text-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Make Payment
+                </button>
+            </div>
       </div>
     </div>
   </div>
@@ -127,7 +139,6 @@ export default {
                         tot += type.price;
                 });
             });
-            // return this.typesSelected.reduce((a, b) => a + b, 0);
             return tot;
         },
     },
@@ -137,6 +148,8 @@ export default {
         LocationRegisterModal: false,
         total_price: 0,
         vehicles: [],
+		types:[],
+		vehicleSelected: null,
     }),
     setup()
     {
@@ -146,7 +159,7 @@ export default {
                 location_id: null,
                 vehicle_id: null,
                 appointment_type_ids: null,
-                price:null,
+                price:0,
                 status:1,
         });
         return { form }
@@ -155,10 +168,8 @@ export default {
     {
         this.form.start_at = moment(form.start_at).format('YYYY-MM-DD');
         this.form.end_at = moment(form.start_at).add(30,'m');
-        this.form.end_at = this.form.start_at
-
-        this.form.price = this.total;
         this.form.appointment_type_ids = this.typesSelected;
+        this.form.price = this.total;
     },
     methods: {
             // registerVehicleModal()

@@ -1334,9 +1334,6 @@ select {
 .mr-32 {
 	margin-right: 8rem;
 }
-.mr-4 {
-	margin-right: 1rem;
-}
 .mr-1 {
 	margin-right: 0.25rem;
 }
@@ -1421,9 +1418,6 @@ select {
 .h-32 {
 	height: 8rem;
 }
-.h-28 {
-	height: 7rem;
-}
 .h-80 {
 	height: 20rem;
 }
@@ -1439,12 +1433,9 @@ select {
 .max-h-20 {
 	max-height: 5rem;
 }
-<<<<<<< HEAD
-=======
 .max-h-screen {
 	max-height: 100vh;
 }
->>>>>>> master
 .max-h-\[300px\] {
 	max-height: 300px;
 }
@@ -1508,9 +1499,6 @@ select {
 .w-14 {
 	width: 3.5rem;
 }
-.w-px {
-	width: 1px;
-}
 .w-2\/5 {
 	width: 40%;
 }
@@ -1549,9 +1537,6 @@ select {
 }
 .flex-1 {
 	flex: 1 1 0%;
-}
-.flex-none {
-	flex: none;
 }
 .flex-auto {
 	flex: 1 1 auto;
@@ -1704,11 +1689,6 @@ select {
 	margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
-.space-y-8 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-y-reverse: 0;
-	margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
-	margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -1815,14 +1795,6 @@ select {
 	border-top-left-radius: 0.75rem;
 	border-top-right-radius: 0.75rem;
 }
-.rounded-r-none {
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 0px;
-}
-.rounded-l-none {
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
-}
 .rounded-l-xl {
 	border-top-left-radius: 0.75rem;
 	border-bottom-left-radius: 0.75rem;
@@ -1918,13 +1890,10 @@ select {
 	--tw-border-opacity: 1;
 	border-color: rgba(191, 219, 254, var(--tw-border-opacity));
 }
-<<<<<<< HEAD
-=======
 .border-gray-50 {
 	--tw-border-opacity: 1;
 	border-color: rgba(249, 250, 251, var(--tw-border-opacity));
 }
->>>>>>> master
 .border-blue-300 {
 	--tw-border-opacity: 1;
 	border-color: rgba(147, 197, 253, var(--tw-border-opacity));
@@ -1977,6 +1946,10 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
+.bg-blue-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
+}
 .bg-blue-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
@@ -1992,10 +1965,6 @@ select {
 .bg-purple-400 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(167, 139, 250, var(--tw-bg-opacity));
-}
-.bg-blue-400 {
-	--tw-bg-opacity: 1;
-	background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
 }
 .bg-yellow-400 {
 	--tw-bg-opacity: 1;
@@ -2021,13 +1990,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(30, 58, 138, var(--tw-bg-opacity));
 }
-<<<<<<< HEAD
-.bg-black {
-	--tw-bg-opacity: 1;
-	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-}
-=======
->>>>>>> master
 .bg-green-400 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
@@ -2035,6 +1997,10 @@ select {
 .bg-blue-300 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(147, 197, 253, var(--tw-bg-opacity));
+}
+.bg-blue-200 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(191, 219, 254, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -2078,9 +2044,6 @@ select {
 }
 .p-3\.5 {
 	padding: 0.875rem;
-}
-.p-10 {
-	padding: 2.5rem;
 }
 .p-8 {
 	padding: 2rem;
@@ -2286,9 +2249,6 @@ select {
 .leading-loose {
 	line-height: 2;
 }
-.leading-normal {
-	line-height: 1.5;
-}
 .leading-relaxed {
 	line-height: 1.625;
 }
@@ -2411,9 +2371,6 @@ select {
 }
 .opacity-80 {
 	opacity: 0.8;
-}
-.opacity-60 {
-	opacity: 0.6;
 }
 .shadow-sm {
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -2620,10 +2577,6 @@ select {
 }
 .hover\:shadow-none:hover {
 	--tw-shadow: 0 0 #0000;
-	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.hover\:shadow-lg:hover {
-	--tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .hover\:shadow-xl:hover {
@@ -3088,10 +3041,6 @@ select {
 
 	.md\:h-12 {
 		height: 3rem;
-	}
-
-	.md\:w-full {
-		width: 100%;
 	}
 
 	.md\:w-1\/4 {
