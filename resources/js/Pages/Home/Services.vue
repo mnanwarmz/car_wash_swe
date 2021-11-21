@@ -14,15 +14,8 @@
               <img class="w-full" src="/images/standardwash.jpg" />
               <div class="px-4 py-2">
                 <div class="flex space-x-2 mt-2">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </span>
-                  <h3 class="text-lg text-black font-semibold mb-2">New York</h3>
                 </div>
-                <p class="text-md tracking-normal">The polishing process removes a very small amount of the clearcoat, because it's the clearcoat that gets damaged. A polish is designed to remove that damage, whether it be in the form of water marks, acid-rain etch, fine scratches or swirl marks.</p>
+                <p class="text-md tracking-normal">Car washes can be self-service (DIY), full-service (with attendants who wash the vehicle), or fully automated (possibly connected to a gas station).</p>
               </div>
             </div>
             <a class="inline-block text-center py-2 px-4 w-full rounded-l-xl rounded-t-xl bg-green-600 text-white font-bold leading-loose shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105" href="#">Get Started</a>
@@ -31,20 +24,12 @@
         <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8 lg:mb-0">
           <div class="p-8 bg-green-600 shadow rounded">
             <div>
-              <h4 class="mb-2 text-2xl font-bold text-white">Standard Wash</h4>
+              <h4 class="mb-2 text-2xl font-bold text-white">Standard Polish</h4>
               <img class="w-full" src="/images/standardwash.jpg" />
               <div class="px-4 py-2">
                 <div class="flex space-x-2 mt-2">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </span>
-                  <h3 class="text-lg text-white font-semibold mb-2">New York</h3>
                 </div>
-                <p class="text-md tracking-normal text-white">The polishing process removes a very small amount of the clearcoat, because it's the clearcoat that gets damaged. A polish is designed to remove that damage, whether it be in the form of water marks, acid-rain etch, fine scratches or swirl marks.</p>
-              </div>
+                <p class="text-md tracking-normal text-white">The polishing process removes a very small amount of the clearcoat, because it's the clearcoat that gets damaged. A polish is designed to remove that damage, whether it be in the form of water marks, acid-rain etch, fine scratches or swirl marks.</p></div>
             </div>
             <a class="inline-block text-center py-2 px-4 w-full rounded-l-xl rounded-t-xl bg-white hover:bg-gray-50 font-bold leading-loose shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105" href="#">Get Started</a>
           </div>
@@ -52,19 +37,12 @@
         <div class="w-full lg:w-1/3 px-4">
           <div class="p-8 bg-white shadow rounded">
             <div>
-              <h4 class="mb-2 text-2xl font-bold text-black">Standard Wash</h4>
+              <h4 class="mb-2 text-2xl font-bold text-black">Standard Vacuum</h4>
               <img class="w-full" src="/images/standardwash.jpg" />
               <div class="px-4 py-2">
                 <div class="flex space-x-2 mt-2">
-                  <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </span>
-                  <h3 class="text-lg text-black font-semibold mb-2">New York</h3>
                 </div>
-                <p class="text-md tracking-normal">The polishing process removes a very small amount of the clearcoat, because it's the clearcoat that gets damaged. A polish is designed to remove that damage, whether it be in the form of water marks, acid-rain etch, fine scratches or swirl marks.</p>
+                <p class="text-md tracking-normal">The vacuuming process will ensure that no dirt will be left inside your car, best done after washing and polishing your car for maximum output</p>
               </div>
             </div>
             <a class="inline-block text-center py-2 px-4 w-full rounded-l-xl rounded-t-xl bg-green-600 text-white font-bold leading-loose shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105" href="#">Get Started</a>
