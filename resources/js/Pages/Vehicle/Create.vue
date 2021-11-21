@@ -1,16 +1,16 @@
 <template>
     <Navbar></Navbar>
     <!-- component -->
-    <div class="skew skew-bottom mr-for-radius">
 
-  </div>
-  <div class="hidden sm:block" aria-hidden="true">
+	<header class="bg-white shadow" >
+		<div class="max-w-7xl mx-auto py-6 sm:px-6 ">
+			<h2 name="header" class="font-semibold text-xl text-gray-800 leading-tight">Vehicle Registration</h2>
+		</div>
+	</header>
     <div class="py-5">
       <div class="border-t border-gray-200" />
     </div>
-  </div>
-
-  <h1 class="flex justify-center">Register Your Vehicle</h1>
+  
   <div class="mt-10 sm:mt-0">
     <div class="md:grid md:grid-cols-3 md:ml-10">
       <div class="mt-5 md:mt-0 md:col-span-2">
@@ -94,27 +94,18 @@
             </div>
           </div>
       </div>
-      <div class="shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300" id="form">
-        <p class="text-center text-2xl "><u><b>Services</b></u></p>
-        <p class="text-center text-base mt-2 ">Appointment Type :-</p>
-        <p class="text-center text-base mt-8">Full car wash (Available only at Branches) : </p>
-        <p class="text-center text-base">Car wash with Vacuum and Polish</p>
-        <p class="text-center text-base mt-8 ">Wash only :</p>
-        <p class="text-center text-base">Car wash without vacuum or polish</p>
-        <p class="text-center text-base mt-8 ">Wash + Vacuum :</p>
-        <p class="text-center text-base">Car wash with vacuuming servics</p>
+	  <div class="shadow overflow-hidden sm:rounded-md sm:mx-10 sm:mb-16 bg-green-300" id="form">
+           <div class="px-4 py-3 bg-blue-900 text-right sm:px-6 m-8 text-white">
+                <p class="text-center font-bold text-2xl  "><b>Vehicle Details</b></p>
+                <p class="text-center text-5xl mt-4 ">{{this.plate_no}}</p>
+                <p class="text-center text-xl mt-4">Brand : {{this.brand}}</p>
+                <p class="text-center text-xl mt-4">Model : {{this.model}}</p>
+                <p class="text-center text-xl mt-4">Type : {{this.vehicle_type_name}}</p>
+                <p class="text-center text-xl mt-4 ">Rate : RM {{this.price}}</p>
+                
+            </div>
       </div>
     </div>
-  </div>
-  <div class="skew skew-bottom mr-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
-    </svg>
-  </div>
-  <div class="skew skew-bottom ml-for-radius">
-    <svg class="h-8 md:h-12 lg:h-20 w-full text-gray-50" viewBox="0 0 10 10" preserveAspectRatio="none">
-      <polygon fill="currentColor" points="0 0 10 0 10 10"></polygon>
-    </svg>
   </div>
 </template>
 
@@ -135,6 +126,20 @@ export default {
         })
         return {form}
     },
+	data:()=>({
+		price: null,
+		plate_no: null,
+		brand: null,
+		model: null,
+		vehicle_type_name: null,
+	}),
+	updated(){
+		this.price = this.vehicle_types.find(vehicle_type => vehicle_type.id == this.form.vehicle_type_id).price;
+		this.plate_no = this.form.plate_no;
+		this.brand = this.form.brand;
+		this.model = this.form.model;
+		this.vehicle_type_name = this.vehicle_types.find(vehicle_type => vehicle_type.id == this.form.vehicle_type_id).name;
+	},
     methods: {
         submitForm() {
             this.form.post('/vehicles/create')
