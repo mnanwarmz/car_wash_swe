@@ -15,10 +15,9 @@ class Appointment extends Model
         'start',
         'end',
         'duration',
-        'price',
         // 'type_name'
     ];
-	protected $with = ['types', 'vehicle'];
+	protected $with = ['types', 'vehicle','location'];
 
     // Get the duration by using carbon's diff function.
     public function getDurationAttribute()
@@ -36,10 +35,6 @@ class Appointment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-    public function getPriceAttribute()
-    {
-        return  $this->duration * $this->rate;
     }
     public function getStartAttribute()
     {

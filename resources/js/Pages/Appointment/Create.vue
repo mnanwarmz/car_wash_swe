@@ -1,18 +1,14 @@
 <template>
 <Navbar></Navbar>
- <p class="text-center text-3xl m-8">Make an Appointment</p>
+<header class="bg-white shadow" >
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <h2 name="header" class="font-semibold text-xl text-gray-800 leading-tight">Appointment Details</h2>
+                </div>
+            </header>
 <div class="md:container md:mx-auto px-4 bg-green-200 m-8">
- <div class="hidden sm:block" aria-hidden="true">
     <div class="py-5">
       <div class="border-t border-gray-200" />
     </div>
-  </div>
-  <GDialog v-model="value">
-  Content
-  </GDialog>
-
-
-  <h1 class="flex justify-center">Make an Appointment</h1>
   <div class="mt-10 sm:mt-0">
     <div class="md:grid md:grid-cols-3 md:ml-10">
       <div class="mt-5 md:mt-0 md:col-span-2">

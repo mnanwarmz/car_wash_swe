@@ -1662,6 +1662,9 @@ select {
 	--tw-divide-opacity: 1;
 	border-color: rgba(229, 231, 235, var(--tw-divide-opacity));
 }
+.self-center {
+	align-self: center;
+}
 .overflow-hidden {
 	overflow: hidden;
 }
@@ -1823,6 +1826,10 @@ select {
 .border-blue-200 {
 	--tw-border-opacity: 1;
 	border-color: rgba(191, 219, 254, var(--tw-border-opacity));
+}
+.border-gray-50 {
+	--tw-border-opacity: 1;
+	border-color: rgba(249, 250, 251, var(--tw-border-opacity));
 }
 .bg-white {
 	--tw-bg-opacity: 1;
@@ -2061,6 +2068,9 @@ select {
 }
 .pt-7 {
 	padding-top: 1.75rem;
+}
+.pt-3 {
+	padding-top: 0.75rem;
 }
 .text-left {
 	text-align: left;
@@ -3073,6 +3083,11 @@ select {
 	.lg\:px-8 {
 		padding-left: 2rem;
 		padding-right: 2rem;
+	}
+
+	.lg\:px-2 {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
 	}
 
 	.lg\:pl-6 {
