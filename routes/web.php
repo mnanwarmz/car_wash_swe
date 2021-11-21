@@ -8,6 +8,7 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PermissionTestController;
 use App\Http\Controllers\RiderController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\VehicleController;
 use App\Models\AppointmentType;
 use Illuminate\Foundation\Application;
@@ -67,6 +68,10 @@ Route::middleware(['auth'])->group(function () {
     // Branch Routes
     Route::get('/branches/create', [BranchController::class, 'create']);
     Route::post('/branches/store', [BranchController::class, 'store']);
+
+    // Stripe Routes
+    Route::get('/stripe', [StripeController::class, 'index']);
+    Route::post('/stripe', [StripeController::class, 'store']);
 });
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
