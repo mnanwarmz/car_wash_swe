@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(VehicleTypeSeeder::class);
         $this->call(PermissionSeeder::class);
         $this->call(AppointmentTypeSeeder::class);
         $this->call(VehicleTypeSeeder::class);
@@ -25,7 +24,7 @@ class DatabaseSeeder extends Seeder
         $admin->assignRole('admin');
         $branch = \App\Models\User::factory()->create(['email' => "branch@test.com"]);
         $branch->assignRole('branch manager');
-        \App\Models\Appointment::factory()->create();
+        \App\Models\Appointment::factory()->for($user)->create();
         \App\Models\Vehicle::factory()->for($user)->create();
         $rider = \App\Models\User::factory()->create(['email' => "rider@test.com"]);
         $rider->assignRole('rider');

@@ -32,6 +32,7 @@ Route::get('/services', [HomeController::class, 'services']);
 Route::get('/pricing', [HomeController::class, 'pricing']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
+Route::post('/vehicles/{vehicleId}/update', [VehicleController::class, 'update'])->middleware('auth');
 Route::post('/contact', [HomeController::class, 'contactStore']);
 require __DIR__ . '/auth.php';
 
@@ -51,9 +52,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/vehicles', [VehicleController::class, 'index']);
     Route::get('/vehicles/create', [VehicleController::class, 'create']);
     Route::get('/vehicles/{vehicleId}', [VehicleController::class, 'show']);
-    Route::post('/vehicles/create', [VehicleController::class, 'store']);
-    Route::post('/vehicles/{vehicleId}/update', [VehicleController::class, 'update']);
     Route::get('/vehicles/{vehicleId}/edit', [VehicleController::class, 'edit']);
+    Route::post('/vehicles/create', [VehicleController::class, 'store']);
+    Route::delete('/vehicles/{vehicleId}', [VehicleController::class, 'destroy']);
 
     // Location Routes
     Route::get('/locations', [LocationController::class, 'index']);
@@ -65,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Branch Routes
     Route::get('/branches/create', [BranchController::class, 'create']);
-
+    Route::post('/branches/store', [BranchController::class, 'store']);
 });
 
 Route::middleware(['role:admin', 'auth'])->group(function () {
@@ -78,7 +79,6 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
 
 Route::middleware(['role:branch manager', 'auth'])->group(function () {
     Route::get('/branch/dashboard', [BranchController::class, 'index']);
-    Route::post('/branches/store', [BranchController::class, 'store']);
     Route::get('/branches/appointments', [BranchController::class, 'appointments']);
     Route::get('/branches/locations', [BranchController::class, 'locations']);
 });

@@ -166,10 +166,13 @@ export default {
     },
     updated()
     {
-        this.form.start_at = moment({hours:this.form.start_at.H,minutes:this.form.start_at.mm,}).format('YYYY-MM-DD HH:mm:ss');
-        this.form.start_at = moment(this.form.start_at);
+		if(this.form.start_at != null)
+		{
+			this.form.start_at = moment({hours:this.form.start_at.H,minutes:this.form.start_at.mm,}).format('YYYY-MM-DD HH:mm:ss');
+			this.form.start_at = moment(this.form.start_at);
+		}
 		this.form.end_at = moment(this.form.start_at).add(30,'m').format('YYYY-MM-DD HH:mm:ss');
-        this.form.appointment_type_ids = this.typesSelected;µµ
+        this.form.appointment_type_ids = this.typesSelected;
         this.form.price = this.total;
 		},
     methods: {

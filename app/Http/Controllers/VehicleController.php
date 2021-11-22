@@ -11,8 +11,9 @@ class VehicleController extends Controller
 
     public function index()
     {
-        $vehicles = Vehicle::latest()->get();
-        return inertia('Vehicle/Index', compact('vehicles'));
+        $vehicles = Vehicle::latest()->where(['user_id' => auth()->id()])->get();
+        $vehicle_types = VehicleType::all();
+        return inertia('Vehicle/Index', compact('vehicles', 'vehicle_types'));
     }
     public function show($vehicleId)
     {
@@ -55,5 +56,13 @@ class VehicleController extends Controller
         $vehicle = Vehicle::findOrFail($vehicleId);
         $vehicle->fill($data);
         $vehicle->save();
+        return redirect('/vehicles');
+    }
+
+    public function destroy($vehicleId)
+    {
+        $vehicle = Vehicle::findOrFail($vehicleId);
+        $vehicle->delete();
+        return redirect('/vehicles');
     }
 }
