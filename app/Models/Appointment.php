@@ -72,4 +72,22 @@ class Appointment extends Model
 	{
 		return $this->belongsTo('App\Models\Vehicle', 'vehicle_id');
 	}
+
+    // scope status 1
+    public function scopeOpen($query)
+    {
+        $query->where('status', 1);
+    }
+
+    // scope status 2
+    public function scopeBooked($query)
+    {
+        $query->where('status', 2);
+    }
+
+    // scope status 3
+    public function scopeCompleted($query)
+    {
+        $query->where('status', 3);
+    }
 }

@@ -37,9 +37,14 @@
                             </div>
                         </div>
                         <hr class="my-3 border-purple-400">
-                        <div class="w-full p-4 rounded-lg bg-white border-2 border-purple-400 mt-2">
-                            <div class="text-sm text-black-400 font-bold">
-                                Prop
+                        <div v-for="vehicle in vehicles" class="w-full p-4 rounded-lg bg-white border-2 border-purple-400 mt-2 shadow-lg hover:shadow-none">
+                            <div class="text-lg text-blue-700 font-bold">
+                                <span class="capitalize">
+                                    {{ vehicle.brand }}
+                                </span>
+                                <span class="uppercase">
+                                    &nbsp; {{ vehicle.plate_no }}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -60,9 +65,10 @@
                             </div>
                         </div>
                         <hr class="my-3 border-blue-400">
-                        <div class="w-full p-4 rounded-lg bg-white border-2 border-purple-400 mt-2">
+                        <div v-for="appointment in appointments" class="w-full p-4 rounded-lg bg-white border-2 border-purple-400 mt-2 shadow-lg hover:shadow-none">
                             <div class="text-sm text-black-400 font-bold">
-                                Prop
+                                {{appointment.start}} - {{appointment.end}}
+
                             </div>
                         </div>
                     </div>
@@ -83,9 +89,14 @@
                             </div>
                         </div>
                         <hr class="my-3 border-red-400">
-                        <div class="w-full p-4 rounded-lg bg-white border-2 border-red-400 mt-2">
-                            <div class="text-sm text-black-400 font-bold">
-                                Prop
+                        <div v-for="location in locations" class="w-full p-4 rounded-lg bg-white border-2 border-red-400 mt-2 shadow-lg hover:shadow-none">
+                            <div class="text-blue-700 text-lg text-black-400 font-bold">
+                                <span class="capitalize">
+                                    {{location.address}}
+                                </span>
+                                <span class="uppercase ml-2">
+                                    {{location.postcode}}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -106,5 +117,11 @@
             Navbar,
             Sidebar,
         },
+
+        props: [
+            'vehicles',
+            'locations',
+            'appointments',
+        ],
     })
 </script>

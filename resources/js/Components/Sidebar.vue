@@ -150,7 +150,7 @@
         <!--- End of Admin Sidebar -->
 
         <!-- Start of Branch Manager Sidebar -->
-        <div v-if="is('branch manager')" class="mt-10 mb-10">
+        <div v-else-if="is('branch manager')" class="mt-10 mb-10">
             <ul>
               <li class="mb-6">
                 <a href="/branch/dashboard">

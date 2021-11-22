@@ -113,7 +113,7 @@
                             Dashboard
                         </jet-responsive-nav-link>
                     </a>
-                    <a v-if="is('admin | superadmin')" href="/admin/dashboard" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700">
+                    <a v-else-if="is('branch manager')" href="/branch/dashboard" class="flex items-center transform transition-colors duration-200 border-r-4 border-transparent hover:border-indigo-700">
                         <jet-responsive-nav-link>
                             Dashboard
                         </jet-responsive-nav-link>
