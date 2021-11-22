@@ -82,9 +82,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Appointment::class);
     }
-    public function reviews()
+    public function questions()
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Question::class);
     }
     public function setBranchManager($userId)
     {

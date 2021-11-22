@@ -56,13 +56,14 @@ class VehicleController extends Controller
         $vehicle = Vehicle::findOrFail($vehicleId);
         $vehicle->fill($data);
         $vehicle->save();
-        return redirect('/vehicles');
+
+        return back();
     }
 
     public function destroy($vehicleId)
     {
         $vehicle = Vehicle::findOrFail($vehicleId);
         $vehicle->delete();
-        return redirect('/vehicles');
+        return back();
     }
 }

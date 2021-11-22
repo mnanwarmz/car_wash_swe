@@ -352,7 +352,6 @@ import { GDialog, plugin } from "gitart-vue-dialog";
 import "gitart-vue-dialog/dist/style.css";
 
 export default {
-    setup() {},
     props: ["vehicles", "vehicle_types"],
     setup() {
         const form = useForm({

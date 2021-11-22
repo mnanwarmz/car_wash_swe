@@ -45,14 +45,14 @@ class BranchController extends Controller
     public function store(Request $request)
     {
         // Create Location
-		$location = $request->validate([
-			'address' => 'required',
-			'city' => 'required',
-			'state' => 'required',
-			'postcode' => 'required',
-		]);
+        $location = $request->validate([
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postcode' => 'required',
+        ]);
         // Link Location to Branch
-		$newLocation = Location::create($location);
+        $newLocation = Location::create($location);
         // Create Branch
         // Link Branch to Current User
         Branch::create([
@@ -62,6 +62,35 @@ class BranchController extends Controller
             'status' => 'Inactive'
         ]);
         // Once Branch is deemed valid, give user branch manager role
-		return redirect('/');
+        return redirect('/');
+    }
+
+    public function edit(Branch $branchId)
+    {
+        $branch = Branch::find($branchId);
+        return inertia('Branch/Edit', compact('branch'));
+    }
+
+    public function update(Request $request, $branchId)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postcode' => 'required',
+        ]);
+        $branch = Branch::findOrFail($branchId);
+        $branch->fill($data);
+        $branch->save();
+    }
+
+    public function acceptBranch($branchId)
+    {
+        $branch = Branch::find($branchId);
+        $branch->status = 'Active';
+        $branch->save();
+
+        return back();
     }
 }

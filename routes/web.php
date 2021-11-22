@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Appointment\AppointmentController;
 use App\Http\Controllers\AppointmentTypeController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Home\HomeController;
@@ -75,7 +76,10 @@ Route::middleware(['role:admin', 'auth'])->group(function () {
     Route::get('/admin/dashboard/vehicles', [AdminController::class, 'vehicles']);
     Route::get('/admin/dashboard/branches', [AdminController::class, 'branches']);
     Route::get('/admin/dashboard/appointments', [AdminController::class, 'appointments']);
+    Route::get('/admin/dashboard/questions', [HomeController::class, 'contactStore']);
+    Route::post('branches/{branchId}', [BranchController::class, 'acceptBranch']);
 });
+Route::post('/users/{userId}', [RegisteredUserController::class, 'destroy']);
 
 Route::middleware(['role:branch manager', 'auth'])->group(function () {
     Route::get('/branch/dashboard', [BranchController::class, 'index']);
@@ -86,3 +90,5 @@ Route::middleware(['role:branch manager', 'auth'])->group(function () {
 Route::middleware(['role:rider', 'auth'])->group(function () {
     Route::get('/rider/dashboard', [RiderController::class, 'index']);
 });
+
+Route::post('contact', [HomeController::class, 'contactStore']);

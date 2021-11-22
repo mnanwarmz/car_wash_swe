@@ -45,9 +45,9 @@ class LocationController extends Controller
         $location->fill($data);
         $location->save();
     }
-    public function destroy($id)
+    public function destroy($locationId)
     {
-        $location = Location::find($id);
+        $location = Location::find($locationId);
         $location->delete();
         return redirect('/locations');
     }

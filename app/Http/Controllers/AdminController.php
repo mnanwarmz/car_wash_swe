@@ -26,7 +26,7 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users = User::latest()->orderBy('id','ASC')->get();
+        $users = User::latest()->orderBy('id', 'ASC')->whereNotIn('id', [auth()->id()])->get();
         return inertia('Admin/Users', [
             'users' => $users,
         ]);
@@ -35,8 +35,10 @@ class AdminController extends Controller
     public function vehicles()
     {
         $vehicles = Vehicle::latest()->get();
+        $vehicle_types = Vehicle::latest()->get();
         return inertia('Admin/Vehicles', [
             'vehicles' => $vehicles,
+            'vehicle_types' => $vehicle_types,
         ]);
     }
 
